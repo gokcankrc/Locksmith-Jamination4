@@ -2,7 +2,7 @@
 
 public class Skill : MonoBehaviour
 {
-    protected bool skillEnabled;
+ /*   protected bool skillEnabled;
     public void Activate()
     {
         skillEnabled = true;
@@ -11,5 +11,10 @@ public class Skill : MonoBehaviour
     public void Deactivate()
     {
         skillEnabled = false;
+    }*/
+    public virtual void UseSkill()
+    {
+
     }
+
 }
