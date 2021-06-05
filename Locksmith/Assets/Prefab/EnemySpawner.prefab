@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2780921492476523465}
   - component: {fileID: 2780921492476523466}
-  - component: {fileID: 750335813}
+  - component: {fileID: 6833379730402934555}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -56,7 +56,7 @@ MonoBehaviour:
   - enemy: {fileID: 4145929035819849698, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
     chance: 70
   enemyCountLimit: 0
---- !u!114 &750335813
+--- !u!114 &6833379730402934555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,6 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1908f9bb611c2654e98f6d641dbd4608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drops: []
-  DroppedItem: {fileID: 0}
-  lootDistance: 0
+  drops:
+  - prefab: {fileID: 0}
+    chance: 0
+  - prefab: {fileID: 0}
+    chance: 0
+  - prefab: {fileID: 0}
+    chance: 0
+  DroppedItem: {fileID: 6985639559104232860, guid: bdd1043fed51ff54b9c923fb742b9b07, type: 3}
+  lootDistance: 1
