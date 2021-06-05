@@ -28,6 +28,4 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveDirection = moveDirection.normalized;
     }
-
-
 }

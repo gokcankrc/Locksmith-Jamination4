@@ -9,25 +9,27 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private Player player;
-
-    public static GameManager I;
-
     public Player Player => player;
+
+    public static GameManager Instance;
+
+    public bool isPaused;
+
 
     private void Awake()
     {
-        I = this;
+        Instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

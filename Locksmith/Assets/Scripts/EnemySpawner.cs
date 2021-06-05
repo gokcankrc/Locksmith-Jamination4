@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         I = this;
-        _playerTransform = GameManager.I.Player.transform; // game manager olunca bunu güzelleştirelim
+        _playerTransform = GameManager.Instance.Player.transform; // game manager olunca bunu güzelleştirelim
         _currentlyActiveEnemies = new GameObject[] { };
     }
 

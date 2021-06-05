@@ -36,11 +36,12 @@ public class ResourceManager : MonoBehaviour
     {
         foreach(ResourceTypeSO resourceType in resourceAmountDictionary.Keys)
         {
-            Debug.Log(resourceType.nameString + ": " + resourceAmountDictionary[resourceType]);
+            Debug.Log(resourceType.name + ": " + resourceType.amount);
         }
     }
+
     public void AddResource(ResourceTypeSO resourceType, int amount)
     {
-        resourceAmountDictionary[resourceType] += amount;
+        resourceType.amount += amount;
     }
 }

@@ -5,6 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/ResourceType")]
 public class ResourceTypeSO : ScriptableObject
 {
-    public string nameString;
+    public enum ResourceType
+    {
+        ObjectA,
+        ObjectB,
+        ObjectC
+    }
+
+    public ResourceType resourceType;
+    public int amount;
 }
 
