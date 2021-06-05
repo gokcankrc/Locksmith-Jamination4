@@ -18,4 +18,4 @@ MonoBehaviour:
   gateRequirementDescription: 1 Armut 2 Elma
   adverseEffectsDescription: blablablabla
   positiveEffectsDescription: blablablabla
-  isCrafted: 0
+  isCrafted: 1

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject inventoryMenu;
+    public GameObject gateMenu;
     public GateSO activeGate;
 
     [SerializeField] private TextMeshProUGUI gateName;
@@ -13,11 +14,33 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gateRequirement;
     [SerializeField] private TextMeshProUGUI adverseEffectsText;
     [SerializeField] private TextMeshProUGUI positiveEffectsText;
+    [SerializeField] private Button craftButton;
 
+    [SerializeField] private GameObject BrenitGate;
+    [SerializeField] private GameObject EarthGate;
+    [SerializeField] private GameObject GronorGate;
+    [SerializeField] private GameObject HermoorGate;
+    [SerializeField] private GameObject LiridianGate;
+    [SerializeField] private GameObject RahaGate;
+    [SerializeField] private GameObject WodasGate;
 
     void Start()
     {
-        inventoryMenu.gameObject.SetActive(false);
+
+
+        #region Gate Menu
+
+        gateMenu.gameObject.SetActive(false);
+
+        if (activeGate.isCrafted) craftButton.interactable = false;
+
+        gateName.text = activeGate.gateName;
+        gateDescription.text = activeGate.gateDescription;
+        gateRequirement.text = activeGate.gateRequirementDescription;
+        adverseEffectsText.text = activeGate.adverseEffectsDescription;
+        positiveEffectsText.text = activeGate.positiveEffectsDescription;
+        #endregion
+
     }
 
     void Update()
@@ -42,14 +65,14 @@ public class UIManager : MonoBehaviour
 
     private void Resume()
     {
-        inventoryMenu.gameObject.SetActive(false);
+        gateMenu.gameObject.SetActive(false);
         Time.timeScale = 1f;
         GameManager.Instance.isPaused = false;
     }
 
     private void Pause()
     {
-        inventoryMenu.gameObject.SetActive(true);
+        gateMenu.gameObject.SetActive(true);
         Time.timeScale = 0f;
         GameManager.Instance.isPaused = true;
     }
@@ -63,6 +86,8 @@ public class UIManager : MonoBehaviour
         adverseEffectsText.text = activeGate.adverseEffectsDescription;
         positiveEffectsText.text = activeGate.positiveEffectsDescription;
 
+        if (activeGate.isCrafted) craftButton.interactable = false;
+        else craftButton.interactable = true;
     }
 
 }

@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 216850554}
   - component: {fileID: 216850556}
   - component: {fileID: 216850555}
+  - component: {fileID: 216850557}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -440,6 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 50
+  player: {fileID: 0}
+  dashing: 0
 --- !u!212 &216850551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -578,6 +581,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillSlotAmount: 0
+--- !u!114 &216850557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216850549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66432afae06aab141829429791db383f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 50
+  player: {fileID: 216850555}
+  dashing: 0
 --- !u!1 &237706506
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +608,7 @@ GameObject:
   - component: {fileID: 237706509}
   - component: {fileID: 237706508}
   - component: {fileID: 237706510}
+  - component: {fileID: 237706511}
   m_Layer: 5
   m_Name: GronorGate
   m_TagString: Untagged
@@ -710,6 +729,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &237706511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237706506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bdecc01f9020c4eb8de5b57574b005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateType: {fileID: 11400000, guid: c7f5fb22124b612429d125088c3bee18, type: 2}
+  lockedImage: {fileID: 1867974226}
 --- !u!1 &261552854
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +1005,7 @@ GameObject:
   - component: {fileID: 401420429}
   - component: {fileID: 401420428}
   - component: {fileID: 401420430}
+  - component: {fileID: 401420431}
   m_Layer: 5
   m_Name: WodasGate
   m_TagString: Untagged
@@ -1092,6 +1126,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &401420431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401420426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bdecc01f9020c4eb8de5b57574b005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateType: {fileID: 11400000, guid: b1fada1020471a64eb58c60e36a90e46, type: 2}
+  lockedImage: {fileID: 108464673}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,13 +1535,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200d4d4b837fb0a489fabb2036f6ba44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryMenu: {fileID: 261552854}
+  gateMenu: {fileID: 261552854}
   activeGate: {fileID: 11400000, guid: 8f96f0d47d8c9ba44a09f0f4f09f1ee3, type: 2}
   gateName: {fileID: 690299816}
   gateDescription: {fileID: 1095853671}
   gateRequirement: {fileID: 805474589}
   adverseEffectsText: {fileID: 769453095}
   positiveEffectsText: {fileID: 1838223700}
+  craftButton: {fileID: 41280072}
+  BrenitGate: {fileID: 0}
+  EarthGate: {fileID: 0}
+  GronorGate: {fileID: 0}
+  HermoorGate: {fileID: 0}
+  LiridianGate: {fileID: 0}
+  RahaGate: {fileID: 0}
+  WodasGate: {fileID: 0}
 --- !u!4 &761538716
 Transform:
   m_ObjectHideFlags: 0
@@ -1654,6 +1710,7 @@ GameObject:
   - component: {fileID: 803406141}
   - component: {fileID: 803406140}
   - component: {fileID: 803406142}
+  - component: {fileID: 803406143}
   m_Layer: 5
   m_Name: EarthGate
   m_TagString: Untagged
@@ -1774,6 +1831,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &803406143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803406138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bdecc01f9020c4eb8de5b57574b005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateType: {fileID: 11400000, guid: 371cd2e12f56a8f429806d5ca5b772c7, type: 2}
+  lockedImage: {fileID: 1989751876}
 --- !u!1 &805474587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,7 +2217,7 @@ GameObject:
   - component: {fileID: 1074856290}
   - component: {fileID: 1074856289}
   m_Layer: 5
-  m_Name: LockedImage (1)
+  m_Name: 'LockedImage '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2440,6 +2511,7 @@ GameObject:
   - component: {fileID: 1135099515}
   - component: {fileID: 1135099514}
   - component: {fileID: 1135099516}
+  - component: {fileID: 1135099517}
   m_Layer: 5
   m_Name: RahaGate
   m_TagString: Untagged
@@ -2560,6 +2632,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1135099517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135099512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bdecc01f9020c4eb8de5b57574b005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateType: {fileID: 11400000, guid: 01d05a0285c3eaf4f95f34db48025db2, type: 2}
+  lockedImage: {fileID: 1471298816}
 --- !u!1 &1258715330
 GameObject:
   m_ObjectHideFlags: 0
@@ -3325,6 +3411,7 @@ GameObject:
   - component: {fileID: 1624512695}
   - component: {fileID: 1624512694}
   - component: {fileID: 1624512696}
+  - component: {fileID: 1624512697}
   m_Layer: 5
   m_Name: BrenitGate
   m_TagString: Untagged
@@ -3445,6 +3532,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1624512697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624512692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bdecc01f9020c4eb8de5b57574b005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateType: {fileID: 11400000, guid: 92e75be3a06d30644a866673c62b914a, type: 2}
+  lockedImage: {fileID: 895676999}
 --- !u!1 &1641836373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,6 +3558,7 @@ GameObject:
   - component: {fileID: 1641836376}
   - component: {fileID: 1641836375}
   - component: {fileID: 1641836377}
+  - component: {fileID: 1641836378}
   m_Layer: 5
   m_Name: LiridianGate
   m_TagString: Untagged
@@ -3577,6 +3679,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1641836378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641836373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bdecc01f9020c4eb8de5b57574b005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateType: {fileID: 11400000, guid: aff7213d8d2b1c848a0a5c605f5a7af6, type: 2}
+  lockedImage: {fileID: 2019930778}
 --- !u!1 &1738538404
 GameObject:
   m_ObjectHideFlags: 0
@@ -3664,6 +3780,7 @@ GameObject:
   - component: {fileID: 1770902570}
   - component: {fileID: 1770902569}
   - component: {fileID: 1770902571}
+  - component: {fileID: 1770902572}
   m_Layer: 5
   m_Name: HermorGate
   m_TagString: Untagged
@@ -3784,6 +3901,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1770902572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770902567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bdecc01f9020c4eb8de5b57574b005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateType: {fileID: 11400000, guid: 8f96f0d47d8c9ba44a09f0f4f09f1ee3, type: 2}
+  lockedImage: {fileID: 1074856287}
 --- !u!1 &1838223698
 GameObject:
   m_ObjectHideFlags: 0
