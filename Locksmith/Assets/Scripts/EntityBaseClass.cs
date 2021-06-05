@@ -13,6 +13,7 @@ public abstract class EntityBaseClass : MonoBehaviour
     protected float health;
     protected float damage;
     protected float speed;
+    protected bool dashing;
 
     private void Awake()
     {
@@ -25,8 +26,13 @@ public abstract class EntityBaseClass : MonoBehaviour
         get { return speed;}
         set { speed = value; }
     }
+    public bool Dashing
+    {
+        get { return dashing; }
+        set { dashing = value; }
+    }
 
-    protected void DealDamage()
+protected void DealDamage()
     {
         
     }
