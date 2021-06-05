@@ -2,7 +2,7 @@
 
 public class AbilityManager : ScriptableObject
 {
-    public enum Abilites
+    public enum AbilityState
     {
         Dash,
         //other skills

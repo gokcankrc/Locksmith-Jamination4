@@ -32,29 +32,12 @@ public class Dash : MonoBehaviour
                 Vector2 mousePos = Input.mousePosition;
                 Vector2 entityPos = cam.WorldToScreenPoint(transform.position);
                 direction = entityPos - mousePos;
-
-                if (Mathf.Abs(direction.x) > dashBoundary)
-                {
-                    if (direction.x < 0)    direction.x = -dashBoundary;
-                    else                    direction.x = dashBoundary;
-                }
-
-                if (Mathf.Abs(direction.y) > dashBoundary)
-                {
-                    if (direction.y < 0)    direction.y = -dashBoundary;
-                    else                    direction.y = dashBoundary;
-                }
-
+                direction.Normalize();
                 rigidbody.velocity = direction * dashSpeed;
             }
             else if(mode == 1) //Player direction
             {
-                if(rigidbody.velocity.x > 0)    direction.x = 1f;
-                else                            direction.x = -1f;
-                
-                if(rigidbody.velocity.y > 0)    direction.y = 1f;
-                else                            direction.y = -1f;
-
+                direction = rigidbody.velocity.normalized;
                 rigidbody.velocity = direction * dashSpeed;
             }
         }
