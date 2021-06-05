@@ -7,11 +7,11 @@ public class SkillHolder : MonoBehaviour
 {
     [SerializeField] private int skillSlotAmount;
 
-    private Skill[] skillList;
+    //private Skill[] skillList;
 
     void Start()
     {
-        skillList = new Skill[skillSlotAmount];
+        //skillList = new Skill[skillSlotAmount];
     }
 
     // Update is called once per frame
