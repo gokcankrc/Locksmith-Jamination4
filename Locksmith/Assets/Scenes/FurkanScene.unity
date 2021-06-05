@@ -1490,10 +1490,10 @@ MonoBehaviour:
   inventoryMenu: {fileID: 261552854}
   activeGate: {fileID: 11400000, guid: 8f96f0d47d8c9ba44a09f0f4f09f1ee3, type: 2}
   gateName: {fileID: 690299816}
-  gateDescription: {fileID: 0}
-  gateRequirement: {fileID: 0}
-  adverseEffectsText: {fileID: 0}
-  positiveEffectsText: {fileID: 0}
+  gateDescription: {fileID: 1095853671}
+  gateRequirement: {fileID: 805474589}
+  adverseEffectsText: {fileID: 769453095}
+  positiveEffectsText: {fileID: 1838223700}
 --- !u!4 &761538716
 Transform:
   m_ObjectHideFlags: 0
