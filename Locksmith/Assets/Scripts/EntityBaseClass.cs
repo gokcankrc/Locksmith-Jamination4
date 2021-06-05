@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SkillHolder))]
 public abstract class EntityBaseClass : MonoBehaviour
 {
     // abstract
@@ -11,6 +12,7 @@ public abstract class EntityBaseClass : MonoBehaviour
     protected float health;
     protected float damage;
     protected float speed;
+    protected Skill[] skills;
     public float Speed
     {
         get { return speed;}
@@ -42,3 +44,4 @@ public abstract class EntityBaseClass : MonoBehaviour
     }
     
 }
+
