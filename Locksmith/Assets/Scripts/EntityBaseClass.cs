@@ -35,7 +35,7 @@ public abstract class EntityBaseClass : MonoBehaviour
         set { dashing = value; }
     }
 
-protected void DealDamage()
+
     protected virtual void Attack()
     {
         attack.Attack();
