@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,11 +14,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int waveSpawnAttempt;
     
     // TODO; make this more easy to adjust by visual squares or colliders with only purpose of giving coordinates
-    [SerializeField] private Vector2 fieldMin;
-    [SerializeField] private Vector2 fieldMax;
+    [SerializeField] private Bounds spawnBounds;
     [SerializeField] private float minSpawnDistance;
     
-    [SerializeField] public Spawnable[] spawnableEnemies;
+    [SerializeField] private Spawnable[] spawnableEnemies;
+    [SerializeField] private int enemyCountLimit;
     
     private Transform _playerTransform;
     private float _waveCd;
@@ -53,29 +54,26 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < waveSpawnAttempt; i++)
         {
             var roll = UnityEngine.Random.Range(0f, 100f);
-            Debug.Log("rolled for: " + roll);
             foreach (var spawnable in spawnableEnemies)
             {
-                if (spawnable.chance > roll)
-                {
-                    // TOOD; they have a limit of some sorts.
-
-                    var spawnedEnemy = GameObject.Instantiate(spawnable.enemy);
-                    spawnedEnemy.transform.position = getCool420Positionfkyea();
-                    Debug.Log("spawned enemy in position" + spawnedEnemy.transform.position);
-                    _currentlyActiveEnemies.Append(spawnedEnemy);
-                }
+                if (!(spawnable.chance > roll)) continue;
+                if (enemyCountLimit < _currentlyActiveEnemies.Length) continue;
+                // TOOD; they have a limit of some sorts.
+                var spawnedEnemy = GameObject.Instantiate(spawnable.enemy);
+                spawnedEnemy.transform.position = GetCool420Positionfkyea();
+                _currentlyActiveEnemies.Append(spawnedEnemy);
+                Debug.Log("Current enemy amount: " + _currentlyActiveEnemies.Length);
             }
-
         }
     }
 
-    private Vector3 getCool420Positionfkyea()
+    private Vector3 GetCool420Positionfkyea(bool checkAgain=true)
     {
         // TODO; if they spawn on blocks, don't
         // TODO; they dont spawn just around character
         var playerPos = _playerTransform.position;
-        var spawnPos = new Vector3(Random.Range(fieldMin.x, fieldMax.x), Random.Range(fieldMin.y, fieldMax.y));
+        var spawnPos = new Vector3(Random.Range(spawnBounds.min.x, spawnBounds.max.x),
+            Random.Range(spawnBounds.min.y, spawnBounds.max.y));
         var playerToSpawnPos = spawnPos - playerPos;
         while (playerToSpawnPos.magnitude < minSpawnDistance)
         {
@@ -84,7 +82,18 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log("spawn pos adjustement");
         }
         // check for if in limits
-        
+        if (!spawnBounds.Contains(spawnPos))
+        {
+            // If spawn position is an illegal position, like out of bounds or touching a block,
+            // we need to reroll or adjust.
+            // For now, we try once again and if it is illegal again we give up.
+            // TODO; better adjustment, check for if spawning on top of a block.
+            Debug.Log("Out of bounds spawn detected.");
+            if (checkAgain)
+            {
+                spawnPos = GetCool420Positionfkyea(false);
+            }
+        }
         return spawnPos;
     }
 }

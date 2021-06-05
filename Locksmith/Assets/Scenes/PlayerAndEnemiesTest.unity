@@ -362,16 +362,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad956ae906ee1bd458b3a201fa6709be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCDMax: 0
-  waveSpawnAttempt: 0
-  fieldMin: {x: 0, y: 0}
-  fieldMax: {x: 0, y: 0}
+  waveCDMax: 10
+  waveSpawnAttempt: 4
+  spawnBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 10, y: 10, z: 0}
   minSpawnDistance: 0
   spawnableEnemies:
   - enemy: {fileID: 5832823051974618661, guid: c2624951ecfc0f347bd0d170ae814a48, type: 3}
     chance: 10
   - enemy: {fileID: 4145929035819849698, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
     chance: 70
+  enemyCountLimit: 0
 --- !u!4 &750335814
 Transform:
   m_ObjectHideFlags: 0
@@ -446,7 +448,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 77f5146a5e9cfba40b5876f9c1d8720d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -837,6 +839,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4145929035819849693, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53d02c5dbf9bea94a83a64d43b9de189, type: 3}
     - target: {fileID: 4145929035819849698, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
       propertyPath: m_Name
       value: EnemyZombie
