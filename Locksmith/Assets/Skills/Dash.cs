@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 
-public class Dash : MonoBehaviour
+public class Dash : Skill
 {
     //Mode 0: Dash according to mouse position --- Mode 1: Dash according to player direction.
     public int mode;
-
     [SerializeField] private Vector2 direction;
 
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration = 30f;
-    [SerializeField] private float dashBoundary;
     private float dashCooldown;
     private bool dashPressed;
 
@@ -24,10 +22,10 @@ public class Dash : MonoBehaviour
     public void SpecialMove(Rigidbody2D rigidbody, Transform transform, Camera cam)
     {
         dashCooldown = dashDuration;
-        if (dashCooldown > 0 && !dashPressed)
+        if (dashCooldown > 0 && !dashPressed && skillEnabled)
         {
             dashPressed = true;
-            if(mode == 0) //Mouse position
+            if (mode == 0) //Mouse position
             {
                 Vector2 mousePos = Input.mousePosition;
                 Vector2 entityPos = cam.WorldToScreenPoint(transform.position);
@@ -35,7 +33,7 @@ public class Dash : MonoBehaviour
                 direction.Normalize();
                 rigidbody.velocity = direction * dashSpeed;
             }
-            else if(mode == 1) //Player direction
+            else if (mode == 1) //Player direction
             {
                 direction = rigidbody.velocity.normalized;
                 rigidbody.velocity = direction * dashSpeed;
@@ -45,7 +43,7 @@ public class Dash : MonoBehaviour
         {
             dashPressed = false;
             dashCooldown = dashDuration;
-            rigidbody.velocity = Vector2.zero;
+            rigidbody.velocity = Vector2.zero; //?
         }
     }
 }
