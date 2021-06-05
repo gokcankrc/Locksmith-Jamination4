@@ -16,6 +16,6 @@ MonoBehaviour:
   gateDescription: 'Brenit Gate Brenit Gate Brenit Gate Brenit Gate Brenit Gate Brenit
     Gate Brenit Gate '
   gateRequirementDescription: Brenit Gate bebek
-  AdverseEffectsDescription: Brenit
-  PositiveEffectsDescription: Brenit
+  adverseEffectsDescription: blabla
+  positiveEffectsDescription: blabla
   isCrafted: 0

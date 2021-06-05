@@ -16,6 +16,6 @@ MonoBehaviour:
   gateDescription: 'Ghonor Gate Ghonor Gate Ghonor Gate Ghonor Gate Ghonor Gate Ghonor
     Gate '
   gateRequirementDescription: 3 Apple, 1 Grape
-  AdverseEffectsDescription: Ghonor Gate
-  PositiveEffectsDescription: Ghonor Gate
+  adverseEffectsDescription: blabla
+  positiveEffectsDescription: blabla
   isCrafted: 0

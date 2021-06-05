@@ -16,6 +16,6 @@ MonoBehaviour:
   gateDescription: 'Blabla Blabla Blabla Blabla Blabla Blabla Blabla Blabla Blabla
     Blabla Blabla Blabla Blabla Blabla Blabla '
   gateRequirementDescription: 1 Armut 2 Elma
-  AdverseEffectsDescription: "Yanars\u0131n"
-  PositiveEffectsDescription: "Uzars\u0131n"
+  adverseEffectsDescription: blablablabla
+  positiveEffectsDescription: blablablabla
   isCrafted: 0

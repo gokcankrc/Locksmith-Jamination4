@@ -16,6 +16,6 @@ MonoBehaviour:
   gateDescription: 'Liridian Gate Liridian Gate Liridian Gate Liridian Gate Liridian
     Gate Liridian Gate '
   gateRequirementDescription: 9 Wood, 2 Stone
-  AdverseEffectsDescription: Liridian Gate
-  PositiveEffectsDescription: Liridian Gate
+  adverseEffectsDescription: blablablabla
+  positiveEffectsDescription: blablablabla
   isCrafted: 0
