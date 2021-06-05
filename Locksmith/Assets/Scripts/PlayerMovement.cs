@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
     [SerializeField] private float moveSpeed = 50f;
     [SerializeField] private Player player;
-    public bool dashing;
 
     Rigidbody2D rb;
 
@@ -23,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (player.Dashing)
+        if (!player.Dashing)
         {
             rb.velocity = moveDirection * (moveSpeed * Time.fixedDeltaTime);
         }
