@@ -5,9 +5,6 @@ using UnityEngine;
 
 public abstract class AttackBaseClass : MonoBehaviour
 {
-    
-
-
     public virtual void Attack()
     {
         

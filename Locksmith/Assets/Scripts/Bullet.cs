@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    
+    public BulletStats Stats;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -16,3 +17,4 @@ public class Bullet : MonoBehaviour
         
     }
 }
+
