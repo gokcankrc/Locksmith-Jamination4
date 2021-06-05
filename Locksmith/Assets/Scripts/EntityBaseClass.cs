@@ -12,7 +12,7 @@ public abstract class EntityBaseClass : MonoBehaviour
     protected float health;
     protected float damage;
     protected float speed;
-    protected Skill[] skills;
+    //protected Skill[] skills;
     public float Speed
     {
         get { return speed;}
