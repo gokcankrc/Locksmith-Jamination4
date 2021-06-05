@@ -23,6 +23,8 @@ public class EnemySpawner : MonoBehaviour
     private Transform _playerTransform;
     private float _waveCd;
     private GameObject[] _currentlyActiveEnemies;
+    public GameObject[] CurrentlyActiveEnemies => _currentlyActiveEnemies;
+
 
     public static EnemySpawner I;
     

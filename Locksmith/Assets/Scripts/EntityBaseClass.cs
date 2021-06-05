@@ -3,52 +3,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SkillHolder))]
+[RequireComponent(typeof(HealthBaseClass))]
+[RequireComponent(typeof(MovementBaseClass))]
 [RequireComponent(typeof(AttackBaseClass))]
 public abstract class EntityBaseClass : MonoBehaviour
 {
     // abstract
     
     // requires scripts/variables: Health, MovementBaseClass, Attack,
-    protected int maxHealth;
-    protected float health;
-    protected float damage;
-    protected float speed;
-    protected AttackBaseClass attack;
+
+    protected HealthBaseClass healthClass;
+    protected MovementBaseClass moveClass;
+    protected AttackBaseClass attackClass;
     protected bool dashing;
 
     private void Awake()
     {
-        health = maxHealth;
-        attack = GetComponent<AttackBaseClass>();
+        healthClass = GetComponent<HealthBaseClass>();
+        moveClass = GetComponent<MovementBaseClass>();
+        attackClass = GetComponent<AttackBaseClass>();
     }
 
-    //protected Skill[] skills;
-    public float Speed
-    {
-        get { return speed;}
-        set { speed = value; }
-    }
     public bool Dashing
     {
-        get { return dashing; }
-        set { dashing = value; }
+        get => dashing;
+        set => dashing = value;
     }
 
-
-    protected virtual void Attack()
+    public virtual void MoveTowards(Vector3 destination, float speedMultiplier)
     {
-        attack.Attack();
+        moveClass.MoveTowards(destination, speedMultiplier);
+    }
+
+    public virtual void Attack(Vector3 targetPosition)
+    {
+        attackClass.Attack();
     }
     protected virtual void DealDamage()
     {
         
     }
+    
 
-    protected virtual void TakeDamage(float damageTaken)
+
+    private void OnCollisionEnter(Collision other)
     {
-        health -= damageTaken;
-        if (health < 0)
+        // if other is dangeous, take damage.
+        // bu böyle yapılmayacak da şimdilik böyle dursun. belki buraya da koymayız.
+        // burayı konsepti açıklaamsı için yazıyorum
+        var attacker = other.gameObject.GetComponent<AttackBaseClass>();
+        var remainingHealth = healthClass.TakeDamage(attacker.damage);
+        if (attackClass.GetType() == Projectile)
+        {
+            attacker.Collide();
+        }
+        if (remainingHealth < 0)
         {
             Die();
         }
@@ -61,7 +70,7 @@ public abstract class EntityBaseClass : MonoBehaviour
 
     protected void Heal(float healAmount)
     {
-        health += healAmount;
+        healthClass.Heal(healAmount);
     }
     
 }
