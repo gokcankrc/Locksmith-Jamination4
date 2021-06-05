@@ -8,7 +8,7 @@ public class Dash : MonoBehaviour
     [SerializeField] private Vector2 direction;
 
     [SerializeField] private float dashSpeed;
-    [SerializeField] private float dashDuration;
+    [SerializeField] private float dashDuration = 30f;
     [SerializeField] private float dashBoundary;
     private float dashCooldown;
     private bool dashPressed;
@@ -31,7 +31,20 @@ public class Dash : MonoBehaviour
             {
                 Vector2 mousePos = Input.mousePosition;
                 Vector2 entityPos = cam.WorldToScreenPoint(transform.position);
-                //should add boundaries for mouse;
+                direction = entityPos - mousePos;
+
+                if (Mathf.Abs(direction.x) > dashBoundary)
+                {
+                    if (direction.x < 0)    direction.x = -dashBoundary;
+                    else                    direction.x = dashBoundary;
+                }
+
+                if (Mathf.Abs(direction.y) > dashBoundary)
+                {
+                    if (direction.y < 0)    direction.y = -dashBoundary;
+                    else                    direction.y = dashBoundary;
+                }
+
                 rigidbody.velocity = direction * dashSpeed;
             }
             else if(mode == 1) //Player direction
