@@ -9,4 +9,7 @@ public class Enemy : EntityBaseClass
         EnemyDrop.I.DropOnDeath(transform);
         base.Die();
     }
+    
+    
+    
 }

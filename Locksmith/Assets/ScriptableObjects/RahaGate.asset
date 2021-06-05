@@ -15,6 +15,6 @@ MonoBehaviour:
   gateName: Raha Gate
   gateDescription: 'Raha Gate Raha Gate Raha Gate Raha Gate Raha Gate Raha Gate '
   gateRequirementDescription: 4 Stone, 3 Wood
-  AdverseEffectsDescription: Raha Gate
-  PositiveEffectsDescription: Raha Gate
+  adverseEffectsDescription: blablablabla
+  positiveEffectsDescription: blablablabla
   isCrafted: 0

@@ -15,6 +15,6 @@ MonoBehaviour:
   gateName: Wodas Gate
   gateDescription: 'Wodas Gate Wodas Gate Wodas Gate Wodas Gate Wodas Gate '
   gateRequirementDescription: 6 Apple, 3 Pear
-  AdverseEffectsDescription: Wodas Gate
-  PositiveEffectsDescription: Wodas Gate
+  adverseEffectsDescription: blablablabla
+  positiveEffectsDescription: blablablablablabla
   isCrafted: 0

@@ -16,6 +16,6 @@ MonoBehaviour:
   gateDescription: 'Earth Gate Earth Gate Earth Gate Earth Gate Earth Gate Earth
     Gate Earth Gate Earth Gate Earth Gate '
   gateRequirementDescription: 1 Apple, 2 Grape
-  AdverseEffectsDescription: Earth Gate
-  PositiveEffectsDescription: Earth Gate
+  adverseEffectsDescription: blabla
+  positiveEffectsDescription: blabla
   isCrafted: 1
