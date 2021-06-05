@@ -24,10 +24,11 @@ public class EnemySpawner : MonoBehaviour
     private float _waveCd;
     private GameObject[] _currentlyActiveEnemies;
 
-
+    public static EnemySpawner I;
+    
     private void Awake()
     {
-
+        I = this;
         _playerTransform = GameManager.I.Player.transform; // game manager olunca bunu güzelleştirelim
         _currentlyActiveEnemies = new GameObject[] { };
     }

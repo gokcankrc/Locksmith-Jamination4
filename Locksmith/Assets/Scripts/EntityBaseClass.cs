@@ -40,7 +40,7 @@ public abstract class EntityBaseClass : MonoBehaviour
         }
     }
 
-    protected void Die()
+    protected virtual void Die()
     {
         Destroy(gameObject);
     }

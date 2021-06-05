@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Enemy : EntityBaseClass
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Die()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        EnemyDrop.I.DropOnDeath(transform);
+        base.Die();
     }
 }
