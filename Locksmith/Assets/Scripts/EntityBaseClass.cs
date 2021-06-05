@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SkillHolder))]
+[RequireComponent(typeof(AttackBaseClass))]
 public abstract class EntityBaseClass : MonoBehaviour
 {
     // abstract
@@ -13,10 +14,12 @@ public abstract class EntityBaseClass : MonoBehaviour
     protected float health;
     protected float damage;
     protected float speed;
+    protected AttackBaseClass attack;
 
     private void Awake()
     {
         health = maxHealth;
+        attack = GetComponent<AttackBaseClass>();
     }
 
     //protected Skill[] skills;
@@ -26,12 +29,16 @@ public abstract class EntityBaseClass : MonoBehaviour
         set { speed = value; }
     }
 
-    protected void DealDamage()
+    protected virtual void Attack()
+    {
+        attack.Attack();
+    }
+    protected virtual void DealDamage()
     {
         
     }
 
-    protected void TakeDamage(float damageTaken)
+    protected virtual void TakeDamage(float damageTaken)
     {
         health -= damageTaken;
         if (health < 0)

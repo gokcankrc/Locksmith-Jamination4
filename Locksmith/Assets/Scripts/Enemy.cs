@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class Enemy : EntityBaseClass
 {
+    [SerializeField] private string AttackType;
+
+
+    protected override void Attack()
+    {
+        switch (AttackType)
+        {
+            case "Shoot":
+                
+                break;
+            case "Melee":
+                
+                break;
+        }
+    }
+    
     protected override void Die()
     {
         EnemyDrop.I.DropOnDeath(transform);
