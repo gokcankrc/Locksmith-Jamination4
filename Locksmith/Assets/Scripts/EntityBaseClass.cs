@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,12 @@ public abstract class EntityBaseClass : MonoBehaviour
     protected float health;
     protected float damage;
     protected float speed;
+
+    private void Awake()
+    {
+        health = maxHealth;
+    }
+
     //protected Skill[] skills;
     public float Speed
     {
@@ -33,9 +40,9 @@ public abstract class EntityBaseClass : MonoBehaviour
         }
     }
 
-    protected void Die()
+    protected virtual void Die()
     {
-        GameObject.Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     protected void Heal(float healAmount)
