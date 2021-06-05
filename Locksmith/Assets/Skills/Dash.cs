@@ -1,32 +1,37 @@
 ﻿using UnityEngine;
 
-public class Dash : ScriptableObject
+public class Dash : MonoBehaviour
 {
     //Mode 0: Dash according to mouse position --- Mode 1: Dash according to player direction.
-    [SerializeField] private int mode;
+    public int mode;
 
-    [SerializeField] private Rigidbody2D rigidbody;
-    [SerializeField] private Transform transform;
     [SerializeField] private Vector2 direction;
 
     [SerializeField] private float dashSpeed;
-    [SerializeField] private float dashCooldown;
     [SerializeField] private float dashDuration;
+    [SerializeField] private float dashBoundary;
+    private float dashCooldown;
+    private bool dashPressed;
 
-    private void Start()
+    private void Update()
     {
-        //rigidbody = GetComponent<Rigidbody2D>();
-        //transform = GetComponent<Transform>();
-    }
-
-    public void SpecialMove()
-    {
-        if (dashCooldown > 0)
+        if (dashPressed)
         {
             dashCooldown -= Time.deltaTime;
+        }
+    }
+
+    public void SpecialMove(Rigidbody2D rigidbody, Transform transform, Camera cam)
+    {
+        dashCooldown = dashDuration;
+        if (dashCooldown > 0 && !dashPressed)
+        {
+            dashPressed = true;
             if(mode == 0) //Mouse position
             {
-                
+                Vector2 mousePos = Input.mousePosition;
+                Vector2 entityPos = cam.WorldToScreenPoint(transform.position);
+                //should add boundaries for mouse;
                 rigidbody.velocity = direction * dashSpeed;
             }
             else if(mode == 1) //Player direction
@@ -42,10 +47,9 @@ public class Dash : ScriptableObject
         }
         else
         {
+            dashPressed = false;
             dashCooldown = dashDuration;
+            rigidbody.velocity = Vector2.zero;
         }
     }
-   
-    
-
 }
