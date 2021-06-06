@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementBaseClass : MonoBehaviour
+public abstract class MovementBaseClass : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed;
 
     private EntityBaseClass entity;
-    Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
-    private void Awake()
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         entity = GetComponent<EntityBaseClass>();

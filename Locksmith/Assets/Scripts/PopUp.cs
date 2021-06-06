@@ -14,19 +14,19 @@ public class PopUp : MonoBehaviour
         textMesh = transform.GetComponent<TextMeshPro>();
     }
 
-    public PopUp Create(Vector3 position, int damageAmount)
+    public PopUp Create(Vector3 position, string popupText)
     {
         position = new Vector3(position.x, position.y, 0);
         Transform damagePopupTransform = Instantiate(transform, position, Quaternion.identity);
         PopUp damagePopup = damagePopupTransform.GetComponent<PopUp>();
-        damagePopup.Setup(damageAmount);
+        damagePopup.Setup(popupText);
         return damagePopup;
     }
 
 
-    public void Setup(int damageAmount)
+    public void Setup(string popupText)
     {
-        textMesh.SetText(damageAmount.ToString());
+        textMesh.SetText(popupText);
         textColor = textMesh.color;
         disappearTimer = 1f;
     }

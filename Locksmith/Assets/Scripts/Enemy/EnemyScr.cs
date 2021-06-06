@@ -18,8 +18,4 @@ public class EnemyScr : EntityBaseClass
         base.Die();
     }
 
-
-    
-    
-    
 }
