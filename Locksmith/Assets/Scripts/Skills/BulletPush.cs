@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,19 +8,20 @@ public class BulletPush : Skill
     [SerializeField] private float pushMaxCdTime;
     [SerializeField] private float pushMaxDuration;
     [SerializeField] private float pushSpeed;
-    [SerializeField] private EntityBaseClass entity;
-    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private bool onCooldown;
 
-    public Projectile bullet;
+    [NonSerialized] public Projectile bullet;
     
     private float pushCdTime;
+    private EntityBaseClass entity;
+    private Rigidbody2D rb;
     private float pushDuration;
     private Vector2 direction;
 
     private void Awake()
     {
         entity = GetComponent<EntityBaseClass>();
+        rb = GetComponent<Rigidbody2D>();
         pushDuration = pushMaxDuration;
     }
 
@@ -44,14 +46,14 @@ public class BulletPush : Skill
 
     public override void UseSkill()
     {
-        if (!onCooldown)
+        if (true)
         {
             pushCdTime = pushMaxCdTime;
             pushDuration= pushMaxDuration;
             onCooldown = true;
             // entity.Pushing = true;
             direction = bullet.GetComponent<Rigidbody2D>().velocity.normalized;
-            rb.velocity = direction * pushSpeed;
+            rb.velocity = direction * pushSpeed * Time.fixedDeltaTime;
         }
     }
 }

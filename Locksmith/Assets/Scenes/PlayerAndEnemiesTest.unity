@@ -424,9 +424,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4413899972389173217, guid: 77393178687760c41b90dc4fd1faeb88, type: 3}
+      propertyPath: pushSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5554467944648243657, guid: 77393178687760c41b90dc4fd1faeb88, type: 3}
-      propertyPath: effects.list.Array.size
-      value: 0
+      propertyPath: effects.list.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77393178687760c41b90dc4fd1faeb88, type: 3}
@@ -599,10 +603,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyShooter
       objectReference: {fileID: 0}
-    - target: {fileID: 9158745981774703380, guid: c2624951ecfc0f347bd0d170ae814a48, type: 3}
-      propertyPath: effects.list.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2624951ecfc0f347bd0d170ae814a48, type: 3}
 --- !u!1001 &4145929034315692605
@@ -659,30 +659,6 @@ PrefabInstance:
     - target: {fileID: 4145929035819849698, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
       propertyPath: m_Name
       value: EnemyZombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 5380452619038484976, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
-      propertyPath: effects.list.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5380452619038484976, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
-      propertyPath: effects.list.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5380452619038484976, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
-      propertyPath: Stats.Damage
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5380452619038484976, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
-      propertyPath: Stats.Speed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5380452619038484976, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
-      propertyPath: Stats.Size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5380452619038484976, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
-      propertyPath: Stats.Duration
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}

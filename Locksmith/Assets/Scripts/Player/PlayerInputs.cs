@@ -28,7 +28,7 @@ public class PlayerInputs : MonoBehaviour
         if (!fireInput) { fireInput = Input.GetKey(KeyCode.Mouse0); }
         if (!dashInput) { dashInput = Input.GetKeyDown(KeyCode.Space); }
         if (!pushInput) { pushInput = Input.GetKeyDown(KeyCode.T); }
-        AddPushEffect = Input.GetKeyDown(KeyCode.Y);
+        if (!AddPushEffect) {AddPushEffect = Input.GetKeyDown(KeyCode.Y); }
     }
     
     private void MovementInput()

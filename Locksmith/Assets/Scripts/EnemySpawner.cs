@@ -110,14 +110,12 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var VARIABLE in _currentlyActiveEnemies)
         {
-            if (_currentlyActiveEnemies.Contains(enemy))
-            {
-                Debug.Log("this also works");
-            }
             if (enemy.GetInstanceID() == VARIABLE.GetInstanceID())
             {
                 Debug.Log("enemy died and removed from list of enemies");
                 _currentlyActiveEnemies.Remove(enemy);
+                return;
+
             }
         }
     }

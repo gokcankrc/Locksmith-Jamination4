@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
     void FixedUpdate()
     {
         var difference = player.transform.position - transform.position;
-        transform.position += difference * 0.05f;
+        transform.position += difference * 0.15f;
         transform.position += Vector3.back * 5 - Vector3.forward * transform.position.z; 
     }
 }
