@@ -29,9 +29,14 @@ public class EnemyAI : MonoBehaviour
     
     private void Awake()
     {
-        initialPosition = transform.position;
-        SetNewRandomVenture();
+        _state = AIState.Idle;
         entity = GetComponent<EnemyScr>();
+    }
+
+    private void Start()
+    {        
+        SetNewRandomVenture();
+        initialPosition = transform.position;
     }
 
 
@@ -39,7 +44,7 @@ public class EnemyAI : MonoBehaviour
     {
         playerPos = GameManager.Instance.Player.transform.position;
         
-        Debug.Log(_state);
+        //Debug.Log(_state);
         switch (_state)
         {
             // Attacking is literally during the attack. Exits state when attack ends
@@ -67,7 +72,7 @@ public class EnemyAI : MonoBehaviour
 
     private void MoveTowards(Vector3 destination, float speedMultiplayer=1)
     {
-        entity.MoveTowards(destination, 1);
+        entity.MoveTowards(destination, speedMultiplayer);
     }
 
     private void ChasingUpdate()
@@ -90,7 +95,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (attackCooldown < 0)
         {
-            MoveTowards(playerPos, 0.01f);
+            MoveTowards(playerPos, 0.00f);
             var direction = Vector3.SignedAngle(Vector3.right,playerPos - transform.position, Vector3.back);
             entity.Attack(direction);
             attackCooldown = attackCooldownMax;
@@ -102,7 +107,7 @@ public class EnemyAI : MonoBehaviour
     {
         // venture around randomly
         Debug.DrawLine(transform.position, randomVenture, Color.magenta);
-        MoveTowards(randomVenture, 0.1f);
+        MoveTowards(randomVenture, 0.3f);
         if (CloseEnough(randomVenture))
         {
             SetNewRandomVenture();
@@ -124,8 +129,9 @@ public class EnemyAI : MonoBehaviour
     }
     private void SetNewRandomVenture()
     {
-        randomVenture = transform.position + Vector3.right * Random.Range(0.5f, 1);
+        randomVenture = Vector3.right * Random.Range(0.5f, 1.5f);
         randomVenture = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.back) * randomVenture;
+        randomVenture += transform.position;
     }
 
     private bool CloseEnough(Vector3 targetPos, float enoughDistance=-1)

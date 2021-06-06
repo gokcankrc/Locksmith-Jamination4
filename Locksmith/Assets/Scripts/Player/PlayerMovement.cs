@@ -15,8 +15,8 @@ public class PlayerMovement : MovementBaseClass
 
     protected void FixedUpdate()
     {
-        _animator.SetFloat("ValX", rb.velocity.x);
-        _animator.SetFloat("ValY", rb.velocity.y);
+        _animator.SetFloat("VelX", rb.velocity.x);
+        _animator.SetFloat("VelY", rb.velocity.y);
         _animator.SetFloat("Speed", rb.velocity.magnitude);
     
     }

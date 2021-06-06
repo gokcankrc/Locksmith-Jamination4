@@ -16,17 +16,23 @@ public abstract class MovementBaseClass : MonoBehaviour
         entity = GetComponent<EntityBaseClass>();
     }
     
-    public void MoveTowards(Vector3 destination, float speedMultiplier)
+    public void MoveTowards(Vector3 destination, float speedMultiplier=1f)
     {
         if (!entity.Dashing)
         {
-            var velocity = destination.normalized * (speedMultiplier * moveSpeed * Time.fixedDeltaTime);
+            var direction = (destination - transform.position).normalized;
+            var velocity = direction * (speedMultiplier * moveSpeed * Time.fixedDeltaTime);
             rb.velocity = velocity;
         }
         else
         {
-            
+            Debug.Log("dashing");
         }
+    }
+
+    public void Stop()
+    {
+        rb.velocity = rb.velocity * 0.000000001f;
     }
 
     public void KnockBack()

@@ -20,7 +20,7 @@ public class PlayerInputs : MonoBehaviour
     void Update()
     {
         MovementInput();
-        if (!fireInput) { fireInput = Input.GetKeyDown(KeyCode.Mouse0); }
+        if (!fireInput) { fireInput = Input.GetKey(KeyCode.Mouse0); }
         if (!dashInput) { dashInput = Input.GetKeyDown(KeyCode.Space); }
     }
     

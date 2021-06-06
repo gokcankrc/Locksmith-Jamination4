@@ -13,17 +13,17 @@ public class HealthBaseClass : MonoBehaviour
 
     void Awake()
     {
+        Entity = GetComponent<EntityBaseClass>();
         health = maxHealth;
     }
 
     
     public virtual float TakeDamage(float damageTaken)
     {
-        Debug.Log("1took dmf");
         health -= damageTaken;
         popUp.Create(transform.position,  damageTaken.ToString());
         
-        // we don't need to check if health is lower than 0 because EntityBaseClass does that.
+        if (health <= 0) Entity.Die();       
         return health;
     }
 

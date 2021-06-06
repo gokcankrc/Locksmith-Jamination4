@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     
     [SerializeField] private Spawnable[] spawnableEnemies;
     [SerializeField] private int enemyCountLimit;
+    [SerializeField] private int initialSpawnAmount;
     
     private Transform _playerTransform;
     private float _waveCd;
@@ -38,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        SpawnEnemies(initialSpawnAmount);
         _waveCd = waveCDMax;
     }
     
@@ -53,9 +55,13 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void SpawnEnemies()
+    private void SpawnEnemies(int amount=-1)
     {
-        for (int i = 0; i < waveSpawnAttempt; i++)
+        if (amount != -1)
+        {
+            amount = waveSpawnAttempt;
+        }
+        for (int i = 0; i < amount; i++)
         {
             var roll = UnityEngine.Random.Range(0f, 100f);
             foreach (var spawnable in spawnableEnemies)

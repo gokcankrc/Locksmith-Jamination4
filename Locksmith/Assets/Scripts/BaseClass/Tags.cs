@@ -6,6 +6,6 @@ using UnityEngine;
 public static class Tags
 {
     public const string ObstacleTag = "Obstacle";
-    public const string PlayerTag = "Player";
+    public const string AllyTag = "Ally";
     public const string EnemyTag = "Enemy";
 }

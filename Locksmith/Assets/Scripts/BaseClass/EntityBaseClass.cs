@@ -30,8 +30,9 @@ public abstract class EntityBaseClass : MonoBehaviour
         set => dashing = value;
     }
 
-    public virtual void MoveTowards(Vector3 destination, float speedMultiplier)
+    public virtual void MoveTowards(Vector3 destination, float speedMultiplier=1f)
     {
+        if (moveClass == null) return;
         moveClass.MoveTowards(destination, speedMultiplier);
     }
 

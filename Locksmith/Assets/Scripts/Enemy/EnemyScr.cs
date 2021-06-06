@@ -14,6 +14,7 @@ public class EnemyScr : EntityBaseClass
     
     public override void Die()
     {
+        
         EnemyDrop.I.DropOnDeath(transform);
         base.Die();
     }

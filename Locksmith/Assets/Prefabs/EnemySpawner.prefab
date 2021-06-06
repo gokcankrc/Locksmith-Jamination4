@@ -44,18 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad956ae906ee1bd458b3a201fa6709be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCDMax: 7
-  waveSpawnAttempt: 4
+  waveCDMax: 8
+  waveSpawnAttempt: 5
   spawnBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 10, y: 10, z: 0}
-  minSpawnDistance: 10
+    m_Extent: {x: 12, y: 12, z: 0}
+  minSpawnDistance: 4
   spawnableEnemies:
   - enemy: {fileID: 5832823051974618661, guid: c2624951ecfc0f347bd0d170ae814a48, type: 3}
-    chance: 10
+    chance: 50
   - enemy: {fileID: 4145929035819849698, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
-    chance: 70
+    chance: 90
   enemyCountLimit: 20
+  initialSpawnAmount: 15
 --- !u!114 &6833379730402934555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,9 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drops:
-  - prefab: {fileID: 5832823051974618661, guid: c2624951ecfc0f347bd0d170ae814a48, type: 3}
-    chance: 20
-  - prefab: {fileID: 4145929035819849698, guid: e1ec7c40cf2984c498f80c1e835ed90c, type: 3}
-    chance: 70
-  DroppedItem: {fileID: 6985639559104232860, guid: bdd1043fed51ff54b9c923fb742b9b07, type: 3}
+  - prefab: {fileID: 6985639559104232860, guid: bdd1043fed51ff54b9c923fb742b9b07, type: 3}
+    chance: 60
+    amount: 6
   lootDistance: 1
