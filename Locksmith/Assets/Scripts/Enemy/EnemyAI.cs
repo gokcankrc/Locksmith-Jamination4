@@ -119,7 +119,8 @@ public class EnemyAI : MonoBehaviour
             // if in detection range; alert enemies around and switch state
             foreach (var enemyGO in EnemySpawner.I.CurrentlyActiveEnemies)
             {
-                if (enemyGO && CloseEnough(enemyGO.transform.position, alertDistance))
+                if ( CloseEnough(enemyGO.transform.position, alertDistance))
+                // if (enemyGO && CloseEnough(enemyGO.transform.position, alertDistance))
                 {
                     enemyGO.GetComponent<EnemyScr>().AI.Alert();
                 }

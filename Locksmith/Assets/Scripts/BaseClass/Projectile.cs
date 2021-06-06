@@ -9,8 +9,8 @@ public abstract class Projectile : MonoBehaviour
 {
     [SerializeField] private GameObject burningGround;
 
-    [NonSerialized] public ProjectileStats stats;
-    [NonSerialized] public Effects effects;
+    [SerializeField] public ProjectileStats stats;
+    [SerializeField] public Effects effects;
     
     private EntityBaseClass _collisionEntity;
     
@@ -58,15 +58,17 @@ public abstract class Projectile : MonoBehaviour
     protected abstract void OnObstacleCollision();
 
 
-    protected void ApplyEffects(EntityBaseClass entity)
+    protected void ApplyEffects(EntityBaseClass otherEntity)
     {
         if (effects.DealCollisionDamage)  DealDamage();
         if (effects.KnockBack) KnockBack();
+        if (effects.KnockBack) otherEntity.GetKnockedBack(this);
     }
 
 
     protected void OnDestroy()
     {
+
         if (effects.LeaveBurningGround) LeaveBurningGround();
         if (effects.Explosion) LeaveBurningGround();
     }

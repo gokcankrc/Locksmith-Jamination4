@@ -11,6 +11,8 @@ public class BulletPush : Skill
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private bool onCooldown;
 
+    public Projectile bullet;
+    
     private float pushCdTime;
     private float pushDuration;
     private Vector2 direction;
@@ -47,12 +49,8 @@ public class BulletPush : Skill
             pushCdTime = pushMaxCdTime;
             pushDuration= pushMaxDuration;
             onCooldown = true;
-            entity.Pushing = true;
-            direction = rb.velocity.normalized * -1f;
-            if(direction == Vector2.zero)
-            {
-                direction = Vector2.left;
-            }
+            // entity.Pushing = true;
+            direction = bullet.GetComponent<Rigidbody2D>().velocity.normalized;
             rb.velocity = direction * pushSpeed;
         }
     }

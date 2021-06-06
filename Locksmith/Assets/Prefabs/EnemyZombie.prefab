@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6286385328504896753}
   - component: {fileID: 6823890363913914858}
   - component: {fileID: 9067253779295364884}
-  - component: {fileID: 9002744962041960715}
   - component: {fileID: 5591080926824921946}
+  - component: {fileID: 5380452619038484976}
   m_Layer: 8
   m_Name: EnemyZombie
   m_TagString: Enemy
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 4145929035819849698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.19, y: -0.12431502, z: -0.036017545}
-  m_LocalScale: {x: 3, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,11 +75,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1467518195
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 79eee55146d21bf45af196d5a143a67d, type: 3}
-  m_Color: {r: 0.18743323, g: 0.8490566, b: 0.1915385, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a34589d660093aa4599fbffddec1eaf3, type: 3}
+  m_Color: {r: 1, g: 0.94154495, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -168,18 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 35
---- !u!114 &9002744962041960715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4145929035819849698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38fdc955cdbb29b4db16efdc98dfe2b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &5591080926824921946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197,12 +185,32 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.29, y: 0.5}
+    oldSize: {x: 0.39, y: 0.44}
     newSize: {x: 0.39400002, y: 0.38476565}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29, y: 0.5}
+  m_Size: {x: 0.39, y: 0.44}
   m_EdgeRadius: 0
+--- !u!114 &5380452619038484976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145929035819849698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1eaf0c67365324cb0040ea9a95e27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+    list: 01000000
+  bulletPrefab: {fileID: 9217524693849605576, guid: 7db206240a3c65a49985f2b743e27e58, type: 3}
+  Stats:
+    Damage: 8
+    Speed: 0.2
+    Size: 3
+    Duration: 1

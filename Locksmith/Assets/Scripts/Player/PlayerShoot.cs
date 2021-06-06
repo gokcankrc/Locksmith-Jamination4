@@ -42,4 +42,5 @@ public class PlayerShoot : ShootBaseClass
             attackBuffer = true;
         }
     }
+    
 }

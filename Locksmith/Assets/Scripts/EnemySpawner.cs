@@ -76,6 +76,7 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+    
 
     private Vector3 GetCool420Positionfkyea(bool checkAgain=true)
     {
@@ -103,6 +104,22 @@ public class EnemySpawner : MonoBehaviour
             }
         }
         return spawnPos;
+    }
+
+    public void RemoveSelf(GameObject enemy)
+    {
+        foreach (var VARIABLE in _currentlyActiveEnemies)
+        {
+            if (_currentlyActiveEnemies.Contains(enemy))
+            {
+                Debug.Log("this also works");
+            }
+            if (enemy.GetInstanceID() == VARIABLE.GetInstanceID())
+            {
+                Debug.Log("enemy died and removed from list of enemies");
+                _currentlyActiveEnemies.Remove(enemy);
+            }
+        }
     }
 }
 
