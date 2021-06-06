@@ -148,6 +148,7 @@ public class UIManager : MonoBehaviour
         positiveEffectsText.text = activeGate.positiveEffectsDescription;
 
         if (activeGate.isCrafted) craftButton.interactable = false;
+        else if (!activeGate.gateRecipe.CanCraft()) craftButton.interactable = false;
         else craftButton.interactable = true;
     }
 
@@ -156,8 +157,7 @@ public class UIManager : MonoBehaviour
         if (activeGate.gateRecipe.CanCraft())
         {
             craftButton.interactable = true;
+            activeGate.gateRecipe.Use();
         }
-        activeGate.isCrafted = true;
-        activeGate.gateRecipe.RemoveMaterialsFromList();
     }
 }

@@ -67,7 +67,6 @@ public class ResourceManager : MonoBehaviour
             return false;
         }
 
-
     }
 
     public void RemoveResources(ResourceTypeSO resource, int amount)
