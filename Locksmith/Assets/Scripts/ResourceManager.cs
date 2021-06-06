@@ -46,6 +46,7 @@ public class ResourceManager : MonoBehaviour
         resourceTypeList.list.Remove(resource);
         onItemChange.Invoke();
     }
+
     public bool ContainsItem(ResourceTypeSO resource, int amount)
     {
         int resourceCounter = 0;
@@ -65,6 +66,8 @@ public class ResourceManager : MonoBehaviour
         {
             return false;
         }
+
+
     }
 
     public void RemoveResources(ResourceTypeSO resource, int amount)
