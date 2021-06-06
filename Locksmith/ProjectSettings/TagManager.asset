@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Ally
   layers:
   - Default
   - TransparentFX
@@ -40,4 +42,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ground first
+    uniqueID: 1049962507
+    locked: 0
+  - name: general ground
+    uniqueID: 501216983
+    locked: 0
+  - name: mobs
+    uniqueID: 2827449101
+    locked: 0
+  - name: character
+    uniqueID: 1780571067
+    locked: 0
+  - name: walls first
+    uniqueID: 1393434945
+    locked: 0
+  - name: walls general
+    uniqueID: 1012627141
+    locked: 0
+  - name: upper
+    uniqueID: 223331813
     locked: 0
