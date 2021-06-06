@@ -24,19 +24,10 @@ public abstract class MovementBaseClass : MonoBehaviour
             var velocity = direction * (speedMultiplier * moveSpeed * Time.fixedDeltaTime);
             rb.velocity = velocity;
         }
-        else
-        {
-            Debug.Log("dashing or pushing");
-        }
     }
 
     public void Stop()
     {
         rb.velocity = rb.velocity * 0.000000001f;
-    }
-
-    public void KnockBack()
-    {
-        Debug.Log("KnockBack has not been implemented yet");
     }
 }

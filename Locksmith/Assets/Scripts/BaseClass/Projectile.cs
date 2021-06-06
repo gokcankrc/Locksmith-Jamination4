@@ -61,7 +61,6 @@ public abstract class Projectile : MonoBehaviour
     protected void ApplyEffects(EntityBaseClass otherEntity)
     {
         if (effects.DealCollisionDamage)  DealDamage();
-        if (effects.KnockBack) KnockBack();
         if (effects.KnockBack) otherEntity.GetKnockedBack(this);
     }
 
@@ -77,7 +76,6 @@ public abstract class Projectile : MonoBehaviour
     // These are all effects of some sorts
     // ----------------------------------------------------
     private void DealDamage() { _collisionEntity.healthClass.TakeDamage(stats.Damage); }
-    private void KnockBack() { _collisionEntity.moveClass.KnockBack(); }
     private void LeaveBurningGround() { Instantiate(burningGround); }
 }
 
