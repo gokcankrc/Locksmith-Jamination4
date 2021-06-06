@@ -1,27 +1,25 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
-public class EnemyShooterAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
-
-    [SerializeField] Enemy entity;
-
     [SerializeField] private float attackRange;
     [SerializeField] private float detectionRange;
     [SerializeField] private float alertDistance;
     [SerializeField] private float attackCooldownMax;
+    [SerializeField] private float minCloseEnoughDistance;
 
+    private EnemyScr entity;
     private AIState _state;
     private Vector3 initialPosition;
     private Vector3 randomVenture;
     private Vector3 playerPos;
     private float attackCooldown;
-
-
 
     enum AIState
     {
@@ -32,12 +30,14 @@ public class EnemyShooterAI : MonoBehaviour
     {
         initialPosition = transform.position;
         SetNewRandomVenture();
+        entity = GetComponent<EnemyScr>();
     }
 
 
     private void FixedUpdate()
     {
         playerPos = GameManager.Instance.Player.transform.position;
+        Debug.Log(_state);
         switch (_state)
         {
             // Attacking is literally during the attack. Exits state when attack ends
@@ -96,7 +96,8 @@ public class EnemyShooterAI : MonoBehaviour
     private void IdleUpdate()
     {
         // venture around randomly
-        MoveTowards(randomVenture);
+        Debug.DrawLine(transform.position, randomVenture, Color.magenta);
+        MoveTowards(randomVenture, 0.1f);
         if (CloseEnough(randomVenture))
         {
             SetNewRandomVenture();
@@ -110,7 +111,7 @@ public class EnemyShooterAI : MonoBehaviour
             {
                 if (CloseEnough(enemyGO.transform.position, alertDistance))
                 {
-                    enemyGO.GetComponent<Enemy>().AI.Alert();
+                    enemyGO.GetComponent<EnemyScr>().AI.Alert();
                 }
             }
             _state = AIState.Chasing;
@@ -118,12 +119,16 @@ public class EnemyShooterAI : MonoBehaviour
     }
     private void SetNewRandomVenture()
     {
-        randomVenture = Vector3.right * Random.Range(2, 5);
+        randomVenture = Vector3.right * Random.Range(0.5f, 1);
         randomVenture = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.back) * randomVenture;
     }
 
-    private bool CloseEnough(Vector3 targetPos, float enoughDistance=1.5f)
+    private bool CloseEnough(Vector3 targetPos, float enoughDistance=-1)
     {
+        if (enoughDistance < 0)
+        {
+            enoughDistance = minCloseEnoughDistance;
+        }
         var distance = Vector3.Distance(transform.position, targetPos);
         if (distance < enoughDistance) return true;
         else return false;

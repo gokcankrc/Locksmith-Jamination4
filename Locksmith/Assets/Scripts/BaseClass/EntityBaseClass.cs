@@ -12,12 +12,12 @@ public abstract class EntityBaseClass : MonoBehaviour
     
     // requires scripts/variables: Health, MovementBaseClass, Attack,
 
-    protected HealthBaseClass healthClass;
-    protected MovementBaseClass moveClass;
-    protected AttackBaseClass attackClass;
+    [NonSerialized] public HealthBaseClass healthClass;
+    [NonSerialized] public MovementBaseClass moveClass;
+    [NonSerialized] public AttackBaseClass attackClass;
     protected bool dashing;
 
-    private void Awake()
+    private void Start()
     {
         healthClass = GetComponent<HealthBaseClass>();
         moveClass = GetComponent<MovementBaseClass>();
@@ -39,31 +39,13 @@ public abstract class EntityBaseClass : MonoBehaviour
     {
         attackClass.Attack();
     }
-    protected virtual void DealDamage()
+    
+    public virtual void TakeDamage(float damage)
     {
-        
+        healthClass.TakeDamage(damage);
     }
     
-
-
-    private void OnCollisionEnter(Collision other)
-    {
-        // if other is dangeous, take damage.
-        // bu böyle yapılmayacak da şimdilik böyle dursun. belki buraya da koymayız.
-        // burayı konsepti açıklaamsı için yazıyorum
-        var attacker = other.gameObject.GetComponent<AttackBaseClass>();
-        var remainingHealth = healthClass.TakeDamage(attacker.damage);
-        if (attackClass.GetType() == Projectile)
-        {
-            attacker.Collide();
-        }
-        if (remainingHealth < 0)
-        {
-            Die();
-        }
-    }
-
-    protected virtual void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
     }

@@ -22,8 +22,8 @@ public class EnemySpawner : MonoBehaviour
     
     private Transform _playerTransform;
     private float _waveCd;
-    private GameObject[] _currentlyActiveEnemies;
-    public GameObject[] CurrentlyActiveEnemies => _currentlyActiveEnemies;
+    private List<GameObject> _currentlyActiveEnemies;
+    public IEnumerable<GameObject> CurrentlyActiveEnemies => _currentlyActiveEnemies;
 
 
     public static EnemySpawner I;
@@ -31,8 +31,9 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         I = this;
+        _currentlyActiveEnemies = new List<GameObject>();
         _playerTransform = GameManager.Instance.Player.transform; // game manager olunca bunu güzelleştirelim
-        _currentlyActiveEnemies = new GameObject[] { };
+        // _currentlyActiveEnemies = new GameObject[] { };
     }
 
     void Start()
@@ -60,12 +61,12 @@ public class EnemySpawner : MonoBehaviour
             foreach (var spawnable in spawnableEnemies)
             {
                 if (!(spawnable.chance > roll)) continue;
-                if (enemyCountLimit < _currentlyActiveEnemies.Length) continue;
+                if (enemyCountLimit < _currentlyActiveEnemies.Count) continue;
                 // TOOD; they have a limit of some sorts.
                 var spawnedEnemy = GameObject.Instantiate(spawnable.enemy);
                 spawnedEnemy.transform.position = GetCool420Positionfkyea();
-                _currentlyActiveEnemies.Append(spawnedEnemy);
-                Debug.Log("Current enemy amount: " + _currentlyActiveEnemies.Length);
+                _currentlyActiveEnemies.Add(spawnedEnemy);
+                Debug.Log("Current enemy amount: " + _currentlyActiveEnemies.Count);
             }
         }
     }
@@ -82,7 +83,6 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnPos += playerToSpawnPos.normalized * minSpawnDistance;
             playerToSpawnPos = spawnPos - playerPos;
-            Debug.Log("spawn pos adjustement");
         }
         // check for if in limits
         if (!spawnBounds.Contains(spawnPos))
@@ -91,7 +91,6 @@ public class EnemySpawner : MonoBehaviour
             // we need to reroll or adjust.
             // For now, we try once again and if it is illegal again we give up.
             // TODO; better adjustment, check for if spawning on top of a block.
-            Debug.Log("Out of bounds spawn detected.");
             if (checkAgain)
             {
                 spawnPos = GetCool420Positionfkyea(false);

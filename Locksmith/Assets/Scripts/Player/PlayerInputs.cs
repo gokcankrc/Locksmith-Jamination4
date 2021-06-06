@@ -20,6 +20,5 @@ public class PlayerInputs : MonoBehaviour
     {
         _moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _moveMultiplayer = _moveDirection.magnitude;
-        _moveDirection = _moveDirection;
     }
 }

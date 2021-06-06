@@ -8,8 +8,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private Player player;
-    public Player Player => player;
+    private PlayerManager player;
+    public PlayerManager Player => player;
 
     public static GameManager Instance;
 

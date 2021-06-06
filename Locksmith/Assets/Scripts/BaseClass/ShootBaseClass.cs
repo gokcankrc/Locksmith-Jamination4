@@ -19,7 +19,7 @@ public class ShootBaseClass : AttackBaseClass
     {
         Instantiate(bulletPrefab);
         var bullet = bulletPrefab.GetComponent<Projectile>();
-        bullet.Stats = stats;
+        bullet.stats = stats;
         bullet.transform.position = pos;
         bullet.transform.rotation = dir;
     }

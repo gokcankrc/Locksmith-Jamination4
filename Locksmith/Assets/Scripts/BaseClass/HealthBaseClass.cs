@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class HealthBaseClass : MonoBehaviour
     protected EntityBaseClass Entity;
     
     public int maxHealth;
-    public float health;
+    [NonSerialized] public float health;
 
     void Awake()
     {
