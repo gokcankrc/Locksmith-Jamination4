@@ -51,23 +51,27 @@ public class EnemySpawner : MonoBehaviour
         if (_waveCd < 0)
         {
             _waveCd = waveCDMax;
-            SpawnEnemies();
+            SpawnEnemies(waveSpawnAttempt);
         }
     }
 
     private void SpawnEnemies(int amount=-1)
     {
-        if (amount != -1)
+        if (amount == -1)
         {
             amount = waveSpawnAttempt;
         }
         for (int i = 0; i < amount; i++)
         {
+            Debug.Log("spawn tries: " + i);
             var roll = UnityEngine.Random.Range(0f, 100f);
             foreach (var spawnable in spawnableEnemies)
             {
+                Debug.Log("1");
                 if (!(spawnable.chance > roll)) continue;
+                Debug.Log("2");
                 if (enemyCountLimit < _currentlyActiveEnemies.Count) continue;
+                Debug.Log("3");
                 // TOOD; they have a limit of some sorts.
                 var spawnedEnemy = GameObject.Instantiate(spawnable.enemy);
                 spawnedEnemy.transform.position = GetCool420Positionfkyea();
