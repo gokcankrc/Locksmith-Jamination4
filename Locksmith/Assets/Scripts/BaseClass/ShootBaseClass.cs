@@ -8,20 +8,36 @@ public class ShootBaseClass : AttackBaseClass
 {
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] protected ProjectileStats Stats;
-    
-    public override void Attack()
+    [SerializeField] protected Effects effects;
+
+    protected void Awake()
+    {
+        effects = new Effects(effects)
+        {
+            DealCollisionDamage = true, KnockBack = false, LeaveBurningGround = false,
+            Explosion = false
+        };
+    }
+
+    public override void Attack(float direction)
     {
         
     }
 
     // TODO; here probably doesn't work
-    protected void CreateBullet(Vector3 pos, Quaternion dir, ProjectileStats stats)
+    protected GameObject CreateBullet(Vector3 pos, float dir)
     {
-        Instantiate(bulletPrefab);
-        var bullet = bulletPrefab.GetComponent<Projectile>();
-        bullet.stats = stats;
+        var newBulletGO = Instantiate(bulletPrefab);
+        var bullet = newBulletGO.GetComponent<Projectile>();
+        bullet.stats = new ProjectileStats(Stats);
         bullet.transform.position = pos;
-        bullet.transform.rotation = dir;
+        bullet.transform.rotation = Quaternion.AngleAxis(dir, Vector3.back);
+        bullet.transform.localScale = new Vector3(Stats.Size, Stats.Size);
+        bullet.effects = new Effects(effects);
+        var bulletRB = newBulletGO.GetComponent<Rigidbody2D>();
+        // There should be a better way to just shoot the damn thing in the direction we are facing
+        bulletRB.velocity = Quaternion.AngleAxis(dir, Vector3.back) * Vector2.right * Stats.Speed;
+        return newBulletGO;
     }
 }
 
@@ -29,7 +45,40 @@ public class ShootBaseClass : AttackBaseClass
 [Serializable]
 public class ProjectileStats
 {
+    public ProjectileStats(ProjectileStats stats)
+    {
+        Damage = stats.Damage;
+        Speed = stats.Speed;
+        Size = stats.Size;
+        Duration = stats.Duration;
+    }
+    
     public float Damage = 5;
     public float Speed = 3;
     public float Size = 2;
+    public float Duration = 2.5f;
+}
+
+[Serializable]
+public class Effects
+{
+    public Effects(Effects effects)
+    {
+        DealCollisionDamage = effects.DealCollisionDamage;
+        KnockBack = effects.KnockBack;
+        LeaveBurningGround = effects.LeaveBurningGround;
+        Explosion = effects.Explosion;
+    }
+    public Effects(bool[] array)
+    {
+        DealCollisionDamage = array[0];
+        KnockBack = array[1];
+        LeaveBurningGround = array[2];
+        Explosion = array[3];
+    }
+    
+    public bool DealCollisionDamage;
+    public bool KnockBack;
+    public bool LeaveBurningGround;
+    public bool Explosion;
 }

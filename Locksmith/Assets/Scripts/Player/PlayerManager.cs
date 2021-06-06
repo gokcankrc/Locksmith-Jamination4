@@ -12,7 +12,21 @@ public class PlayerManager : EntityBaseClass
     
     void FixedUpdate()
     {
-        MoveTowards(MoveDirection, MoveMultiplayer);
+        MoveTowards(transform.position + MoveDirection, MoveMultiplayer);
+        if (Inputs.FireInput)
+        {
+            // attacks in direction player is facing
+
+            var direction = Vector3.SignedAngle(Vector3.right,MoveDirection, Vector3.back);
+            Attack(direction);
+        }
+
+        if (Inputs.DashInput)
+        {
+            
+        }
+
+        Inputs.Flush();
     }
 
 }

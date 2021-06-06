@@ -11,11 +11,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float detectionRange;
     [SerializeField] private float alertDistance;
+    [SerializeField] private float disengageDistance;
     [SerializeField] private float attackCooldownMax;
     [SerializeField] private float minCloseEnoughDistance;
 
     private EnemyScr entity;
-    private AIState _state;
+    [SerializeField]private AIState _state;
     private Vector3 initialPosition;
     private Vector3 randomVenture;
     private Vector3 playerPos;
@@ -37,6 +38,7 @@ public class EnemyAI : MonoBehaviour
     private void FixedUpdate()
     {
         playerPos = GameManager.Instance.Player.transform.position;
+        
         Debug.Log(_state);
         switch (_state)
         {
@@ -80,6 +82,7 @@ public class EnemyAI : MonoBehaviour
         else
         {
             MoveTowards(playerPos);
+            //disengageDistance
         }
     }
 
@@ -87,7 +90,9 @@ public class EnemyAI : MonoBehaviour
     {
         if (attackCooldown < 0)
         {
-            entity.Attack(playerPos);
+            MoveTowards(playerPos, 0.01f);
+            var direction = Vector3.SignedAngle(Vector3.right,playerPos - transform.position, Vector3.back);
+            entity.Attack(direction);
             attackCooldown = attackCooldownMax;
         }
         attackCooldown -= Time.fixedDeltaTime;
@@ -119,7 +124,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void SetNewRandomVenture()
     {
-        randomVenture = Vector3.right * Random.Range(0.5f, 1);
+        randomVenture = transform.position + Vector3.right * Random.Range(0.5f, 1);
         randomVenture = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.back) * randomVenture;
     }
 

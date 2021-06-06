@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class AttackBaseClass : MonoBehaviour
 {
-    public virtual void Attack()
+    public virtual void Attack(float direction)
     {
         
     }

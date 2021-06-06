@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EnemyShoot : ShootBaseClass
 {
-    public override void Attack()
+    public override void Attack(float direction)
     {
-        CreateBullet(transform.position, transform.rotation, Stats);
+        CreateBullet(transform.position, direction);
     }
 }

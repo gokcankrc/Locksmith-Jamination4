@@ -35,9 +35,9 @@ public abstract class EntityBaseClass : MonoBehaviour
         moveClass.MoveTowards(destination, speedMultiplier);
     }
 
-    public virtual void Attack(Vector3 targetPosition)
+    public virtual void Attack(float direction)
     {
-        attackClass.Attack();
+        attackClass.Attack(direction);
     }
     
     public virtual void TakeDamage(float damage)
