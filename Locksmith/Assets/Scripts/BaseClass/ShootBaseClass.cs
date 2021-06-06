@@ -7,18 +7,19 @@ using UnityEngine.Serialization;
 public class ShootBaseClass : AttackBaseClass
 {
     [SerializeField] protected GameObject bulletPrefab;
-    [SerializeField] protected BulletStats Stats;
+    [SerializeField] protected ProjectileStats Stats;
     
     public override void Attack()
     {
         
     }
 
-    protected void CreateBullet(Vector3 pos, Quaternion dir, BulletStats stats)
+    // TODO; here probably doesn't work
+    protected void CreateBullet(Vector3 pos, Quaternion dir, ProjectileStats stats)
     {
         Instantiate(bulletPrefab);
-        var bullet = bulletPrefab.GetComponent<Bullet>();
-        bullet.Stats = stats;
+        var bullet = bulletPrefab.GetComponent<Projectile>();
+        bullet.stats = stats;
         bullet.transform.position = pos;
         bullet.transform.rotation = dir;
     }
@@ -26,7 +27,7 @@ public class ShootBaseClass : AttackBaseClass
 
 
 [Serializable]
-public class BulletStats
+public class ProjectileStats
 {
     public float Damage = 5;
     public float Speed = 3;

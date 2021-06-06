@@ -9,4 +9,10 @@ public abstract class AttackBaseClass : MonoBehaviour
     {
         
     }
+
+    public virtual void Collide()
+    {
+        
+    }
+    
 }
