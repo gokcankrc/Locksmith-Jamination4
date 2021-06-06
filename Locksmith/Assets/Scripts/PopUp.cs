@@ -33,9 +33,10 @@ public class PopUp : MonoBehaviour
 
     private void Update()
     {
-        float moveSpeedY = 2f;
-        float moveSpeedX = 1f;
+        float moveSpeedY = 0.8f;
+        float moveSpeedX = 0.4f;
         transform.position += new Vector3(moveSpeedX, moveSpeedY) * Time.deltaTime;
+        transform.position = transform.position + - transform.position.z * Vector3.forward + Vector3.back * 100;
 
         disappearTimer -= Time.deltaTime;
         if(disappearTimer < 0)

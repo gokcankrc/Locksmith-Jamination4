@@ -45,9 +45,13 @@ public class UIManager : MonoBehaviour
     private ResourceTypeSO fixaron;
 
     public List<GameObject> UIMenu;
+    public GameObject mainMenu;
+    private bool playButtonPressed;
 
     void Start()
     {
+        playButtonPressed = false;
+        
         #region Gate Menu
 
         gateMenu.gameObject.SetActive(false);
@@ -90,6 +94,7 @@ public class UIManager : MonoBehaviour
     {
         GateMenuControl();
         InventoryMenuControl();
+        MainMenuControl();
 
         if(Input.GetKeyDown(KeyCode.A))
         {
@@ -97,6 +102,25 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    
+    private void MainMenuControl()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (GameManager.Instance.isPaused)
+            {
+                Resume(inventoryMenu);
+                Resume(gateMenu);
+                Resume(mainMenu);
+            }
+            else
+            {
+                Pause(mainMenu);
+            }
+        }
+    }
+
+    
     private void GateMenuControl()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -105,6 +129,7 @@ public class UIManager : MonoBehaviour
             {
                 Resume(gateMenu);
                 Resume(inventoryMenu);
+                Resume(mainMenu);
             }
             else
             {
@@ -121,6 +146,7 @@ public class UIManager : MonoBehaviour
             {
                 Resume(inventoryMenu);
                 Resume(gateMenu);
+                Resume(mainMenu);
             }
             else
             {
