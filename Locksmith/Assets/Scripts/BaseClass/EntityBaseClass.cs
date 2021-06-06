@@ -84,7 +84,7 @@ public abstract class EntityBaseClass : MonoBehaviour
         attackClass.effects.list = _skill.list;
     }
 
-    public void GetKnockedBack(Projectile bullet)
+    public void GetKnockedBack(DamagingAbility bullet)
     {
         var a = GetComponent<BulletPush>();
         a.bullet = bullet;

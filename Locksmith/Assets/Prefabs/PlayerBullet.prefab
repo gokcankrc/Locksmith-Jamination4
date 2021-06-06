@@ -97,7 +97,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac847ee5204fc3d4eaa7d7b79518a5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burningGround: {fileID: 8041048687071648830, guid: 3754289372aa38644a45f612a0adf9db, type: 3}
+  burningGround: {fileID: 7729621981036513178, guid: c36b1c55c18e4e84abefd1cb372c9588, type: 3}
+  explosion: {fileID: 8628088223177077810, guid: 6d4d4d33116787a4b91f0cd1a0576b56, type: 3}
+  effects:
+    list: 00000000
+  burningGroundStats:
+    Damage: 0
+    Size: 0
+    Duration: 0
+  stats:
+    Damage: 0
+    Speed: 0
+    Size: 0
+    Duration: 0
 --- !u!50 &-1052513843602757624
 Rigidbody2D:
   serializedVersion: 4

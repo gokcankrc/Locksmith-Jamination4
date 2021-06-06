@@ -21,7 +21,8 @@ public class HealthBaseClass : MonoBehaviour
     public virtual float TakeDamage(float damageTaken)
     {
         health -= damageTaken;
-        popUp.Create(transform.position,  damageTaken.ToString());
+        var a =popUp.Create(transform.position,  damageTaken.ToString());
+        a.transform.position += Vector3.back * 10;
         
         if (health <= 0) Entity.Die();       
         return health;

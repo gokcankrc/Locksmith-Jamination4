@@ -60,3 +60,26 @@ public class ProjectileStats
 }
 
 
+[Serializable]
+public class BurningGroundStats
+{
+    public BurningGroundStats(BurningGroundStats stats)
+    {
+        Damage = stats.Damage;
+        Size = stats.Size;
+        Duration = stats.Duration;
+    }
+
+    public BurningGroundStats(float damage,float size,float duration)
+    {
+        Damage = damage;
+        Size = size;
+        Duration = duration;
+    }
+    
+    public float Damage = 5;
+    public float Size = 1;
+    public float Duration = 2.5f;
+}
+
+

@@ -10,7 +10,7 @@ public class BulletPush : Skill
     [SerializeField] private float pushSpeed;
     [SerializeField] private bool onCooldown;
 
-    [NonSerialized] public Projectile bullet;
+    [NonSerialized] public DamagingAbility bullet;
     
     private float pushCdTime;
     private EntityBaseClass entity;
