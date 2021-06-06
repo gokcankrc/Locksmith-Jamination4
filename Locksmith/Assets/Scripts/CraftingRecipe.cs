@@ -12,34 +12,39 @@ public class CraftingRecipe : ScriptableObject
 
     public bool CanCraft()
     {
-        foreach(Materials material in materials)
+        foreach (Materials material in materials)
         {
             bool containsCurrentMaterial = ResourceManager.Instance.ContainsItem(material.material, material.amount);
 
-            if(!containsCurrentMaterial)
+            if (!containsCurrentMaterial)
             {
-                return false; 
+                return false;
             }
         }
         return true;
-        result.isCrafted = true;
     }
 
     public void RemoveMaterialsFromList()
     {
-        foreach(Materials material in materials)
+        foreach (Materials material in materials)
         {
             ResourceManager.Instance.RemoveResource(material.material, material.amount);
         }
     }
 
-    //public void Use()
-    //{
-    //    if(CanCraft())
-    //    {
+    public void Use()
+    {
+        if (CanCraft())
+        {
+            RemoveMaterialsFromList();
 
-    //    }
-    //}
+            result.isCrafted = true;
+        }
+        else
+        {
+            Debug.Log("money is no");
+        }
+    }
 
     [Serializable]
     public class Materials
@@ -47,7 +52,7 @@ public class CraftingRecipe : ScriptableObject
         public ResourceTypeSO material;
         public int amount;
     }
- }
+}
 
 
 
