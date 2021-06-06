@@ -39,7 +39,7 @@ public class PlayerManager : EntityBaseClass
         {
             GetComponent<Dash>().UseSkill();
         }
-
+        /*
         if (Inputs.PushInput)
         {
             GetComponent<BulletPush>().UseSkill();
@@ -48,6 +48,16 @@ public class PlayerManager : EntityBaseClass
                 var direction = Vector3.SignedAngle(Vector3.right, facingDirection, Vector3.back);
                 Attack(direction);
             }
+        }*/
+        
+        if (Inputs.AddPushEffect)
+        {
+            Debug.Log("added or removed knockback skill");
+            Inputs.AddPushEffect = false;
+            
+            var _skill = new Effects();
+            _skill.KnockBack = true;
+            ToggleSkill(_skill);
         }
 
         Inputs.Flush();

@@ -8,7 +8,7 @@ public class ShootBaseClass : AttackBaseClass
 {
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] protected ProjectileStats Stats;
-    [SerializeField] protected Effects effects;
+    
 
     protected void Awake()
     {
@@ -59,26 +59,4 @@ public class ProjectileStats
     public float Duration = 2.5f;
 }
 
-[Serializable]
-public class Effects
-{
-    public Effects(Effects effects)
-    {
-        DealCollisionDamage = effects.DealCollisionDamage;
-        KnockBack = effects.KnockBack;
-        LeaveBurningGround = effects.LeaveBurningGround;
-        Explosion = effects.Explosion;
-    }
-    public Effects(bool[] array)
-    {
-        DealCollisionDamage = array[0];
-        KnockBack = array[1];
-        LeaveBurningGround = array[2];
-        Explosion = array[3];
-    }
-    
-    public bool DealCollisionDamage;
-    public bool KnockBack;
-    public bool LeaveBurningGround;
-    public bool Explosion;
-}
+

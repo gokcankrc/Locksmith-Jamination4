@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1295506388}
   - component: {fileID: -1213860591290848166}
   - component: {fileID: 556257909}
+  - component: {fileID: 4413899972389173217}
   m_Layer: 8
   m_Name: Player
   m_TagString: Ally
@@ -108,8 +109,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1780571067
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 77f5146a5e9cfba40b5876f9c1d8720d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -169,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1d1341c9b4bd745b2c7d282de7b836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AddPushEffect: 0
 --- !u!114 &9204076069866233825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popUp: {fileID: 1808435336179393639, guid: b660f79f76aac8541bd05fcae593d02e, type: 3}
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!114 &952594910483546781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,19 +210,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56af27d21540a9d45805faa14fa4c823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effects:
+    list: 01010000
   bulletPrefab: {fileID: 9217524693849605576, guid: 3d2b98caa2957504e92163a9997bcbc3, type: 3}
   Stats:
     Damage: 10
     Speed: 5
     Size: 1.5
     Duration: 0.5
-  effects:
-    DealCollisionDamage: 1
-    KnockBack: 0
-    LeaveBurningGround: 0
-    Explosion: 0
   attackCoolDownMax: 0.2
-  accuracyLoss: 0
+  accuracyLoss: 10
 --- !u!95 &1295506388
 Animator:
   serializedVersion: 3
@@ -285,4 +284,20 @@ MonoBehaviour:
   dashMaxDuration: 0.3
   dashMaxCdTime: 4
   entity: {fileID: 952594910483546782}
+  onCooldown: 0
+--- !u!114 &4413899972389173217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952594910483546777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ece77bd8f8d5e449af7fd72f101d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushMaxCdTime: 3
+  pushMaxDuration: 0.3
+  pushSpeed: 40
   onCooldown: 0

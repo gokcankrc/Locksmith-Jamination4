@@ -16,6 +16,9 @@ public class PlayerInputs : MonoBehaviour
     public bool FireInput { get => fireInput; }
     public bool DashInput { get => dashInput; }
     public bool PushInput { get => pushInput; }
+    public bool AddPushEffect;
+    
+    
 
 
     // Update is called once per frame
@@ -25,12 +28,14 @@ public class PlayerInputs : MonoBehaviour
         if (!fireInput) { fireInput = Input.GetKey(KeyCode.Mouse0); }
         if (!dashInput) { dashInput = Input.GetKeyDown(KeyCode.Space); }
         if (!pushInput) { pushInput = Input.GetKeyDown(KeyCode.T); }
+        if (!AddPushEffect) {AddPushEffect = Input.GetKeyDown(KeyCode.Y); }
     }
     
     private void MovementInput()
     {
         _moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _moveMultiplayer = _moveDirection.magnitude;
+
     }
 
     public void Flush()

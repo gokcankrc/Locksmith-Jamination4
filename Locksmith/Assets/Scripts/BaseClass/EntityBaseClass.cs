@@ -62,6 +62,34 @@ public abstract class EntityBaseClass : MonoBehaviour
     {
         healthClass.Heal(healAmount);
     }
-    
+
+    public void ToggleSkill(Effects skillAdd)
+    {
+        var _skill = new Effects(attackClass.effects);
+        for (int i = 0; i < skillAdd.list.Length; i++)
+        {
+            Debug.Log(skillAdd.list[i]);
+            Debug.Log(i);
+            // If true, toggle the skill
+            if (skillAdd.list[i])
+            {
+                Debug.Log("this is the toggled skill");
+                Debug.Log(_skill.list[i]);
+                _skill.list[i] = !_skill.list[i];
+                Debug.Log(_skill.list[i]);
+                Debug.Log("as");
+            }
+        }
+
+        attackClass.effects.list = _skill.list;
+    }
+
+    public void GetKnockedBack(Projectile bullet)
+    {
+        var a = GetComponent<BulletPush>();
+        a.bullet = bullet;
+        a.UseSkill();
+        
+    }
 }
 
