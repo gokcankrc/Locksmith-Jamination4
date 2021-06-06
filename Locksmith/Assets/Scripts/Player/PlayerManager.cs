@@ -6,8 +6,10 @@ using UnityEngine.EventSystems;
 public class PlayerManager : EntityBaseClass
 {
     [SerializeField] private PlayerInputs Inputs;
+    [SerializeField] private float firingSlowDown;
 
     private Vector2 facingDirection;
+
 
     public Vector3 MoveDirection => Inputs.MoveDirection;
     public float MoveMultiplayer => Inputs.MoveMultiplayer;
@@ -17,7 +19,9 @@ public class PlayerManager : EntityBaseClass
          
         if (MoveDirection.magnitude > 0.1f)
         {
-            MoveTowards(transform.position + MoveDirection, MoveMultiplayer);
+            var moveMulti = MoveMultiplayer;
+            if (Inputs.FireInput) { moveMulti *= firingSlowDown;}
+            MoveTowards(transform.position + MoveDirection, moveMulti);
             facingDirection = MoveDirection;
         }
         else

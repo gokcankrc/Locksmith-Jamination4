@@ -41,11 +41,11 @@ GameObject:
   - component: {fileID: 952594910483546783}
   - component: {fileID: 952594910483546776}
   - component: {fileID: 952594910483546780}
-  - component: {fileID: 952594910483546781}
   - component: {fileID: 952594910483546782}
-  - component: {fileID: 5554467944648243657}
   - component: {fileID: 952594910037995909}
   - component: {fileID: 9204076069866233825}
+  - component: {fileID: 952594910483546781}
+  - component: {fileID: 5554467944648243657}
   - component: {fileID: 1295506388}
   - component: {fileID: -1213860591290848166}
   - component: {fileID: 556257909}
@@ -143,19 +143,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &952594910483546781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952594910483546777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66432afae06aab141829429791db383f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 70
 --- !u!114 &952594910483546782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,30 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inputs: {fileID: 952594910037995909}
---- !u!114 &5554467944648243657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952594910483546777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56af27d21540a9d45805faa14fa4c823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 9217524693849605576, guid: 3d2b98caa2957504e92163a9997bcbc3, type: 3}
-  Stats:
-    Damage: 10
-    Speed: 5
-    Size: 1.5
-    Duration: 0.5
-  effects:
-    DealCollisionDamage: 1
-    KnockBack: 0
-    LeaveBurningGround: 0
-    Explosion: 0
-  attackCoolDownMax: 0.2
+  firingSlowDown: 0.6
 --- !u!114 &952594910037995909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +183,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUp: {fileID: 1808435336179393639, guid: b660f79f76aac8541bd05fcae593d02e, type: 3}
   maxHealth: 100
+--- !u!114 &952594910483546781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952594910483546777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66432afae06aab141829429791db383f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 70
+--- !u!114 &5554467944648243657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952594910483546777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56af27d21540a9d45805faa14fa4c823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 9217524693849605576, guid: 3d2b98caa2957504e92163a9997bcbc3, type: 3}
+  Stats:
+    Damage: 10
+    Speed: 5
+    Size: 1.5
+    Duration: 0.5
+  effects:
+    DealCollisionDamage: 1
+    KnockBack: 0
+    LeaveBurningGround: 0
+    Explosion: 0
+  attackCoolDownMax: 0.2
+  accuracyLoss: 0
 --- !u!95 &1295506388
 Animator:
   serializedVersion: 3

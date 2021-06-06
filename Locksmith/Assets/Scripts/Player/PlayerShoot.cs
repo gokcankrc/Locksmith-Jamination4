@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerShoot : ShootBaseClass
 {
     [SerializeField] private float attackCoolDownMax;
+    [SerializeField] private float accuracyLoss;
     private float attackCoolDown;
     private PlayerManager entity;
     private bool attackBuffer = false;
@@ -29,6 +31,8 @@ public class PlayerShoot : ShootBaseClass
     {
         if (attackCoolDown < 0)
         {
+            var movement = entity.MoveDirection.magnitude;
+            if (movement > 0.1f) direction += Random.Range(-accuracyLoss, accuracyLoss);
             CreateBullet(transform.position, direction);
             attackCoolDown = attackCoolDownMax;
             attackBuffer = false;
