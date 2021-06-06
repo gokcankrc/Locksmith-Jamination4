@@ -7,9 +7,15 @@ public class ResourceTypeSO : ScriptableObject
 {
     public enum ResourceType
     {
-        ObjectA,
-        ObjectB,
-        ObjectC
+        HermitStone,
+        AeroIron,
+        WaterStone,
+        HermoWaterStone,
+        IronStone,
+        AirStone,
+        HydroIronStone,
+        AeroWaterStone,
+        Fixaron
     }
 
     public ResourceType resourceType;

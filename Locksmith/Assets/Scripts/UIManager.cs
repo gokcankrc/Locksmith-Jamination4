@@ -6,6 +6,10 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+
+
+    [Header("Gate UI")]
+
     public GameObject gateMenu;
     public GateSO activeGate;
 
@@ -16,17 +20,43 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI positiveEffectsText;
     [SerializeField] private Button craftButton;
 
-    [SerializeField] private GameObject BrenitGate;
-    [SerializeField] private GameObject EarthGate;
-    [SerializeField] private GameObject GronorGate;
-    [SerializeField] private GameObject HermoorGate;
-    [SerializeField] private GameObject LiridianGate;
-    [SerializeField] private GameObject RahaGate;
-    [SerializeField] private GameObject WodasGate;
+    [Header("Inventory UI")]
+
+    public GameObject inventoryMenu;
+
+    [SerializeField] private TextMeshProUGUI hermitStoneAmountText;
+    [SerializeField] private TextMeshProUGUI WaterStoneAmountText;
+    [SerializeField] private TextMeshProUGUI HermoWaterAmountText;
+    [SerializeField] private TextMeshProUGUI HydroIronAmountText;
+    [SerializeField] private TextMeshProUGUI AirStoneAmountText;
+    [SerializeField] private TextMeshProUGUI IronStoneAmountText;
+    [SerializeField] private TextMeshProUGUI AeroWaterStoneAmountText;
+    [SerializeField] private TextMeshProUGUI AeroIronAmountText;
+    [SerializeField] private TextMeshProUGUI FixaronAmountText;
+
+    /*[SerializeField]*/
+    private ResourceTypeSO hermitStone;
+    /*[SerializeField]*/
+    private ResourceTypeSO waterStone;
+    /*[SerializeField]*/
+    private ResourceTypeSO hermoWater;
+    /*[SerializeField]*/
+    private ResourceTypeSO HydroIron;
+    /*[SerializeField]*/
+    private ResourceTypeSO airStone;
+    /*[SerializeField]*/
+    private ResourceTypeSO ironStone;
+    /*[SerializeField]*/
+    private ResourceTypeSO aeroWaterStone;
+    /*[SerializeField]*/
+    private ResourceTypeSO aeroIron;
+    /*[SerializeField]*/
+    private ResourceTypeSO fixaron;
+
+    public List<GameObject> UIMenu;
 
     void Start()
     {
-
 
         #region Gate Menu
 
@@ -41,38 +71,81 @@ public class UIManager : MonoBehaviour
         positiveEffectsText.text = activeGate.positiveEffectsDescription;
         #endregion
 
+        #region Inventory Menu
+        inventoryMenu.gameObject.SetActive(false);
+
+        hermitStone = Resources.Load<ResourceTypeSO>("HermitStone");
+        waterStone = Resources.Load<ResourceTypeSO>("WaterStone");
+        hermoWater = Resources.Load<ResourceTypeSO>("HermoWaterStone");
+        HydroIron = Resources.Load<ResourceTypeSO>("HydroIronStone");
+        ironStone = Resources.Load<ResourceTypeSO>("IronStone");
+        aeroWaterStone = Resources.Load<ResourceTypeSO>("AeroWaterStone");
+        aeroIron = Resources.Load<ResourceTypeSO>("AeroIron");
+        fixaron = Resources.Load<ResourceTypeSO>("Fixaron");
+        airStone = Resources.Load<ResourceTypeSO>("AirStone");
+
+        hermitStoneAmountText.text = hermitStone.amount.ToString();
+        WaterStoneAmountText.text = waterStone.amount.ToString();
+        HermoWaterAmountText.text = hermoWater.amount.ToString();
+        HydroIronAmountText.text = HydroIron.amount.ToString();
+        IronStoneAmountText.text = ironStone.amount.ToString();
+        AeroWaterStoneAmountText.text = aeroWaterStone.amount.ToString();
+        AeroIronAmountText.text = aeroIron.amount.ToString();
+        FixaronAmountText.text = fixaron.amount.ToString();
+        AirStoneAmountText.text = airStone.amount.ToString();
+
+
+        #endregion
+
     }
 
     void Update()
     {
-        InventoryControl();
+        GateMenuControl();
+        InventoryMenuControl();
     }
 
-    private void InventoryControl()
+    private void GateMenuControl()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (GameManager.Instance.isPaused)
             {
-                Resume();
+                Resume(gateMenu);
+                Resume(inventoryMenu);
             }
             else
             {
-                Pause();
+                Pause(gateMenu);
             }
         }
     }
 
-    private void Resume()
+    private void InventoryMenuControl()
     {
-        gateMenu.gameObject.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (GameManager.Instance.isPaused)
+            {
+                Resume(inventoryMenu);
+                Resume(gateMenu);
+            }
+            else
+            {
+                Pause(inventoryMenu);
+            }
+        }
+    }
+    private void Resume(GameObject UImenu)
+    {
+        UImenu.gameObject.SetActive(false);
         Time.timeScale = 1f;
         GameManager.Instance.isPaused = false;
     }
 
-    private void Pause()
+    private void Pause(GameObject UImenu)
     {
-        gateMenu.gameObject.SetActive(true);
+        UImenu.gameObject.SetActive(true);
         Time.timeScale = 0f;
         GameManager.Instance.isPaused = true;
     }
@@ -89,5 +162,7 @@ public class UIManager : MonoBehaviour
         if (activeGate.isCrafted) craftButton.interactable = false;
         else craftButton.interactable = true;
     }
+
+
 
 }

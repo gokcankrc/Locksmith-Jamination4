@@ -22,10 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!player.Dashing)
-        {
-            rb.velocity = moveDirection * (moveSpeed * Time.fixedDeltaTime);
-        }
+        //if (!player.Dashing)
+        //{
+        //    rb.velocity = moveDirection * (moveSpeed * Time.fixedDeltaTime);
+        //}
     }
     private void MovementInput()
     {
