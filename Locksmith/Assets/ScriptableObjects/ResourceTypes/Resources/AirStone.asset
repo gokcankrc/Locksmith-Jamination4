@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2298380bc04ac244b943c588ef493d01, type: 3}
   m_Name: AirStone
   m_EditorClassIdentifier: 
-  resourceType: 4
-  amount: 2
+  resourceType: 5
+  amount: 50

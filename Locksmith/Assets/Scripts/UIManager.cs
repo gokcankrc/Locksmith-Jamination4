@@ -90,6 +90,11 @@ public class UIManager : MonoBehaviour
     {
         GateMenuControl();
         InventoryMenuControl();
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log(activeGate.gateRecipe.CanCraft());
+        }
     }
 
     private void GateMenuControl()
@@ -147,9 +152,18 @@ public class UIManager : MonoBehaviour
         adverseEffectsText.text = activeGate.adverseEffectsDescription;
         positiveEffectsText.text = activeGate.positiveEffectsDescription;
 
-        if (activeGate.isCrafted) craftButton.interactable = false;
-        else if (!activeGate.gateRecipe.CanCraft()) craftButton.interactable = false;
-        else craftButton.interactable = true;
+        if (activeGate.isCrafted)
+        {
+            craftButton.interactable = false;
+        }
+        else if (!activeGate.gateRecipe.CanCraft())
+        {
+            craftButton.interactable = false;
+        }
+        else
+        {
+            craftButton.interactable = true;
+        }
     }
 
     public void CraftButton()

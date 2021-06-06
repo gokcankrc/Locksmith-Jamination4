@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2298380bc04ac244b943c588ef493d01, type: 3}
   m_Name: AeroWaterStone
   m_EditorClassIdentifier: 
-  resourceType: 6
-  amount: 8
+  resourceType: 7
+  amount: 50

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Metacore
   m_EditorClassIdentifier: 
   resourceType: 9
-  amount: 0
+  amount: 50

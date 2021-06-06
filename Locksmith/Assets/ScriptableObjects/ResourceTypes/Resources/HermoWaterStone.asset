@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2298380bc04ac244b943c588ef493d01, type: 3}
   m_Name: HermoWaterStone
   m_EditorClassIdentifier: 
-  resourceType: 2
-  amount: 4
+  resourceType: 3
+  amount: 50

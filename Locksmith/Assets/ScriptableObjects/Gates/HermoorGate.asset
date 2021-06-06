@@ -18,4 +18,5 @@ MonoBehaviour:
   gateRequirementDescription: 1 Armut 2 Elma
   adverseEffectsDescription: blablablabla
   positiveEffectsDescription: blablablabla
+  gateRecipe: {fileID: 11400000, guid: f98903ba9c0a3764fb35becdb615b015, type: 2}
   isCrafted: 1

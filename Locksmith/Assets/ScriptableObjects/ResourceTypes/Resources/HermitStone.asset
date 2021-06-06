@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HermitStone
   m_EditorClassIdentifier: 
   resourceType: 0
-  amount: 7
+  amount: 0

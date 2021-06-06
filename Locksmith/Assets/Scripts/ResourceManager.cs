@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance { get; private set; }
-    ResourceTypeListSO resourceTypeList;
+    public ResourceTypeListSO resourceTypeList;
 
     public delegate void OnItemChange();
     public OnItemChange onItemChange = delegate { };
@@ -49,16 +49,16 @@ public class ResourceManager : MonoBehaviour
 
     public bool ContainsItem(ResourceTypeSO resource, int amount)
     {
-        int resourceCounter = 0;
+        int neededResource = 0;
         foreach (ResourceTypeSO r in resourceTypeList.list)
         {
             if (r == resource)
             {
-                resourceCounter++;
+                neededResource = r.amount;
             }
         }
 
-        if (resourceCounter >= amount)
+        if (neededResource >= amount)
         {
             return true;
         }

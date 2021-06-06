@@ -18,5 +18,5 @@ MonoBehaviour:
   gateRequirementDescription: 1 Apple, 2 Grape
   adverseEffectsDescription: blabla
   positiveEffectsDescription: blabla
-  gateRecipe: {fileID: 0}
+  gateRecipe: {fileID: 11400000, guid: c80cd35c483c321468154d9a5731f2db, type: 2}
   isCrafted: 0
