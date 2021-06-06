@@ -16,6 +16,7 @@ public abstract class EntityBaseClass : MonoBehaviour
     [NonSerialized] public MovementBaseClass moveClass;
     [NonSerialized] public AttackBaseClass attackClass;
     protected bool dashing;
+    protected bool pushing;
 
     private void Start()
     {
@@ -28,6 +29,12 @@ public abstract class EntityBaseClass : MonoBehaviour
     {
         get => dashing;
         set => dashing = value;
+    }
+
+    public bool Pushing
+    {
+        get => pushing;
+        set => pushing = value;
     }
 
     public virtual void MoveTowards(Vector3 destination, float speedMultiplier=1f)

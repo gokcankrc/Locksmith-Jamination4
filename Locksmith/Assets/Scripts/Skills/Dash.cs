@@ -57,11 +57,19 @@ public class Dash : Skill
                 Vector2 entityPos = cam.WorldToScreenPoint(transform.position);
                 direction = mousePos - entityPos;
                 direction.Normalize();
+                if(direction == Vector2.zero)
+                {
+                    direction = Vector2.right;
+                }
                 rb.velocity = direction * dashSpeed;
             }
             else if (mode == 1) //Player direction
             {
                 direction = rb.velocity.normalized;
+                if (direction == Vector2.zero)
+                {
+                    direction = Vector2.right;
+                }
                 rb.velocity = direction * dashSpeed;
             }
         }

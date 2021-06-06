@@ -18,7 +18,7 @@ public abstract class MovementBaseClass : MonoBehaviour
     
     public void MoveTowards(Vector3 destination, float speedMultiplier=1f)
     {
-        if (!entity.Dashing)
+        if (!entity.Dashing && !entity.Pushing)
         {
             var direction = (destination - transform.position).normalized;
             var velocity = direction * (speedMultiplier * moveSpeed * Time.fixedDeltaTime);
@@ -26,7 +26,7 @@ public abstract class MovementBaseClass : MonoBehaviour
         }
         else
         {
-            Debug.Log("dashing");
+            Debug.Log("dashing or pushing");
         }
     }
 

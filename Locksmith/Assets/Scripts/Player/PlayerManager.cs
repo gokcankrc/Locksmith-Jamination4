@@ -30,7 +30,6 @@ public class PlayerManager : EntityBaseClass
         }
         if (Inputs.FireInput)
         {
-            
             // attacks in direction player is facing
             var direction = Vector3.SignedAngle(Vector3.right,facingDirection, Vector3.back);
             Attack(direction);
@@ -39,6 +38,16 @@ public class PlayerManager : EntityBaseClass
         if (Inputs.DashInput)
         {
             GetComponent<Dash>().UseSkill();
+        }
+
+        if (Inputs.PushInput)
+        {
+            GetComponent<BulletPush>().UseSkill();
+            if (pushing)
+            {
+                var direction = Vector3.SignedAngle(Vector3.right, facingDirection, Vector3.back);
+                Attack(direction);
+            }
         }
 
         Inputs.Flush();
