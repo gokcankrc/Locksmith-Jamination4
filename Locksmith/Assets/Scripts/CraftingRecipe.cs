@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+[CreateAssetMenu(menuName = "ScriptableObjects/BaseItem")]
+public class CraftingRecipe : ScriptableObject
+{
+    public GateSO result;
+    public Materials[] materials;
+
+    public bool CanCraft()
+    {
+        foreach(Materials material in materials)
+        {
+            bool containsCurrentMaterial = ResourceManager.Instance.ContainsItem(material.material, material.amount);
+
+            if(!containsCurrentMaterial)
+            {
+                return false; 
+            }
+        }
+        return true;
+        result.isCrafted = true;
+    }
+
+    public void RemoveMaterialsFromList()
+    {
+        foreach(Materials material in materials)
+        {
+            ResourceManager.Instance.RemoveResource(material.material, material.amount);
+        }
+    }
+
+    //public void Use()
+    //{
+    //    if(CanCraft())
+    //    {
+
+    //    }
+    //}
+
+    [Serializable]
+    public class Materials
+    {
+        public ResourceTypeSO material;
+        public int amount;
+    }
+ }
+
+
+
+

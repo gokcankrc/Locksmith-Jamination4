@@ -1,47 +1,77 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class ResourceManager : MonoBehaviour
-//{
-//    public static ResourceManager Instance { get; private set; }
+public class ResourceManager : MonoBehaviour
+{
+    public static ResourceManager Instance { get; private set; }
+    ResourceTypeListSO resourceTypeList;
 
-//    private Dictionary<ResourceTypeSO, int> resourceAmountDictionary;
+    public delegate void OnItemChange();
+    public OnItemChange onItemChange = delegate { };
 
-//    private void Awake()
-//    {
-//        Instance = this;
 
-//        resourceAmountDictionary = new Dictionary<ResourceTypeSO, int>();
+    private void Awake()
+    {
+        Instance = this;
 
-//        ResourceTypeListSO resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
+        resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
+    }
 
-//        foreach (ResourceTypeSO resourceType in resourceTypeList.list)
-//        {
-//            resourceAmountDictionary[resourceType] = 0;
-//        }
-//    }
+    private void Update()
+    {
 
-//    private void Update()
-//    {
-//        //if(Input.GetKeyDown(KeyCode.Space))
-//        //{
-//        //    ResourceTypeListSO resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
-//        //    AddResource(resourceTypeList.list[0], 2);
-//        //    TestLogResourceAmountDictionary();
-//        //}
-//    }
+    }
 
-//    private void TestLogResourceAmountDictionary()
-//    {
-//        foreach(ResourceTypeSO resourceType in resourceAmountDictionary.Keys)
-//        {
-//            Debug.Log(resourceType.name + ": " + resourceType.amount);
-//        }
-//    }
+    public void AddResource(ResourceTypeSO resourceType, int amount)
+    {
+        resourceType.amount += amount;
+    }
 
-//    public void AddResource(ResourceTypeSO resourceType, int amount)
-//    {
-//        resourceType.amount += amount;
-//    }
-//}
+    public void RemoveResource(ResourceTypeSO resourceType, int amount)
+    {
+        if (resourceType.amount <= 0)
+        {
+            resourceType.amount -= amount;
+        }
+    }
+
+    public void AddResource(ResourceTypeSO resource)
+    {
+        resourceTypeList.list.Add(resource);
+        onItemChange.Invoke();
+    }
+    public void RemoveResource(ResourceTypeSO resource)
+    {
+        resourceTypeList.list.Remove(resource);
+        onItemChange.Invoke();
+    }
+    public bool ContainsItem(ResourceTypeSO resource, int amount)
+    {
+        int resourceCounter = 0;
+        foreach (ResourceTypeSO r in resourceTypeList.list)
+        {
+            if (r == resource)
+            {
+                resourceCounter++;
+            }
+        }
+
+        if (resourceCounter >= amount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void RemoveResources(ResourceTypeSO resource, int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            RemoveResource(resource);
+        }
+    }
+}

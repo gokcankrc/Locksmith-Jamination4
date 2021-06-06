@@ -34,30 +34,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI AeroIronAmountText;
     [SerializeField] private TextMeshProUGUI FixaronAmountText;
 
-    /*[SerializeField]*/
     private ResourceTypeSO hermitStone;
-    /*[SerializeField]*/
     private ResourceTypeSO waterStone;
-    /*[SerializeField]*/
     private ResourceTypeSO hermoWater;
-    /*[SerializeField]*/
     private ResourceTypeSO HydroIron;
-    /*[SerializeField]*/
     private ResourceTypeSO airStone;
-    /*[SerializeField]*/
     private ResourceTypeSO ironStone;
-    /*[SerializeField]*/
     private ResourceTypeSO aeroWaterStone;
-    /*[SerializeField]*/
     private ResourceTypeSO aeroIron;
-    /*[SerializeField]*/
     private ResourceTypeSO fixaron;
 
     public List<GameObject> UIMenu;
 
     void Start()
     {
-
         #region Gate Menu
 
         gateMenu.gameObject.SetActive(false);
@@ -80,7 +70,7 @@ public class UIManager : MonoBehaviour
         HydroIron = Resources.Load<ResourceTypeSO>("HydroIronStone");
         ironStone = Resources.Load<ResourceTypeSO>("IronStone");
         aeroWaterStone = Resources.Load<ResourceTypeSO>("AeroWaterStone");
-        aeroIron = Resources.Load<ResourceTypeSO>("AeroIron");
+        aeroIron = Resources.Load<ResourceTypeSO>("AeroIronStone");
         fixaron = Resources.Load<ResourceTypeSO>("Fixaron");
         airStone = Resources.Load<ResourceTypeSO>("AirStone");
 
@@ -93,10 +83,7 @@ public class UIManager : MonoBehaviour
         AeroIronAmountText.text = aeroIron.amount.ToString();
         FixaronAmountText.text = fixaron.amount.ToString();
         AirStoneAmountText.text = airStone.amount.ToString();
-
-
         #endregion
-
     }
 
     void Update()
@@ -136,6 +123,7 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
     private void Resume(GameObject UImenu)
     {
         UImenu.gameObject.SetActive(false);
@@ -163,6 +151,13 @@ public class UIManager : MonoBehaviour
         else craftButton.interactable = true;
     }
 
-
-
+    public void CraftButton()
+    {
+        if (activeGate.gateRecipe.CanCraft())
+        {
+            craftButton.interactable = true;
+        }
+        activeGate.isCrafted = true;
+        activeGate.gateRecipe.RemoveMaterialsFromList();
+    }
 }

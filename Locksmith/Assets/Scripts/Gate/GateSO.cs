@@ -11,5 +11,6 @@ public class GateSO : ScriptableObject
     public string adverseEffectsDescription;
     public string positiveEffectsDescription;
 
+    public CraftingRecipe gateRecipe;
     public bool isCrafted;
 }

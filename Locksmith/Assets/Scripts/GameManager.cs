@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused;
 
+    public List<CraftingRecipe> craftingRecipes;
+    public List<GateSO> craftedGates;
+
 
     private void Awake()
     {

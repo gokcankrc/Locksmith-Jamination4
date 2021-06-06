@@ -273,6 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 216850555}
   isPaused: 0
+  craftingRecipes: []
+  craftedGates: []
 --- !u!4 &47445539
 Transform:
   m_ObjectHideFlags: 0
@@ -748,7 +750,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 50
-  player: {fileID: 0}
 --- !u!212 &216850551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -874,6 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a529c0cf09ece9743bd557142a9fe34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Inputs: {fileID: 0}
 --- !u!114 &216850556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,7 +902,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 50
-  player: {fileID: 216850555}
 --- !u!1 &227027700
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,13 +2640,17 @@ MonoBehaviour:
   adverseEffectsText: {fileID: 769453095}
   positiveEffectsText: {fileID: 1838223700}
   craftButton: {fileID: 41280072}
-  BrenitGate: {fileID: 0}
-  EarthGate: {fileID: 0}
-  GronorGate: {fileID: 0}
-  HermoorGate: {fileID: 0}
-  LiridianGate: {fileID: 0}
-  RahaGate: {fileID: 0}
-  WodasGate: {fileID: 0}
+  inventoryMenu: {fileID: 1055044121}
+  hermitStoneAmountText: {fileID: 124692340}
+  WaterStoneAmountText: {fileID: 798292056}
+  HermoWaterAmountText: {fileID: 747738575}
+  HydroIronAmountText: {fileID: 390480096}
+  AirStoneAmountText: {fileID: 1712252191}
+  IronStoneAmountText: {fileID: 480007102}
+  AeroWaterStoneAmountText: {fileID: 2143762900}
+  AeroIronAmountText: {fileID: 161170324}
+  FixaronAmountText: {fileID: 648860024}
+  UIMenu: []
 --- !u!4 &761538716
 Transform:
   m_ObjectHideFlags: 0

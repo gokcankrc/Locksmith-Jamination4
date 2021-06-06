@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86c18dabaf8d2944911ff26a1b8bba9, type: 3}
+  m_Name: GronorGateRecipe
+  m_EditorClassIdentifier: 
+  result: {fileID: 11400000, guid: c7f5fb22124b612429d125088c3bee18, type: 2}
+  materials:
+  - material: {fileID: 11400000, guid: 3ced730ebc2353e40bdcdc5e1fc51da2, type: 2}
+    amount: 1
+  - material: {fileID: 11400000, guid: ed18087cc99889f458e49dbba4d0faff, type: 2}
+    amount: 5
+  - material: {fileID: 11400000, guid: 4fd2044a258c66f4c8bb689308ab9ad8, type: 2}
+    amount: 10
+  - material: {fileID: 11400000, guid: 51231f3bfdfdf96478a6ca01a50d698b, type: 2}
+    amount: 10
