@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="ScriptableObjects/GateListSO")]
+[CreateAssetMenu(menuName ="ScriptableObjects/List/GateListSO")]
 public class GateListSO : ScriptableObject
 {
     public List<GateSO> list;
