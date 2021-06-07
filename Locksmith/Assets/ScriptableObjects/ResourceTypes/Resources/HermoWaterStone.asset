@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HermoWaterStone
   m_EditorClassIdentifier: 
   resourceType: 3
-  amount: 50
+  amount: 30

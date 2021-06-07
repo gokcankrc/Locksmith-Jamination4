@@ -6,8 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-
-
+    #region Gate UI
     [Header("Gate UI")]
 
     public GameObject gateMenu;
@@ -19,7 +18,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI adverseEffectsText;
     [SerializeField] private TextMeshProUGUI positiveEffectsText;
     [SerializeField] private Button craftButton;
+    #endregion
 
+    #region Inventory UI 
     [Header("Inventory UI")]
 
     public GameObject inventoryMenu;
@@ -33,7 +34,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI AeroWaterStoneAmountText;
     [SerializeField] private TextMeshProUGUI AeroIronAmountText;
     [SerializeField] private TextMeshProUGUI FixaronAmountText;
+    #endregion
 
+    #region ResourceTypes
     private ResourceTypeSO hermitStone;
     private ResourceTypeSO waterStone;
     private ResourceTypeSO hermoWater;
@@ -43,14 +46,12 @@ public class UIManager : MonoBehaviour
     private ResourceTypeSO aeroWaterStone;
     private ResourceTypeSO aeroIron;
     private ResourceTypeSO fixaron;
+    #endregion
 
-    public List<GameObject> UIMenu;
     public GameObject mainMenu;
-    private bool playButtonPressed;
 
     void Start()
     {
-        playButtonPressed = false;
 
         #region Gate Menu
 
@@ -95,16 +96,9 @@ public class UIManager : MonoBehaviour
         GateMenuControl();
         InventoryMenuControl();
         MainMenuControl();
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log(activeGate.gateRecipe.CanCraft());
-            // Debug.Log(activeGate.gateRecipe.CanCraft());
-            // Debug.Log(ResourceManager.Instance.ContainsItem(airStone, 30));
-        }
     }
 
-
+    // Menu Control metodlarının hepsi gözden geçirelecek, nihai sonuç bu değil.
     private void MainMenuControl()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -122,6 +116,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Menu Control metodlarının hepsi gözden geçirelecek, nihai sonuç bu değil.
     private void GateMenuControl()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -139,6 +134,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Menu Control metodlarının hepsi gözden geçirelecek, nihai sonuç bu değil.
     private void InventoryMenuControl()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -178,27 +174,27 @@ public class UIManager : MonoBehaviour
         gateRequirement.text = activeGate.gateRequirementDescription;
         adverseEffectsText.text = activeGate.adverseEffectsDescription;
         positiveEffectsText.text = activeGate.positiveEffectsDescription;
-           
-        //if (activeGate.isCrafted)
-        //{
-        //    craftButton.interactable = false;
-        //}
-        //else if (!activeGate.gateRecipe.CanCraft())
-        //{
-        //    craftButton.interactable = false;
-        //}
-        //else
-        //{
-        //    craftButton.interactable = true;
-        //}
+
+        if (activeGate.isCrafted)
+        {
+            craftButton.interactable = false;
+        }
+        else if (!activeGate.gateRecipe.CanCraft())
+        {
+            craftButton.interactable = false;
+        }
+        else
+        {
+            craftButton.interactable = true;
+        }
     }
 
-    //public void CraftButton()
-    //{
-    //    if (activeGate.gateRecipe.CanCraft())
-    //    {
-    //        craftButton.interactable = true;
-    //        activeGate.gateRecipe.Use();
-    //    }
-    //}
+    public void CraftButton()
+    {
+        if (activeGate.gateRecipe.CanCraft())
+        {
+            craftButton.interactable = false;
+            activeGate.gateRecipe.Use();
+        }
+    }
 }

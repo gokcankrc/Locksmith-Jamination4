@@ -15,7 +15,7 @@ public class CraftingRecipe : ScriptableObject
         foreach (Materials material in materials)
         {
             bool containsCurrentMaterial = ResourceManager.Instance.ContainsItem(material.material, material.amount);
-            
+
             if (!containsCurrentMaterial)
             {
                 return false;
@@ -29,7 +29,7 @@ public class CraftingRecipe : ScriptableObject
     {
         foreach (Materials material in materials)
         {
-            ResourceManager.Instance.RemoveResource(material.material, material.amount);
+            ResourceManager.Instance.RemoveResources(material.material, material.amount);
         }
     }
 
@@ -51,7 +51,8 @@ public class CraftingRecipe : ScriptableObject
     public class Materials
     {
         public ResourceTypeSO material;
-       /* kapı için gerekli miktar */ public int amount;
+        /* kapı için gerekli miktar */
+        public int amount;
     }
 }
 
