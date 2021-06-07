@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         playButtonPressed = false;
-        
+
         #region Gate Menu
 
         gateMenu.gameObject.SetActive(false);
@@ -96,13 +96,15 @@ public class UIManager : MonoBehaviour
         InventoryMenuControl();
         MainMenuControl();
 
-        if(Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log(activeGate.gateRecipe.CanCraft());
+            // Debug.Log(activeGate.gateRecipe.CanCraft());
+            // Debug.Log(ResourceManager.Instance.ContainsItem(airStone, 30));
         }
     }
 
-    
+
     private void MainMenuControl()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -120,7 +122,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    
     private void GateMenuControl()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -177,27 +178,27 @@ public class UIManager : MonoBehaviour
         gateRequirement.text = activeGate.gateRequirementDescription;
         adverseEffectsText.text = activeGate.adverseEffectsDescription;
         positiveEffectsText.text = activeGate.positiveEffectsDescription;
-
-        if (activeGate.isCrafted)
-        {
-            craftButton.interactable = false;
-        }
-        else if (!activeGate.gateRecipe.CanCraft())
-        {
-            craftButton.interactable = false;
-        }
-        else
-        {
-            craftButton.interactable = true;
-        }
+           
+        //if (activeGate.isCrafted)
+        //{
+        //    craftButton.interactable = false;
+        //}
+        //else if (!activeGate.gateRecipe.CanCraft())
+        //{
+        //    craftButton.interactable = false;
+        //}
+        //else
+        //{
+        //    craftButton.interactable = true;
+        //}
     }
 
-    public void CraftButton()
-    {
-        if (activeGate.gateRecipe.CanCraft())
-        {
-            craftButton.interactable = true;
-            activeGate.gateRecipe.Use();
-        }
-    }
+    //public void CraftButton()
+    //{
+    //    if (activeGate.gateRecipe.CanCraft())
+    //    {
+    //        craftButton.interactable = true;
+    //        activeGate.gateRecipe.Use();
+    //    }
+    //}
 }

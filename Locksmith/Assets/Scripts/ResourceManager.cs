@@ -49,16 +49,19 @@ public class ResourceManager : MonoBehaviour
 
     public bool ContainsItem(ResourceTypeSO resource, int amount)
     {
-        int neededResource = 0;
-        foreach (ResourceTypeSO r in resourceTypeList.list)
+        int containAmount = 0;
+
+        foreach (ResourceTypeSO res in resourceTypeList.list)
         {
-            if (r == resource)
+            if (resource == res)
             {
-                neededResource = r.amount;
+                containAmount = res.amount;
             }
         }
 
-        if (neededResource >= amount)
+        Debug.Log(containAmount);
+
+        if (containAmount >= amount)
         {
             return true;
         }

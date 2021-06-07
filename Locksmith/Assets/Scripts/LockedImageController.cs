@@ -10,7 +10,7 @@ public class LockedImageController : MonoBehaviour
 
     private void Update()
     {
-        if (gateType.isCrafted)
+        if (gateType.isCrafted )
         {
             lockedImage.gameObject.SetActive(false);
         }

@@ -2475,6 +2475,7 @@ MonoBehaviour:
   AeroIronAmountText: {fileID: 161170324}
   FixaronAmountText: {fileID: 648860024}
   UIMenu: []
+  mainMenu: {fileID: 1055044121}
 --- !u!4 &761538716
 Transform:
   m_ObjectHideFlags: 0
