@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815a3324877b6444faf984932cd4974f, type: 3}
   m_Name: HermoorGate
   m_EditorClassIdentifier: 
+  gateType: 0
   gateName: Hermoor Gate
   gateDescription: 'Blabla Blabla Blabla Blabla Blabla Blabla Blabla Blabla Blabla
     Blabla Blabla Blabla Blabla Blabla Blabla '
@@ -19,4 +20,4 @@ MonoBehaviour:
   adverseEffectsDescription: blablablabla
   positiveEffectsDescription: blablablabla
   gateRecipe: {fileID: 11400000, guid: f98903ba9c0a3764fb35becdb615b015, type: 2}
-  isCrafted: 0
+  isCrafted: 1

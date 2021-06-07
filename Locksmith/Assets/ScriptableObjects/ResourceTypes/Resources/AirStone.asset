@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AirStone
   m_EditorClassIdentifier: 
   resourceType: 5
-  amount: 50
+  amount: 90

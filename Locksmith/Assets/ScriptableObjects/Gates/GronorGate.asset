@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815a3324877b6444faf984932cd4974f, type: 3}
   m_Name: GronorGate
   m_EditorClassIdentifier: 
+  gateType: 2
   gateName: Ghonor Gate
   gateDescription: 'Ghonor Gate Ghonor Gate Ghonor Gate Ghonor Gate Ghonor Gate Ghonor
     Gate '
@@ -19,4 +20,4 @@ MonoBehaviour:
   adverseEffectsDescription: blabla
   positiveEffectsDescription: blabla
   gateRecipe: {fileID: 11400000, guid: 663068cec40f2e448ab592f8a88d6022, type: 2}
-  isCrafted: 1
+  isCrafted: 0

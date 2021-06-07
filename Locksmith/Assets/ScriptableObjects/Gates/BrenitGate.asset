@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815a3324877b6444faf984932cd4974f, type: 3}
   m_Name: BrenitGate
   m_EditorClassIdentifier: 
+  gateType: 6
   gateName: Brenit Gate
   gateDescription: 'Brenit Gate Brenit Gate Brenit Gate Brenit Gate Brenit Gate Brenit
     Gate Brenit Gate '

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AeroWaterStone
   m_EditorClassIdentifier: 
   resourceType: 7
-  amount: 50
+  amount: 75

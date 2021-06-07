@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815a3324877b6444faf984932cd4974f, type: 3}
   m_Name: WodasGate
   m_EditorClassIdentifier: 
+  gateType: 4
   gateName: Wodas Gate
   gateDescription: 'Wodas Gate Wodas Gate Wodas Gate Wodas Gate Wodas Gate '
   gateRequirementDescription: 6 Apple, 3 Pear
   adverseEffectsDescription: blablablabla
   positiveEffectsDescription: blablablablablabla
   gateRecipe: {fileID: 11400000, guid: 3b52cfc4c251e744f88881804941f871, type: 2}
-  isCrafted: 1
+  isCrafted: 0

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815a3324877b6444faf984932cd4974f, type: 3}
   m_Name: RahaGate
   m_EditorClassIdentifier: 
+  gateType: 3
   gateName: Raha Gate
   gateDescription: 'Raha Gate Raha Gate Raha Gate Raha Gate Raha Gate Raha Gate '
   gateRequirementDescription: 4 Stone, 3 Wood

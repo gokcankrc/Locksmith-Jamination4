@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce99442e69c67b488797ea471e66a67, type: 3}
   m_Name: GateListSO
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - {fileID: 11400000, guid: 92e75be3a06d30644a866673c62b914a, type: 2}
+  - {fileID: 11400000, guid: 371cd2e12f56a8f429806d5ca5b772c7, type: 2}
+  - {fileID: 11400000, guid: c7f5fb22124b612429d125088c3bee18, type: 2}
+  - {fileID: 11400000, guid: 8f96f0d47d8c9ba44a09f0f4f09f1ee3, type: 2}
+  - {fileID: 11400000, guid: aff7213d8d2b1c848a0a5c605f5a7af6, type: 2}
+  - {fileID: 11400000, guid: 01d05a0285c3eaf4f95f34db48025db2, type: 2}
+  - {fileID: 11400000, guid: b1fada1020471a64eb58c60e36a90e46, type: 2}
