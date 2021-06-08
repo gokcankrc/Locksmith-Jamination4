@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 680628081523237538}
   - component: {fileID: 7965254628782179095}
   - component: {fileID: 3745258202933165583}
-  - component: {fileID: 9158745981774703380}
   - component: {fileID: 7248245406368578653}
+  - component: {fileID: 9158745981774703380}
   - component: {fileID: 2053801515612937262}
   m_Layer: 8
   m_Name: EnemyShooter
@@ -169,26 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 30
---- !u!114 &9158745981774703380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5832823051974618661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1eaf0c67365324cb0040ea9a95e27b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects:
-    list: 01000000
-  bulletPrefab: {fileID: 9217524693849605576, guid: 7db206240a3c65a49985f2b743e27e58, type: 3}
-  Stats:
-    Damage: 5
-    Speed: 2
-    Size: 1
-    Duration: 2.5
 --- !u!61 &7248245406368578653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -215,6 +195,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39, y: 0.44}
   m_EdgeRadius: 0
+--- !u!114 &9158745981774703380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5832823051974618661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1eaf0c67365324cb0040ea9a95e27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+    list: 01000000
+  bulletPrefab: {fileID: 9217524693849605576, guid: 7db206240a3c65a49985f2b743e27e58, type: 3}
+  Stats:
+    Damage: 5
+    Speed: 2
+    Size: 1
+    Duration: 2.5
 --- !u!114 &2053801515612937262
 MonoBehaviour:
   m_ObjectHideFlags: 0

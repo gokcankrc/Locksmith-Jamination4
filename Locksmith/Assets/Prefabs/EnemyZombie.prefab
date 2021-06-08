@@ -138,7 +138,7 @@ MonoBehaviour:
   attackRange: 0.7
   detectionRange: 2
   alertDistance: 3
-  disengageDistance: 0
+  disengageDistance: 4
   attackCooldownMax: 4
   minCloseEnoughDistance: 0.4
   _state: 0
