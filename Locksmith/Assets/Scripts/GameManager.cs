@@ -13,8 +13,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-
     public bool isPaused;
+
+    [SerializeField] private bool debugDisplay;
+    [SerializeField] private GameObject debugCanvas;
 
     public List<CraftingRecipe> craftingRecipes;
     public List<GateSO> craftedGates;
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        if (debugDisplay) debugCanvas.SetActive(true);
     }
 
     // Start is called before the first frame update
