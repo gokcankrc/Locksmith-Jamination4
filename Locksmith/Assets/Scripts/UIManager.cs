@@ -6,6 +6,8 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance;
+
     #region Gate UI
     [Header("Gate UI")]
 
@@ -62,8 +64,10 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+
         gateList = Resources.Load<GateListSO>(typeof(GateListSO).Name);
-            }
+    }
     void Start()
     {
         #region Gate Menu
@@ -112,32 +116,32 @@ public class UIManager : MonoBehaviour
         GateMenuControl();
         InventoryMenuControl();
         MainMenuControl();
-           
+
     }
     private void OnGateCrafted(GateSO result)
     {
         switch (result.gateType)
         {
             case GateType.Hermoor:
-                ChangeVisibility(hermoorGateImage, 1);
+                ChangeVisibility(hermoorGateImage, .5f);
                 break;
             case GateType.Earth:
-                ChangeVisibility(earthGateImage, 1);
+                ChangeVisibility(earthGateImage, .5f);
                 break;
             case GateType.Gronor:
-                ChangeVisibility(gronorGateImage, 1);
+                ChangeVisibility(gronorGateImage, .5f);
                 break;
             case GateType.Raha:
-                ChangeVisibility(rahaGateImage, 1);
+                ChangeVisibility(rahaGateImage, .5f);
                 break;
             case GateType.Wodas:
-                ChangeVisibility(wodasGateImage, 1);
+                ChangeVisibility(wodasGateImage, .5f);
                 break;
             case GateType.Liridian:
-                ChangeVisibility(liridianGateImage, 1);
+                ChangeVisibility(liridianGateImage, .5f);
                 break;
             case GateType.Brenit:
-                ChangeVisibility(brenitGateImage, 1);
+                ChangeVisibility(brenitGateImage, .5f);
                 break;
             default:
                 break;
@@ -149,6 +153,35 @@ public class UIManager : MonoBehaviour
         foreach (GateSO gateSO in gateList.list)
         {
             if (!gateSO.isCrafted)
+            {
+                switch (gateSO.gateType)
+                {
+                    case GateType.Hermoor:
+                        ChangeVisibility(hermoorGateImage, .1f);
+                        break;
+                    case GateType.Earth:
+                        ChangeVisibility(earthGateImage, .1f);
+                        break;
+                    case GateType.Gronor:
+                        ChangeVisibility(gronorGateImage, .1f);
+                        break;
+                    case GateType.Raha:
+                        ChangeVisibility(rahaGateImage, .1f);
+                        break;
+                    case GateType.Wodas:
+                        ChangeVisibility(wodasGateImage, .1f);
+                        break;
+                    case GateType.Liridian:
+                        ChangeVisibility(liridianGateImage, .1f);
+                        break;
+                    case GateType.Brenit:
+                        ChangeVisibility(brenitGateImage, .1f);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
             {
                 switch (gateSO.gateType)
                 {
@@ -177,35 +210,6 @@ public class UIManager : MonoBehaviour
                         break;
                 }
             }
-            else
-            {
-                switch(gateSO.gateType)
-                {
-                    case GateType.Hermoor:
-                        ChangeVisibility(hermoorGateImage, 1f);
-                    break;
-                    case GateType.Earth:
-                        ChangeVisibility(earthGateImage, 1f);
-                    break;
-                    case GateType.Gronor:
-                        ChangeVisibility(gronorGateImage, 1f);
-                    break;
-                    case GateType.Raha:
-                        ChangeVisibility(rahaGateImage, 1f);
-                    break;
-                    case GateType.Wodas:
-                        ChangeVisibility(wodasGateImage, 1f);
-                    break;
-                    case GateType.Liridian:
-                        ChangeVisibility(liridianGateImage, 1f);
-                    break;
-                    case GateType.Brenit:
-                        ChangeVisibility(brenitGateImage, 1f);
-                    break;
-                    default:
-                        break;
-                }
-            }
         }
     }
 
@@ -215,6 +219,38 @@ public class UIManager : MonoBehaviour
         temp.a = visibility;
         image.color = temp;
     }
+
+    public void InventoryGateImage(GateSO targetGate, float visibility)
+    {
+        switch (targetGate.gateType)
+        {
+            case GateType.Hermoor:
+                ChangeVisibility(hermoorGateImage, visibility);
+                break;
+            case GateType.Earth:
+                ChangeVisibility(earthGateImage, visibility);
+                break;
+            case GateType.Gronor:
+                ChangeVisibility(gronorGateImage, visibility);
+                break;
+            case GateType.Raha:
+                ChangeVisibility(rahaGateImage, visibility);
+                break;
+            case GateType.Wodas:
+                ChangeVisibility(wodasGateImage, visibility);
+                break;
+            case GateType.Liridian:
+                ChangeVisibility(liridianGateImage, visibility);
+                break;
+            case GateType.Brenit:
+                ChangeVisibility(brenitGateImage, visibility);
+                break;
+            default:
+                break;
+        }
+
+    }
+
     // Menu Control metodlarının hepsi gözden geçirelecek, nihai sonuç bu değil.
     private void MainMenuControl()
     {

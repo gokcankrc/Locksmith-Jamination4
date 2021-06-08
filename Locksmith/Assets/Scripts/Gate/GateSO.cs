@@ -26,4 +26,5 @@ public class GateSO : ScriptableObject
 
     public CraftingRecipe gateRecipe;
     public bool isCrafted;
+    public bool isActive;
 }
