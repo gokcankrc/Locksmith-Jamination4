@@ -34,7 +34,7 @@ public class PlayerInputs : MonoBehaviour
     private void MovementInput()
     {
         _moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        _moveMultiplayer = _moveDirection.magnitude;
+        _moveMultiplayer = _moveDirection.normalized.magnitude;
 
     }
 
