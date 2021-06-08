@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
         }
         for (int i = 0; i < amount; i++)
         {
-            Debug.Log("spawn tries: " + i);
+            //Debug.Log("spawn tries: " + i);
             var roll = UnityEngine.Random.Range(0f, 100f);
             foreach (var spawnable in spawnableEnemies)
             {
@@ -72,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
                 var spawnedEnemy = GameObject.Instantiate(spawnable.enemy);
                 spawnedEnemy.transform.position = GetCool420Positionfkyea();
                 _currentlyActiveEnemies.Add(spawnedEnemy);
-                Debug.Log("Current enemy amount: " + _currentlyActiveEnemies.Count);
+                //Debug.Log("Current enemy amount: " + _currentlyActiveEnemies.Count);
             }
         }
     }

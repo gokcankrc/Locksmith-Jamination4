@@ -73,11 +73,9 @@ public abstract class EntityBaseClass : MonoBehaviour
             // If true, toggle the skill
             if (skillAdd.list[i])
             {
-                Debug.Log("this is the toggled skill");
                 Debug.Log(_skill.list[i]);
                 _skill.list[i] = !_skill.list[i];
                 Debug.Log(_skill.list[i]);
-                Debug.Log("as");
             }
         }
 
