@@ -44,5 +44,4 @@ public class PlayerInputs : MonoBehaviour
         dashInput = false;
         pushInput = false;
     }
-        
 }

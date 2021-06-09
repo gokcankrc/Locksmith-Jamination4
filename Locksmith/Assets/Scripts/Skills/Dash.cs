@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Dash : Skill
+public class Dash : SkillBaseClass
 {
     //Mode 0: Dash according to mouse position --- Mode 1: Dash according to player direction.
     public int mode;

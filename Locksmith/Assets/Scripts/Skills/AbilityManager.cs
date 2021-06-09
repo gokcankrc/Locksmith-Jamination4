@@ -8,11 +8,11 @@ public class AbilityManager : MonoBehaviour
         //other skills
     };
     public Abilities abilityState;
-    public Skill[] skills = new Skill[5];
+    public SkillBaseClass[] skills = new SkillBaseClass[5];
 
-    public void AddSkill(Skill newSkill, int slot)
+    public void AddSkill(SkillBaseClass newSkillBaseClass, int slot)
     {
-        skills[slot] = newSkill;
+        skills[slot] = newSkillBaseClass;
     }
 
     public void ActivateSkill(int slot)

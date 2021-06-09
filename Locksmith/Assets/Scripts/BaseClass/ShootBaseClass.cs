@@ -28,7 +28,7 @@ public class ShootBaseClass : AttackBaseClass
     protected GameObject CreateBullet(Vector3 pos, float dir)
     {
         var newBulletGO = Instantiate(bulletPrefab);
-        var bullet = newBulletGO.GetComponent<Projectile>();
+        var bullet = newBulletGO.GetComponent<ProjectileBaseClass>();
         bullet.stats = new ProjectileStats(Stats);
         bullet.transform.position = pos;
         bullet.transform.rotation = Quaternion.AngleAxis(dir, Vector3.back);

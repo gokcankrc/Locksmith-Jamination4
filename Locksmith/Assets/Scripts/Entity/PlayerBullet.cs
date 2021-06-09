@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerBullet : Projectile
+public class PlayerBullet : ProjectileBaseClass
 {
     protected override void OnPlayerCollision(EntityBaseClass otherEntity)
     {

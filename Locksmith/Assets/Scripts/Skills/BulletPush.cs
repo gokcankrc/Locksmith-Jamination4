@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPush : Skill
+public class BulletPush : SkillBaseClass
 {
     [SerializeField] private float pushMaxCdTime;
     [SerializeField] private float pushMaxDuration;

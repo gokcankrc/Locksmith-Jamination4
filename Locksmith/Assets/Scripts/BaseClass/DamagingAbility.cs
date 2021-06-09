@@ -54,12 +54,12 @@ public abstract class DamagingAbility : MonoBehaviour
     // ----------------------------------------------------
     // These are all effects of some sorts
     // ----------------------------------------------------
+    
     protected abstract void DealDamage();
 
     private void LeaveBurningGround()
     {
         var burningGroundEffect = Instantiate(burningGround).GetComponent<BurningGround>();
-        burningGroundEffect.effects = effects;
         burningGroundEffect.effects = effects;
         burningGroundEffect.effects.Explosion = false;
         burningGroundEffect.effects.LeaveBurningGround = false;
@@ -70,7 +70,6 @@ public abstract class DamagingAbility : MonoBehaviour
     private void Explode()
     {
         var explosionEffect = Instantiate(explosion).GetComponent<Explosion>();
-        explosionEffect.effects = effects;
         explosionEffect.effects = effects;
         explosionEffect.effects.Explosion = false;
         explosionEffect.effects.LeaveBurningGround = false;

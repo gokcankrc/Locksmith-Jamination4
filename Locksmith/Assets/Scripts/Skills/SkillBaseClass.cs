@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Skill : MonoBehaviour
+public class SkillBaseClass : MonoBehaviour
 {
  /*   protected bool skillEnabled;
     public void Activate()

@@ -24,6 +24,13 @@ public class HealthBaseClass : MonoBehaviour
         var a =popUp.Create(transform.position,  damageTaken.ToString());
         a.transform.position += Vector3.back * 10;
         
+        //under construction
+        foreach (var skill in Entity.skills)
+        {
+            skill.OnDamageTaken();
+        }
+        
+        
         if (health <= 0) Entity.Die();       
         return health;
     }

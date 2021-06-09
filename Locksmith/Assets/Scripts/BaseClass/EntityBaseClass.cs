@@ -17,6 +17,7 @@ public abstract class EntityBaseClass : MonoBehaviour
     [NonSerialized] public AttackBaseClass attackClass;
     protected bool dashing;
     protected bool pushing;
+    public Skill[] skills;
 
     private void Start()
     {
@@ -46,6 +47,14 @@ public abstract class EntityBaseClass : MonoBehaviour
     public virtual void Attack(float direction)
     {
         attackClass.Attack(direction);
+        // under construction code
+        
+        foreach (Skill skill in skills)
+        {
+            skill.OnAttack(this, attackClass, direction);
+        }
+        
+        
     }
     
     public virtual void TakeDamage(float damage)
@@ -61,6 +70,11 @@ public abstract class EntityBaseClass : MonoBehaviour
     protected void Heal(float healAmount)
     {
         healthClass.Heal(healAmount);
+    }
+
+    protected void OnBulletExpire()
+    {
+        
     }
 
     public void ToggleSkill(Effects skillAdd)

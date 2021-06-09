@@ -5,7 +5,7 @@ using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-public abstract class Projectile : DamagingAbility
+public abstract class ProjectileBaseClass : DamagingAbility
 {
     [SerializeField] public ProjectileStats stats;
     

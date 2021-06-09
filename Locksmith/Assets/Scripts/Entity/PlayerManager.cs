@@ -35,10 +35,7 @@ public class PlayerManager : EntityBaseClass
             Attack(direction);
         }
 
-        if (Inputs.DashInput)
-        {
-            GetComponent<Dash>().UseSkill();
-        }
+        if (Inputs.DashInput) GetComponent<Dash>().UseSkill();
         /*
         if (Inputs.PushInput)
         {
