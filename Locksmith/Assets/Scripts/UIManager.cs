@@ -120,8 +120,6 @@ public class UIManager : MonoBehaviour
         InventoryAmountUpdate();
         #endregion
 
-        CheckGateCrafted();
-
     }
 
     void Update()
@@ -130,99 +128,10 @@ public class UIManager : MonoBehaviour
         InventoryMenuControl();
         MainMenuControl();
     }
+
     private void OnGateCrafted(GateSO result)
     {
-        switch (result.gateType)
-        {
-            case GateType.Hermoor:
-                SetVisibility(hermoorGateImage, .5f);
-                break;
-            case GateType.Earth:
-                SetVisibility(earthGateImage, .5f);
-                break;
-            case GateType.Gronor:
-                SetVisibility(gronorGateImage, .5f);
-                break;
-            case GateType.Raha:
-                SetVisibility(rahaGateImage, .5f);
-                break;
-            case GateType.Wodas:
-                SetVisibility(wodasGateImage, .5f);
-                break;
-            case GateType.Liridian:
-                SetVisibility(liridianGateImage, .5f);
-                break;
-            case GateType.Brenit:
-                SetVisibility(brenitGateImage, .5f);
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void CheckGateCrafted()
-    {
-        foreach (GateSO gateSO in gateList.list)
-        {
-            if (!gateSO.isCrafted)
-            {
-                switch (gateSO.gateType)
-                {
-                    case GateType.Hermoor:
-                        SetVisibility(hermoorGateImage, .1f);
-                        break;
-                    case GateType.Earth:
-                        SetVisibility(earthGateImage, .1f);
-                        break;
-                    case GateType.Gronor:
-                        SetVisibility(gronorGateImage, .1f);
-                        break;
-                    case GateType.Raha:
-                        SetVisibility(rahaGateImage, .1f);
-                        break;
-                    case GateType.Wodas:
-                        SetVisibility(wodasGateImage, .1f);
-                        break;
-                    case GateType.Liridian:
-                        SetVisibility(liridianGateImage, .1f);
-                        break;
-                    case GateType.Brenit:
-                        SetVisibility(brenitGateImage, .1f);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                switch (gateSO.gateType)
-                {
-                    case GateType.Hermoor:
-                        SetVisibility(hermoorGateImage, .5f);
-                        break;
-                    case GateType.Earth:
-                        SetVisibility(earthGateImage, .5f);
-                        break;
-                    case GateType.Gronor:
-                        SetVisibility(gronorGateImage, .5f);
-                        break;
-                    case GateType.Raha:
-                        SetVisibility(rahaGateImage, .5f);
-                        break;
-                    case GateType.Wodas:
-                        SetVisibility(wodasGateImage, .5f);
-                        break;
-                    case GateType.Liridian:
-                        SetVisibility(liridianGateImage, .5f);
-                        break;
-                    case GateType.Brenit:
-                        SetVisibility(brenitGateImage, .5f);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
+        SetInventoryGateImage(result, .5f);
     }
 
     private void SetVisibility(Image image, float visibility)
@@ -465,34 +374,7 @@ public class UIManager : MonoBehaviour
 
         if (!targetGate.isCrafted)
         {
-            Debug.Log("2");
-
-            switch (targetGate.gateType)
-            {
-                case GateType.Hermoor:
-                    hermoorGateButton.enabled = false;
-                    break;
-                case GateType.Earth:
-                    earthGateButton.enabled = false;
-                    break;
-                case GateType.Gronor:
-                    gronorGateButton.enabled = false;
-                    break;
-                case GateType.Raha:
-                    rahaGateButton.enabled = false;
-                    break;
-                case GateType.Wodas:
-                    wodasGateButton.enabled = false;
-                    break;
-                case GateType.Liridian:
-                    liridianGateButton.enabled = false;
-                    break;
-                case GateType.Brenit:
-                    brenitGateButton.enabled = false;
-                    break;
-                default:
-                    break;
-            }
+            SetInventoryGateButton(targetGate, false);
         }
     }
 
@@ -500,11 +382,11 @@ public class UIManager : MonoBehaviour
     {
         foreach (GateSO gate in gateList.list)
         {
-            if (gate.isActive)
+            if (gate.isActive && gate.isCrafted)
             {
                 SetInventoryGateImage(gate, 1f);
             }
-            else if (!gate.isActive)
+            else if (gate.isCrafted && !gate.isActive)
             {
                 SetInventoryGateImage(gate, .5f);
             }

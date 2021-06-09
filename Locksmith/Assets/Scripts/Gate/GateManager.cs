@@ -13,8 +13,22 @@ public class GateManager : MonoBehaviour
         Instance = this;
         gateList = Resources.Load<GateListSO>(typeof(GateListSO).Name);
     }
+    private void Start()
+    {
+        CheckActiveGates();
+    }
 
-
+    public void CheckActiveGates()
+    {
+        foreach (GateSO gate in gateList.list)
+        {
+            if (gate.isActive)
+            {
+                activeGates.Add(gate);
+              //  UIManager.Instance.SetInventoryGateImage(gate, 1f);
+            }
+        }
+    }
     public void AddActiveGate(GateSO target)
     {
         if (!activeGates.Contains(target) && target.isCrafted)
