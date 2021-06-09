@@ -12,9 +12,6 @@ public class GateManager : MonoBehaviour
     {
         Instance = this;
         gateList = Resources.Load<GateListSO>(typeof(GateListSO).Name);
-    }
-    private void Start()
-    {
         CheckActiveGates();
     }
 
@@ -25,10 +22,10 @@ public class GateManager : MonoBehaviour
             if (gate.isActive)
             {
                 activeGates.Add(gate);
-              //  UIManager.Instance.SetInventoryGateImage(gate, 1f);
             }
         }
     }
+
     public void AddActiveGate(GateSO target)
     {
         if (!activeGates.Contains(target) && target.isCrafted)
@@ -36,8 +33,7 @@ public class GateManager : MonoBehaviour
             target.isActive = true;
             activeGates.Add(target);
 
-            /* Buradaki 1, image'ın görünürlüğünün full olduğu anlamına geliyor */
-            UIManager.Instance.SetInventoryGateImage(target, 1);
+            UIManager.Instance.SetInventoryGateImage(target, UIManager.Instance.Opaque);
         }
 
     }
@@ -46,24 +42,10 @@ public class GateManager : MonoBehaviour
     {
         if (activeGates.Contains(target))
         {
-            /* Buradaki .5f, image'ın görünürlüğünün yarım olduğu anlamına geliyor */
-            UIManager.Instance.SetInventoryGateImage(target, .5f);
             target.isActive = false;
             activeGates.Remove(target);
+
+            UIManager.Instance.SetInventoryGateImage(target, UIManager.Instance.Transparent);
         }
     }
-    public void SetGateStatus(GateSO target, bool isActive, bool isCrafted)
-    {
-        target.isActive = isActive;
-        target.isCrafted = isCrafted;
-    }
-    public void SetGateStatus(GateSO target, bool isCrafted)
-    {
-        target.isCrafted = isCrafted;
-        UIManager.Instance.SetInventoryGateImage(target, .5f);
-    }
-
-
-
-
 }
