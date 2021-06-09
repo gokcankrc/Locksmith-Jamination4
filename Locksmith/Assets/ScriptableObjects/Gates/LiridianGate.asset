@@ -21,3 +21,4 @@ MonoBehaviour:
   positiveEffectsDescription: blablablabla
   gateRecipe: {fileID: 11400000, guid: 195d33eccae41194ea4250be2a6555f4, type: 2}
   isCrafted: 1
+  isActive: 1

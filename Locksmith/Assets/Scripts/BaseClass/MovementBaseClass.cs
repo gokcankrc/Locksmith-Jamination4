@@ -15,8 +15,8 @@ public abstract class MovementBaseClass : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         entity = GetComponent<EntityBaseClass>();
     }
-    
-    public void MoveTowards(Vector3 destination, float speedMultiplier=1f)
+
+    public void MoveTowards(Vector3 destination, float speedMultiplier = 1f)
     {
         if (!entity.Dashing && !entity.Pushing)
         {
