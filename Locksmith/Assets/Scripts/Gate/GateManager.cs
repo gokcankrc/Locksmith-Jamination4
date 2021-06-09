@@ -48,4 +48,71 @@ public class GateManager : MonoBehaviour
             UIManager.Instance.SetInventoryGateImage(target, UIManager.Instance.Transparent);
         }
     }
+
+    private void UseGateEffect(GateSO gate)
+    {
+        switch (gate.gateType)
+        {
+            case GateType.Hermoor:
+                //Use skills
+                /*  set boolean true, while boolean true 
+                 * some effects active 
+                 * 
+                 * 
+                 */
+                break;
+            case GateType.Earth:
+                //Use skills
+                break;
+            case GateType.Gronor:
+                //Use skills
+                break;
+            case GateType.Raha:
+                //Use skills
+                break;
+            case GateType.Wodas:
+                //Use skills
+                break;
+            case GateType.Liridian:
+                //Use skills
+                break;
+            case GateType.Brenit:
+                //Use skills
+                break;
+        }
+    }
+    private void RemoveGateEffect(GateSO gate)
+    {
+        switch (gate.gateType)
+        {
+            case GateType.Hermoor:
+                
+                /* Set boolean false  
+                 * 
+                 * 
+                 * 
+                 */
+                break;
+            case GateType.Earth:
+                //Use skills
+                break;
+            case GateType.Gronor:
+                //Use skills
+                break;
+            case GateType.Raha:
+                //Use skills
+                break;
+            case GateType.Wodas:
+                //Use skills
+                break;
+            case GateType.Liridian:
+                //Use skills
+                break;
+            case GateType.Brenit:
+                //Use skills
+                break;
+        }
+    }
+
+
 }
