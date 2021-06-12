@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public PlayerManager Player => player;
 
     public static GameManager Instance;
+    public static bool PlayerAlive => Instance.player != null;
 
     public bool isPaused;
 

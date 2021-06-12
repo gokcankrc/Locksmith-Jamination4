@@ -42,6 +42,8 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.PlayerAlive) return;
+
         playerPos = GameManager.Instance.Player.transform.position;
         
         //Debug.Log(_state);
