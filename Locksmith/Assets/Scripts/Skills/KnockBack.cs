@@ -9,6 +9,7 @@ public class KnockBack : SkillBaseClass
     [SerializeField] private float pushMaxDuration;
     [SerializeField] private float pushSpeed;
     [SerializeField] private bool onCooldown;
+    
 
     [NonSerialized] public DamagingAbility Damaging;
     
@@ -52,7 +53,7 @@ public class KnockBack : SkillBaseClass
             pushDuration= pushMaxDuration;
             onCooldown = true;
             // entity.Pushing = true;
-            direction = Damaging.GetComponent<Rigidbody2D>().velocity.normalized;
+            direction = Damaging.EffectDirection;;
             rb.velocity = direction * pushSpeed * Time.fixedDeltaTime;
         }
     }

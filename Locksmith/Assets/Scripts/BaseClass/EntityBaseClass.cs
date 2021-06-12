@@ -47,12 +47,14 @@ public abstract class EntityBaseClass : MonoBehaviour
     public virtual void Attack(float direction)
     {
         AttackerClass.Attack(direction);
-        // under construction code
         
+        // under construction code
+        /*
         foreach (Skill skill in skills)
         {
             skill.OnAttack(this, AttackerClass, direction);
         }
+        */
         
         
     }
@@ -67,7 +69,7 @@ public abstract class EntityBaseClass : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected void Heal(float healAmount)
+    protected virtual void Heal(float healAmount)
     {
         healthClass.Heal(healAmount);
     }
@@ -96,10 +98,10 @@ public abstract class EntityBaseClass : MonoBehaviour
         AttackerClass.effects.list = _skill.list;
     }
 
-    public void GetKnockedBack(DamagingAbility bullet)
+    public void GetKnockedBack(DamagingAbility damaging)
     {
         var a = GetComponent<KnockBack>();
-        a.Damaging = bullet;
+        a.Damaging = damaging;
         a.UseSkill();
         
     }

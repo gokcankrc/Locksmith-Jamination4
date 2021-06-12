@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyAI : MonoBehaviour
 {
+    
     [SerializeField] private float attackRange;
     [SerializeField] private float detectionRange;
     [SerializeField] private float alertDistance;
@@ -22,7 +23,7 @@ public class EnemyAI : MonoBehaviour
     private Vector3 playerPos;
     private float attackCooldown;
 
-    enum AIState
+    public enum AIState
     {
         Idle, Attacking, Chasing, Returning
     }
@@ -81,7 +82,7 @@ public class EnemyAI : MonoBehaviour
         {
             // switch to attacking state
             MoveTowards(playerPos, 0f);
-            _state = AIState.Attacking;
+            ChangeState(AIState.Chasing, AIState.Attacking);
             attackCooldown = 0;
         }
         else
@@ -93,6 +94,9 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackingUpdate()
     {
+        // TODO; determine a specific way to handle this cooldown case.
+        // Oh btw, the cooldown on how to attack is determined here by cooldown from AI. In player, PlayerAttackerShooter
+        // has cooldown implemented.
         if (attackCooldown < 0)
         {
             MoveTowards(playerPos, 0.00f);
@@ -125,9 +129,17 @@ public class EnemyAI : MonoBehaviour
                     enemyGO.GetComponent<EnemyScr>().AI.Alert();
                 }
             }
-            _state = AIState.Chasing;
+
+            ChangeState(AIState.Idle, AIState.Chasing);
         }
     }
+
+    public void ChangeState(AIState from, AIState to)
+    {
+        if (from != _state) return;
+        _state = to;
+    }
+
     private void SetNewRandomVenture()
     {
         randomVenture = Vector3.right * Random.Range(0.5f, 1.5f);
@@ -149,9 +161,6 @@ public class EnemyAI : MonoBehaviour
     // oha 1 sn bu nasıl private oluyor!?
     private void Alert()
     {
-        if (_state == AIState.Idle)
-        {
-            _state = AIState.Chasing;
-        }
+        ChangeState(AIState.Idle, AIState.Chasing);
     }
 }

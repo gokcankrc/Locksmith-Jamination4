@@ -9,14 +9,14 @@ public class HealthBaseClass : MonoBehaviour
     [SerializeField] protected PopUp popUp; 
     
     public int maxHealth;
-    [NonSerialized] public float health;
-
-    void Awake()
+    public float health;
+    
+    protected virtual void Awake()
     {
         Entity = GetComponent<EntityBaseClass>();
         health = maxHealth;
     }
-
+    
     
     public virtual float TakeDamage(float damageTaken)
     {

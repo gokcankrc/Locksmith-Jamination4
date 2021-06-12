@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a529c0cf09ece9743bd557142a9fe34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skills: []
   Inputs: {fileID: 952594910037995909}
   firingSlowDown: 0.6
 --- !u!114 &952594910037995909
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUp: {fileID: 1808435336179393639, guid: b660f79f76aac8541bd05fcae593d02e, type: 3}
   maxHealth: 1000
+  health: 0
 --- !u!114 &952594910483546781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,13 +294,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects:
-    list: 01010000
+    list: 010100010000
+  areaOfEffectStats:
+    Damage: 10
+    Size: 1
+    Duration: 1
+  fromPlayer: 1
   bulletPrefab: {fileID: 9217524693849605576, guid: 3d2b98caa2957504e92163a9997bcbc3, type: 3}
   Stats:
     Damage: 10
     Speed: 5
     Size: 1.5
     Duration: 0.7
+    Pierce: 0
   attackCoolDownMax: 0.2
   accuracyLoss: 10
 --- !u!95 &1295506388

@@ -15,4 +15,9 @@ public class EnemyMeleeAttacker : AttackerBaseClass
     {
         
     }
+
+    public override void Attack(float direction)
+    {
+        return;
+    }
 }

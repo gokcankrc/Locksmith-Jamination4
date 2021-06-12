@@ -6,15 +6,18 @@ using Random = UnityEngine.Random;
 
 public class PlayerAttackerShooter : AttackerShooterBaseClass
 {
+    // TODO; determine a specific way to handle this cooldown case.
+    // Oh btw, the cooldown on how to attack is determined here by cooldown. In enemies, enemy AI determines the
+    // cooldown. That's lame.
     [SerializeField] private float attackCoolDownMax;
     [SerializeField] private float accuracyLoss;
     private float attackCoolDown;
-    private PlayerManager entity;
+    private PlayerManager playerEntity;
     private bool attackBuffer = false;
 
     private void Awake()
     {
-        entity = GetComponent<PlayerManager>();
+        playerEntity = GetComponent<PlayerManager>();
         attackCoolDown = attackCoolDownMax;
     }
 
@@ -23,7 +26,7 @@ public class PlayerAttackerShooter : AttackerShooterBaseClass
         attackCoolDown -= Time.fixedDeltaTime;
         if (attackBuffer)
         {
-            entity.AttackForPlayerShoot();
+            playerEntity.AttackForPlayerShoot();
         }
     }
 
@@ -31,7 +34,7 @@ public class PlayerAttackerShooter : AttackerShooterBaseClass
     {
         if (attackCoolDown < 0)
         {
-            var movement = entity.MoveDirection.magnitude;
+            var movement = playerEntity.MoveDirection.magnitude;
             if (movement > 0.1f) direction += Random.Range(-accuracyLoss, accuracyLoss);
             CreateBullet(transform.position, direction);
             attackCoolDown = attackCoolDownMax;

@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03364ba4ab4d54b42b4c6cc24668d2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skills: []
 --- !u!114 &680628081523237538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,13 +209,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects:
-    list: 01000000
+    list: 010000000000
   bulletPrefab: {fileID: 9217524693849605576, guid: 7db206240a3c65a49985f2b743e27e58, type: 3}
   Stats:
     Damage: 5
     Speed: 2
     Size: 1
     Duration: 2.5
+    Pierce: 0
 --- !u!114 &2053801515612937262
 MonoBehaviour:
   m_ObjectHideFlags: 0

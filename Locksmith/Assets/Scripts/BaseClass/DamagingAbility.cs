@@ -4,15 +4,28 @@ using UnityEngine;
 
 public abstract class DamagingAbility : MonoBehaviour
 {
-    [SerializeField] private GameObject burningGround;
-    [SerializeField] private GameObject explosion;
     [SerializeField] public Effects effects;
-    [SerializeField] public BurningGroundStats burningGroundStats;
+    [SerializeField] public AreaOfEffectStats areaOfEffectStats;
+    [SerializeField] public bool FromPlayer;
     
+    [SerializeField] protected GameObject burningGround;
+    [SerializeField] protected GameObject explosion;
+
+    protected Vector2 effectDirection;
+    public virtual Vector2 EffectDirection
+    {
+        get => effectDirection;
+        set => effectDirection = value;
+    }
+
     protected EntityBaseClass _collisionEntity;
-    
-    
-    protected void OnTriggerEnter2D(Collider2D other)
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        Interract(other);
+    }
+
+    protected virtual void Interract(Collider2D other)
     {
         _collisionEntity = other.GetComponent<EntityBaseClass>();
         var Tag = other.tag;
@@ -20,32 +33,59 @@ public abstract class DamagingAbility : MonoBehaviour
         {
             case Tags.ObstacleTag:
                 OnObstacleCollision();
-            break;
+                break;
             case Tags.EnemyTag:
                 OnEnemyCollision(other.GetComponent<EntityBaseClass>());
-            break;
+                break;
             case Tags.AllyTag:
                 OnPlayerCollision(other.GetComponent<EntityBaseClass>());
-            break;
+                break;
         }
     }
-    
-    protected abstract void OnPlayerCollision(EntityBaseClass otherEntity);
-    protected abstract void OnEnemyCollision(EntityBaseClass otherEntity);
-    protected abstract void OnObstacleCollision();
-    
-    
-    
-    protected void ApplyEffects(EntityBaseClass otherEntity)
+
+    protected virtual void OnPlayerCollision(EntityBaseClass otherEntity)
+    {
+        if (!FromPlayer)
+        {
+            ApplyHostileEffects(otherEntity.GetComponent<EntityBaseClass>());
+        }       
+        else
+        {
+            ApplyAllyEffects(otherEntity.GetComponent<EntityBaseClass>());
+        }
+    }
+
+    protected virtual void OnEnemyCollision(EntityBaseClass otherEntity)
+    {
+        if (FromPlayer)
+        {
+            ApplyHostileEffects(otherEntity.GetComponent<EntityBaseClass>());
+        }
+        else
+        {
+            ApplyAllyEffects(otherEntity.GetComponent<EntityBaseClass>());
+        }
+    }
+
+    protected virtual void OnObstacleCollision()
+    {
+        // Does not interract
+    }
+
+
+    protected void ApplyHostileEffects(EntityBaseClass otherEntity)
     {
         if (effects.DealCollisionDamage)  DealDamage();
         if (effects.KnockBack) otherEntity.GetKnockedBack(this);
     }
 
-
-    protected void OnDestroy()
+    protected void ApplyAllyEffects(EntityBaseClass otherEntity)
     {
-        Debug.Log("on destroy called");
+        if (effects.Heal) Heal();
+    }
+    
+    protected virtual void OnDestroy()
+    {
         if (effects.LeaveBurningGround) LeaveBurningGround();
         if (effects.Explosion) Explode();
     }
@@ -56,25 +96,30 @@ public abstract class DamagingAbility : MonoBehaviour
     // ----------------------------------------------------
     
     protected abstract void DealDamage();
+    protected abstract void Heal();
 
-    private void LeaveBurningGround()
+    protected virtual void LeaveBurningGround()
     {
-        var burningGroundEffect = Instantiate(burningGround).GetComponent<BurningGround>();
-        burningGroundEffect.effects = effects;
-        burningGroundEffect.effects.Explosion = false;
-        burningGroundEffect.effects.LeaveBurningGround = false;
-        burningGroundEffect.stats = new BurningGroundStats(burningGroundStats);
-        burningGroundEffect.FromPlayer = true;
-        burningGroundEffect.stats.Duration = 1; // stays for a second
+        var burningGroundEffect = Instantiate(burningGround).GetComponent<DamagingPeriodicAoE>();
+        // I saw this line randomly. probably an error. leaving as note.
+        // burningGroundEffect.FromPlayer = true;
+        AoEEffectSync(burningGroundEffect);
+        burningGroundEffect.transform.Rotate(Vector3.back, Random.Range(0, 360));
     }
     
-    private void Explode()
+    protected virtual void Explode()
     {
-        var explosionEffect = Instantiate(explosion).GetComponent<Explosion>();
-        explosionEffect.effects = effects;
-        explosionEffect.effects.Explosion = false;
-        explosionEffect.effects.LeaveBurningGround = false;
-        explosionEffect.stats = new BurningGroundStats(burningGroundStats);
-        explosionEffect.stats.Duration = 1; // stays for a second
+        var explosionEffect = Instantiate(explosion).GetComponent<DamagingInstantAoE>();
+        AoEEffectSync(explosionEffect);
+    }
+
+    protected void AoEEffectSync(DamagingAbility Instance)
+    {
+        Instance.transform.position = transform.position;
+        Instance.effects = effects;
+        Instance.effects.Explosion = false;
+        Instance.effects.LeaveBurningGround = false;
+        Instance.areaOfEffectStats = new AreaOfEffectStats(areaOfEffectStats);
+        Instance.FromPlayer = FromPlayer;
     }
 }

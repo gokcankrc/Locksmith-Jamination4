@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8628088223177077815}
   - component: {fileID: 8628088223177077812}
   - component: {fileID: 8628088223177077813}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,22 +96,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79cb852dad5d3b046a099e93a1d530c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burningGround: {fileID: 0}
-  explosion: {fileID: 0}
   effects:
     list: 00000000
-  burningGroundStats:
-    Damage: 0
-    Size: 0
-    Duration: 0
-  Damage: 0
-  expireTime: 0
-  Damage2: 0
-  stats:
+  areaOfEffectStats:
     Damage: 0
     Size: 0
     Duration: 0
   FromPlayer: 0
+  burningGround: {fileID: 0}
+  explosion: {fileID: 0}
+  expireTime: 0.01
+  skillDurationMultiplayer: 0
+  skillDamageMultiplayer: 2
 --- !u!58 &8628088223177077813
 CircleCollider2D:
   m_ObjectHideFlags: 0

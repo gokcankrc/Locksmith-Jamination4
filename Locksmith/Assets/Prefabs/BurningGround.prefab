@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7729621981036513191}
   - component: {fileID: 7729621981036513188}
   - component: {fileID: 7729621981036513189}
-  m_Layer: 0
-  m_Name: BurningGround 1
+  m_Layer: 9
+  m_Name: BurningGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,22 +96,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30070639bd8e4d54694929a01fcaf543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burningGround: {fileID: 0}
-  explosion: {fileID: 0}
   effects:
     list: 00000000
-  burningGroundStats:
-    Damage: 0
-    Size: 0
-    Duration: 0
-  Damage: 0
-  expireTime: 0
-  Damage2: 0
-  stats:
+  areaOfEffectStats:
     Damage: 0
     Size: 0
     Duration: 0
   FromPlayer: 0
+  burningGround: {fileID: 0}
+  explosion: {fileID: 0}
+  expireTime: 0
+  skillDurationMultiplayer: 2
+  skillDamageMultiplayer: 0.5
+  damageFrequency: 2
+  tickCounter: 0
 --- !u!58 &7729621981036513189
 CircleCollider2D:
   m_ObjectHideFlags: 0

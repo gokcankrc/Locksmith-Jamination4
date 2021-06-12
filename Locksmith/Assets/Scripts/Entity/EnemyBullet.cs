@@ -6,8 +6,8 @@ public class EnemyBullet : DamagingProjectileBaseClass
 {
     protected override void OnPlayerCollision(EntityBaseClass otherEntity)
     {
-        // player takes damage
-        ApplyEffects(otherEntity);
+        // default behavior: player gets affected
+        base.OnPlayerCollision(otherEntity);
     }
 
     protected override void OnEnemyCollision(EntityBaseClass otherEntity)
@@ -17,6 +17,6 @@ public class EnemyBullet : DamagingProjectileBaseClass
 
     protected override void OnObstacleCollision()
     {
-        Destroy(gameObject);
+        base.OnObstacleCollision();
     }
 }

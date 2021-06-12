@@ -69,7 +69,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (!(spawnable.chance > roll)) continue;
                 if (enemyCountLimit < _currentlyActiveEnemies.Count) continue;
-                var spawnedEnemy = GameObject.Instantiate(spawnable.enemy);
+                var spawnedEnemy = GameObject.Instantiate(spawnable.enemy, transform);
                 spawnedEnemy.transform.position = GetCool420Positionfkyea();
                 _currentlyActiveEnemies.Add(spawnedEnemy);
                 //Debug.Log("Current enemy amount: " + _currentlyActiveEnemies.Count);
@@ -112,7 +112,6 @@ public class EnemySpawner : MonoBehaviour
         {
             if (enemy.GetInstanceID() == VARIABLE.GetInstanceID())
             {
-                Debug.Log("enemy died and removed from list of enemies");
                 _currentlyActiveEnemies.Remove(enemy);
                 return;
 

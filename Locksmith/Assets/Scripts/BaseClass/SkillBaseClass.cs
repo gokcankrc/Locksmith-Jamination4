@@ -12,9 +12,10 @@ public class SkillBaseClass : MonoBehaviour
     {
         skillEnabled = false;
     }*/
-    public virtual void UseSkill()
-    {
+ public virtual void UseSkill()
+ {
+     
+ }
 
-    }
 
 }
