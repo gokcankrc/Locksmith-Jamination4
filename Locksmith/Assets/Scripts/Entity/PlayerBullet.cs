@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerBullet : ProjectileBaseClass
+public class PlayerBullet : DamagingProjectileBaseClass
 {
     protected override void OnPlayerCollision(EntityBaseClass otherEntity)
     {
@@ -15,6 +15,7 @@ public class PlayerBullet : ProjectileBaseClass
     {
         // Enemy takes damage
         ApplyEffects(otherEntity.GetComponent<EntityBaseClass>());
+        Debug.Log("destroyed due to collision");
         Destroy(gameObject);
     }
 

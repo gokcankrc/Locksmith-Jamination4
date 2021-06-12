@@ -45,7 +45,7 @@ public abstract class DamagingAbility : MonoBehaviour
 
     protected void OnDestroy()
     {
-
+        Debug.Log("on destroy called");
         if (effects.LeaveBurningGround) LeaveBurningGround();
         if (effects.Explosion) Explode();
     }
@@ -64,6 +64,7 @@ public abstract class DamagingAbility : MonoBehaviour
         burningGroundEffect.effects.Explosion = false;
         burningGroundEffect.effects.LeaveBurningGround = false;
         burningGroundEffect.stats = new BurningGroundStats(burningGroundStats);
+        burningGroundEffect.FromPlayer = true;
         burningGroundEffect.stats.Duration = 1; // stays for a second
     }
     

@@ -5,7 +5,7 @@ using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-public abstract class ProjectileBaseClass : DamagingAbility
+public abstract class DamagingProjectileBaseClass : DamagingAbility
 {
     [SerializeField] public ProjectileStats stats;
     
@@ -16,11 +16,12 @@ public abstract class ProjectileBaseClass : DamagingAbility
         rb.velocity=  vel.normalized * stats.Speed;
     }
     
-    protected  void FixedUpdate()
+    protected void FixedUpdate()
     {
         stats.Duration -= Time.fixedDeltaTime;
         if (stats.Duration <= 0)
         {
+            Debug.Log("destroyed projectile due to duration");
             Destroy(gameObject);
         }
     }

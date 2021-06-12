@@ -5,7 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(HealthBaseClass))]
 [RequireComponent(typeof(MovementBaseClass))]
-[RequireComponent(typeof(AttackBaseClass))]
+[RequireComponent(typeof(AttackerBaseClass))]
 public abstract class EntityBaseClass : MonoBehaviour
 {
     // abstract
@@ -14,7 +14,7 @@ public abstract class EntityBaseClass : MonoBehaviour
 
     [NonSerialized] public HealthBaseClass healthClass;
     [NonSerialized] public MovementBaseClass moveClass;
-    [NonSerialized] public AttackBaseClass attackClass;
+    [NonSerialized] public AttackerBaseClass AttackerClass;
     protected bool dashing;
     protected bool pushing;
     public Skill[] skills;
@@ -23,7 +23,7 @@ public abstract class EntityBaseClass : MonoBehaviour
     {
         healthClass = GetComponent<HealthBaseClass>();
         moveClass = GetComponent<MovementBaseClass>();
-        attackClass = GetComponent<AttackBaseClass>();
+        AttackerClass = GetComponent<AttackerBaseClass>();
     }
 
     public bool Dashing
@@ -46,12 +46,12 @@ public abstract class EntityBaseClass : MonoBehaviour
 
     public virtual void Attack(float direction)
     {
-        attackClass.Attack(direction);
+        AttackerClass.Attack(direction);
         // under construction code
         
         foreach (Skill skill in skills)
         {
-            skill.OnAttack(this, attackClass, direction);
+            skill.OnAttack(this, AttackerClass, direction);
         }
         
         
@@ -79,7 +79,7 @@ public abstract class EntityBaseClass : MonoBehaviour
 
     public void ToggleSkill(Effects skillAdd)
     {
-        var _skill = new Effects(attackClass.effects);
+        var _skill = new Effects(AttackerClass.effects);
         for (int i = 0; i < skillAdd.list.Length; i++)
         {
             Debug.Log(skillAdd.list[i]);
@@ -93,13 +93,13 @@ public abstract class EntityBaseClass : MonoBehaviour
             }
         }
 
-        attackClass.effects.list = _skill.list;
+        AttackerClass.effects.list = _skill.list;
     }
 
     public void GetKnockedBack(DamagingAbility bullet)
     {
-        var a = GetComponent<BulletPush>();
-        a.bullet = bullet;
+        var a = GetComponent<KnockBack>();
+        a.Damaging = bullet;
         a.UseSkill();
         
     }

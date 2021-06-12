@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPush : SkillBaseClass
+public class KnockBack : SkillBaseClass
 {
     [SerializeField] private float pushMaxCdTime;
     [SerializeField] private float pushMaxDuration;
     [SerializeField] private float pushSpeed;
     [SerializeField] private bool onCooldown;
 
-    [NonSerialized] public DamagingAbility bullet;
+    [NonSerialized] public DamagingAbility Damaging;
     
     private float pushCdTime;
     private EntityBaseClass entity;
@@ -52,7 +52,7 @@ public class BulletPush : SkillBaseClass
             pushDuration= pushMaxDuration;
             onCooldown = true;
             // entity.Pushing = true;
-            direction = bullet.GetComponent<Rigidbody2D>().velocity.normalized;
+            direction = Damaging.GetComponent<Rigidbody2D>().velocity.normalized;
             rb.velocity = direction * pushSpeed * Time.fixedDeltaTime;
         }
     }

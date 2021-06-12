@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Skill : ScriptableObject
 {
-    public virtual void OnAttack(EntityBaseClass entity, AttackBaseClass attackBase, float direction)
+    public virtual void OnAttack(EntityBaseClass entity, AttackerBaseClass attackerBase, float direction)
     {
         var skill = entity.skills;
         //DamagingAbility damaging= Instantiate(attackBase.);

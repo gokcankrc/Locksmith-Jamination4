@@ -8,9 +8,9 @@ public class SelfExplosionSkill : Skill
 {
     public GameObject _explosion;
     
-    public override void OnAttack(EntityBaseClass entity, AttackBaseClass attackBase, float direction)
+    public override void OnAttack(EntityBaseClass entity, AttackerBaseClass attackerBase, float direction)
     {
-        base.OnAttack(entity, attackBase, direction);
+        base.OnAttack(entity, attackerBase, direction);
         Instantiate(_explosion, entity.transform.position, quaternion.identity);
         foreach (var skill in entity.skills)
         {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlayerShoot : ShootBaseClass
+public class PlayerAttackerShooter : AttackerShooterBaseClass
 {
     [SerializeField] private float attackCoolDownMax;
     [SerializeField] private float accuracyLoss;
@@ -42,5 +42,4 @@ public class PlayerShoot : ShootBaseClass
             attackBuffer = true;
         }
     }
-    
 }

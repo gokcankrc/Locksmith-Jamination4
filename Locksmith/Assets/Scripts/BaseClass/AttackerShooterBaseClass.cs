@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class ShootBaseClass : AttackBaseClass
+public class AttackerShooterBaseClass : AttackerBaseClass
 {
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] protected ProjectileStats Stats;
@@ -28,7 +28,7 @@ public class ShootBaseClass : AttackBaseClass
     protected GameObject CreateBullet(Vector3 pos, float dir)
     {
         var newBulletGO = Instantiate(bulletPrefab);
-        var bullet = newBulletGO.GetComponent<ProjectileBaseClass>();
+        var bullet = newBulletGO.GetComponent<DamagingProjectileBaseClass>();
         bullet.stats = new ProjectileStats(Stats);
         bullet.transform.position = pos;
         bullet.transform.rotation = Quaternion.AngleAxis(dir, Vector3.back);
