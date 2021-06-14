@@ -16,7 +16,7 @@ public class EnemyScr : EntityBaseClass
     {
         
         EnemyDrop.I.DropOnDeath(transform);
-        EnemySpawner.I.RemoveSelf(gameObject);
+        EnemyManager.I.RemoveSelf(gameObject);
         base.Die();
     }
 

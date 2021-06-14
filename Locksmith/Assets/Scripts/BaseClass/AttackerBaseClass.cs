@@ -42,7 +42,7 @@ public class Effects
         list[5] = effects.Heal;
     }
     
-    private enum EffectsEnum
+    public enum EffectsEnum
     {
         DealCollisionDamage, KnockBack, LeaveBurningGround, Explosion, Pierce, Heal
     }

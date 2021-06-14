@@ -24,6 +24,7 @@ public abstract class EntityBaseClass : MonoBehaviour
         healthClass = GetComponent<HealthBaseClass>();
         moveClass = GetComponent<MovementBaseClass>();
         AttackerClass = GetComponent<AttackerBaseClass>();
+        //GateManager.
     }
 
     public bool Dashing
@@ -97,12 +98,24 @@ public abstract class EntityBaseClass : MonoBehaviour
 
         AttackerClass.effects.list = _skill.list;
     }
+    
+    public void ToggleSkill(Effects.EffectsEnum skillAdd)
+    {
+        var buffer = new Effects();
+        buffer.list[skillAdd.GetHashCode()] = true;
+        ToggleSkill(buffer);
+    }
 
     public void GetKnockedBack(DamagingAbility damaging)
     {
         var a = GetComponent<KnockBack>();
         a.Damaging = damaging;
         a.UseSkill();
+        
+    }
+
+    public void GetGateStats(gateStats gateStats)
+    {
         
     }
 }

@@ -17,8 +17,8 @@ public class DebugDisplay : MonoBehaviour
 
     void Update()
     {
-        _amount = EnemySpawner.I.CurrentlyActiveEnemies.Count();
+        _amount = EnemyManager.I.CurrentlyActiveEnemies.Count();
         _tmp.text = "Enemy amount: " + _amount;
-        _tmp.text += "\n Enemy spawner: " + EnemySpawner.I.gameObject;;
+        _tmp.text += "\n Enemy spawner: " + EnemyManager.I.gameObject;;
     }
 }

@@ -6,7 +6,7 @@ using System.Net;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
     [Tooltip("In seconds")]
     [SerializeField] private int waveCDMax;
@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     public IEnumerable<GameObject> CurrentlyActiveEnemies => _currentlyActiveEnemies;
 
 
-    public static EnemySpawner I;
+    public static EnemyManager I;
     
     private void Awake()
     {

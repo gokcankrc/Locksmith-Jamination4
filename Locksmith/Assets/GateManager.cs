@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public class GateManager : MonoBehaviour
 {
     GateListSO gateList;
     public List<GateSO> activeGates;
+
+    public delegate void OnGateToggle(GateSO gateSo, bool activation);
+    public static event OnGateToggle onGateToggle;
 
     private void Awake()
     {
@@ -21,7 +26,7 @@ public class GateManager : MonoBehaviour
             {
                 target.isActive = true;
                 activeGates.Add(gate);
-
+                onGateToggle?.Invoke(target, true);
                 /* Buradaki 1, image'ın görünürlüğünün full olduğu anlamına geliyor */
                 UIManager.Instance.InventoryGateImage(target, 1); 
             }
@@ -38,6 +43,7 @@ public class GateManager : MonoBehaviour
                 UIManager.Instance.InventoryGateImage(target, .5f);
                 target.isActive = false;
                 activeGates.Remove(gate);
+                onGateToggle?.Invoke(target, false);
             }
         }
     }
