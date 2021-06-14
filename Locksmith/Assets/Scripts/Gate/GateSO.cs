@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +34,7 @@ public class GateSO : ScriptableObject
     public bool isActive;
 }
 
+[Serializable]
 public class gateStats
 {
     public static gateStats operator-(gateStats toBeReversed)
