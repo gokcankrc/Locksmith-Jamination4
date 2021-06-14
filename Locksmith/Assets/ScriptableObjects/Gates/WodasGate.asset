@@ -14,10 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateType: 4
   gateName: Wodas Gate
-  gateDescription: 'Wodas Gate Wodas Gate Wodas Gate Wodas Gate Wodas Gate '
-  gateRequirementDescription: 6 Apple, 3 Pear
-  adverseEffectsDescription: blablablabla
-  positiveEffectsDescription: blablablablablabla
+  gateDescription: "Wodas one of three first colonies of Fiesar Empire. In terms
+    of skills Fiesar is an allaround civilization. In their first rise, when they
+    face the ancient ones, they survived by becoming mercaneries. But in a short
+    time span, they learned Ancient ways and gain their independence in their first
+    planet Fiesa and three different colonies. With their allaround metaMaterial
+    Fixaron, this era will witness their ascendance. Wodas is working like a giant
+    machine and produce almost every need of three different planets. Some people
+    thinks A\u0130 of Wodas is independent and dangerous."
+  gateRequirementDescription: 1 Metacore, 5 Waterstone, 5 Ironstone, 10 Hydro Iron
+    Stone
+  adverseEffectsDescription: Machinegun, Char Block, Fixaron generate
+  positiveEffectsDescription: Enemy health increase, Melee enemy Charge unlocked
   gateRecipe: {fileID: 11400000, guid: 3b52cfc4c251e744f88881804941f871, type: 2}
   isCrafted: 1
   isActive: 1

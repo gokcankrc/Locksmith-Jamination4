@@ -32,7 +32,7 @@ public class GateManager : MonoBehaviour
         {
             target.isActive = true;
             activeGates.Add(target);
-
+            // UseGateEffect
             UIManager.Instance.SetInventoryGateImage(target, UIManager.Instance.Opaque);
         }
 
@@ -44,7 +44,7 @@ public class GateManager : MonoBehaviour
         {
             target.isActive = false;
             activeGates.Remove(target);
-
+            // RemoveGateEffect
             UIManager.Instance.SetInventoryGateImage(target, UIManager.Instance.Transparent);
         }
     }

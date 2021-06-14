@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateType: 5
   gateName: Liridian Gate
-  gateDescription: 'Liridian Gate Liridian Gate Liridian Gate Liridian Gate Liridian
-    Gate Liridian Gate '
-  gateRequirementDescription: 9 Wood, 2 Stone
-  adverseEffectsDescription: blablablabla
-  positiveEffectsDescription: blablablabla
+  gateDescription: 'Liridian is a millitary stronghold of Fiesar empire. With its
+    rash environments, it is perfect to train mighty soldiers and space knights.
+    Some rumors says people of Liridians still carry the blood of Knightrons, older
+    people of the planet. If it is true and they are decendent of this Ancient Cult,
+    they might even be game changers in interstellar wars. '
+  gateRequirementDescription: 1 Metacore, 15 Aero Iron Stone
+  adverseEffectsDescription: Piercing Bullet, Damage Area Bullet, Fixaron generate
+  positiveEffectsDescription: Sniper Enemy (Range increase, fire rate decrease, bullet
+    speed increase)
   gateRecipe: {fileID: 11400000, guid: 195d33eccae41194ea4250be2a6555f4, type: 2}
   isCrafted: 1
   isActive: 1

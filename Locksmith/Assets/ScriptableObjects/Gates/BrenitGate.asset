@@ -14,11 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateType: 6
   gateName: Brenit Gate
-  gateDescription: 'Brenit Gate Brenit Gate Brenit Gate Brenit Gate Brenit Gate Brenit
-    Gate Brenit Gate '
-  gateRequirementDescription: Brenit Gate bebek
-  adverseEffectsDescription: blabla
-  positiveEffectsDescription: blabla
+  gateDescription: 'Planet of towers and roads... Brenit is a pure reflection of
+    what civilization called in novadays. With it''s dense population and great life
+    standarts, Brenit is a huge trade center for whole galaxy. It is possible to
+    find all kinds of Ancient Ones, even Locksmiths. Even this anarchical faction
+    found ways of being usefull in the Brenits streets, skyscrapers and highways. '
+  gateRequirementDescription: 1 Metacore, 5 Waterstone, 5 Airstone, 10 Hydroair Stone
+  adverseEffectsDescription: Char Sniper (Long range, lower fire rate), Move speed
+    increase, Fixaron generate
+  positiveEffectsDescription: Enemies are faster, Enemies can explode when close
+    to us (esplosion skill)
   gateRecipe: {fileID: 11400000, guid: a4d3356e686a41f44a1dc3784ef03e05, type: 2}
   isCrafted: 1
   isActive: 1
