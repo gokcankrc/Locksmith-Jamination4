@@ -82,6 +82,7 @@ public class EnemyManager : MonoBehaviour
     {
         // TODO; if they spawn on blocks, don't
         // TODO; they dont spawn just around character
+        if (!GameManager.PlayerAlive) return Vector3.right;
         var playerPos = _playerTransform.position;
         var spawnPos = new Vector3(Random.Range(spawnBounds.min.x, spawnBounds.max.x),
             Random.Range(spawnBounds.min.y, spawnBounds.max.y));

@@ -14,10 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateType: 2
   gateName: Ghonor Gate
-  gateDescription: 'Ghonor Gate Ghonor Gate Ghonor Gate Ghonor Gate Ghonor Gate Ghonor
-    Gate '
-  gateRequirementDescription: 3 Apple, 1 Grape
-  adverseEffectsDescription: blabla
-  positiveEffectsDescription: blabla
+  gateDescription: As the homeland of Earthifcans, Gronor is a solid giant with it's
+    iron vasteland. When the all soft material above it turned into gas, only Methifcans,
+    an evolved versions of Earthifcans, survived. This surviving specie reached to
+    next mental level and manage to learn ancient ways. Methifcans are now one of
+    higher beings of the galaxy.
+  gateRequirementDescription: 1 Metacore, 5 Hermitstone, 10 Waterstone, 10 Hermowater
+    Stone
+  adverseEffectsDescription: Bullet Push, Iron Stone, Aero Iron Stone (with Raha
+    Gate Combo), Hydro Iron Stone (with Earth Gate Combo),
+  positiveEffectsDescription: Slow move char, Enemy Block
   gateRecipe: {fileID: 11400000, guid: 663068cec40f2e448ab592f8a88d6022, type: 2}
-  isCrafted: 0
+  isCrafted: 1
+  isActive: 1

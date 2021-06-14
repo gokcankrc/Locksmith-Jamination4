@@ -14,10 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateType: 0
   gateName: Hermoor Gate
-  gateDescription: 'Blabla Blabla Blabla Blabla Blabla Blabla Blabla Blabla Blabla
-    Blabla Blabla Blabla Blabla Blabla Blabla '
-  gateRequirementDescription: 1 Armut 2 Elma
-  adverseEffectsDescription: blablablabla
-  positiveEffectsDescription: blablablabla
+  gateDescription: "Hermoor eskiden y\u0131ld\u0131zlar aras\u0131 ka\xE7ak\xE7\u0131l\u0131k
+    i\xE7in kullan\u0131lan bir gezegendi. Eski bir gelene\u011Fin takip\xE7isi olan
+    Locksmith'lerin buraya gelmesi ile i\u015Fleri bir ad\u0131m \xF6teye g\xF6t\xFCrmeye
+    ba\u015Flam\u0131\u015Flard\u0131. Metacore denen bir teknoloji ile metafizik
+    boyutlar\u0131 kullanarak mal ta\u015F\u0131mac\u0131l\u0131\u011F\u0131 yapmaya
+    ba\u015Flad\u0131lar. Bulunmas\u0131 imkans\u0131z an\u0131nda yolculuk yap\u0131lan
+    yollar olu\u015Fturdular. Bu teknolojinin kapasitesi \xFCzerinde kullan\u0131ld\u0131\u011F\u0131
+    Artifact ile belli oluyordu. \xC7ok k\xFC\xE7\xFCk boyutlarda metafizik data
+    aktar\u0131m\u0131 yap\u0131labiliyordu. Ama \xF6zg\xFCr Locksmith'ler meraklar\u0131na
+    yenik d\xFC\u015Ft\xFCler ve metafizik d\xFCnyaya giden Tekillik kap\u0131s\u0131
+    \xFCzerine deney yapmaya ba\u015Flad\u0131lar. \xC7ok \xF6zel bir Artifact'in
+    buraya getirilmesi gerekiyordu. Bu g\xF6revi Reigva'ya verdiler. Fakat Reigva
+    gezegende de\u011Filken ka\xE7ak\xE7\u0131lar\u0131 tespit eden imparatorluklar
+    gezegeni yerle bir etti. \u0130n\u015Fas\u0131 yeni bitmi\u015F olan Monopath
+    Gate'ler hi\xE7 kullan\u0131lamadan terk edildiler. Reigva d\xF6nd\xFC\u011F\xFCnde
+    gezegen terk edilmi\u015F ve Metahorde taraf\u0131ndan i\u015Fgal edilmi\u015Fti.
+    Bu yarat\u0131klar nereden gelmi\u015Fti ve ustalar\u0131 nereye gitmi\u015Fti?
+    Bu sorular\u0131n\u0131n cevab\u0131 Tekillik kap\u0131s\u0131nda gizliydi. Ama
+    \u015Fimdi ustalar\u0131 ile beraber kaybolan "
+  gateRequirementDescription: 1 Metacore
+  adverseEffectsDescription: Hermit Stone generate
+  positiveEffectsDescription: Nothing
   gateRecipe: {fileID: 11400000, guid: f98903ba9c0a3764fb35becdb615b015, type: 2}
   isCrafted: 1
+  isActive: 1

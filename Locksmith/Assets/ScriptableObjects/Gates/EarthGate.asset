@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateType: 1
   gateName: Earth Gate
-  gateDescription: 'Earth Gate Earth Gate Earth Gate Earth Gate Earth Gate Earth
-    Gate Earth Gate Earth Gate Earth Gate '
-  gateRequirementDescription: 1 Apple, 2 Grape
-  adverseEffectsDescription: blabla
-  positiveEffectsDescription: blabla
+  gateDescription: Birth place of humankind. The planet struggled under harsh treatment
+    and consumption for hundreds of years. Earth has a strong water recycle system
+    that allow ignorant human civilization to survive and let them to build a civilization
+    underwater safe cities and solar farm on ocean surfaces. Very few of humans are
+    capable of use Ancient Ways.
+  gateRequirementDescription: 1 Metacore, 10 Hermit Stone
+  adverseEffectsDescription: Explosive Round, Waterstone, Hermowater stone (with
+    Hermit Gate combo)
+  positiveEffectsDescription: Slower Fire, Enemy invisible, Faster enemy
   gateRecipe: {fileID: 11400000, guid: c80cd35c483c321468154d9a5731f2db, type: 2}
   isCrafted: 1
+  isActive: 1

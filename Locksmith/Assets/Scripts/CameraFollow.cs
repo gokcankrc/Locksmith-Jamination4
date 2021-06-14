@@ -15,6 +15,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!GameManager.PlayerAlive) return;
         var difference = player.transform.position - transform.position;
         transform.position += difference * 0.15f;
         transform.position += Vector3.back * 500 - Vector3.forward * transform.position.z; 

@@ -7,6 +7,9 @@ public class ResourceManager : MonoBehaviour
     public static ResourceManager Instance { get; private set; }
     public ResourceTypeListSO resourceTypeList;
 
+    public delegate void OnResourceChange();
+    public static event OnResourceChange onResourceChange;
+
     private void Awake()
     {
         Instance = this;
@@ -42,6 +45,8 @@ public class ResourceManager : MonoBehaviour
     public void AddResource(ResourceTypeSO resourceType, int amount)
     {
         resourceType.amount += amount;
+        onResourceChange?.Invoke();
+
     }
 
     public void RemoveResources(ResourceTypeSO resource, int amount)
@@ -49,6 +54,7 @@ public class ResourceManager : MonoBehaviour
         if (resource.amount >= amount)
         {
             resource.amount -= amount;
+            onResourceChange?.Invoke();
         }
     }
 }

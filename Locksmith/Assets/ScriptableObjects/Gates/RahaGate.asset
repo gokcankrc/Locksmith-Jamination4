@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateType: 3
   gateName: Raha Gate
-  gateDescription: 'Raha Gate Raha Gate Raha Gate Raha Gate Raha Gate Raha Gate '
-  gateRequirementDescription: 4 Stone, 3 Wood
-  adverseEffectsDescription: blablablabla
-  positiveEffectsDescription: blablablabla
+  gateDescription: 'Raha had always a scarcity about almost anything except different
+    gases and storms. Few to eat, few to live in, even few to walk and build on.
+    Volgars, civilised people of Raha, built their cities and societies with great
+    humbleness. This scarcity make them great thinkers and planners in Aero-Survival
+    Era. As one the first Ancient Way learners, Volgars colonised almost whole galaxy
+    especially thanks to their gas giant terraforming skills. It took humans to learn
+    about Volgars almost three thousand years.  '
+  gateRequirementDescription: 1 Metacore, 10 Hermitstone, 5 Waterstone, 10 Hermowater
+    Stone
+  adverseEffectsDescription: Dash, Airstone, Hydroair Stone (With Earth Gate Combo),
+    Aero Iron Stone (With Gronor Gate Combo)
+  positiveEffectsDescription: Ranged Enemy Spawn
   gateRecipe: {fileID: 11400000, guid: 72f761985edc5da4c97e8ede0197d577, type: 2}
   isCrafted: 1
+  isActive: 1
