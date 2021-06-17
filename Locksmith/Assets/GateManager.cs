@@ -6,19 +6,18 @@ using UnityEngine.EventSystems;
 
 public class GateManager : MonoBehaviour
 {
+    public static GateManager Instance;
     GateListSO gateList;
     public List<GateSO> activeGates;
 
     public delegate void OnGateToggle(GateSO gateSo, bool activation);
     public static event OnGateToggle onGateToggle;
-    public static GateManager Instance;
 
     private void Awake()
     {
-        CheckActiveGates();
-
-        gateList = Resources.Load<GateListSO>(typeof(GateListSO).Name);
         Instance = this;
+        gateList = Resources.Load<GateListSO>(typeof(GateListSO).Name);
+        CheckActiveGates();
     }
 
     public void CheckActiveGates()
@@ -34,31 +33,93 @@ public class GateManager : MonoBehaviour
 
     public void AddActiveGate(GateSO target)
     {
-        foreach (GateSO gate in gateList.list)
+        if (!activeGates.Contains(target) && target.isCrafted)
         {
-            if (!activeGates.Contains(target) && target.isCrafted)
-            {
-                target.isActive = true;
-                activeGates.Add(gate);
                 onGateToggle?.Invoke(target, true);
-                /* Buradaki 1, image'ın görünürlüğünün full olduğu anlamına geliyor */
-                UIManager.Instance.SetInventoryGateImage(target, 1); 
-            }
+            target.isActive = true;
+            activeGates.Add(target);
+            // UseGateEffect
+            UIManager.Instance.SetInventoryGateImage(target, UIManager.Instance.Opaque);
         }
+
     }
 
     public void RemoveGateFromList(GateSO target)
     {
-        foreach (GateSO gate in gateList.list)
+        if (activeGates.Contains(target))
         {
-            if (activeGates.Contains(gate))
-            {
-                /* Buradaki .5f, image'ın görünürlüğünün yarım olduğu anlamına geliyor */
-                UIManager.Instance.SetInventoryGateImage(target, .5f);
-                target.isActive = false;
-                activeGates.Remove(gate);
                 onGateToggle?.Invoke(target, false);
-            }
+            target.isActive = false;
+            activeGates.Remove(target);
+            // RemoveGateEffect
+            UIManager.Instance.SetInventoryGateImage(target, UIManager.Instance.Transparent);
         }
     }
+
+    private void UseGateEffect(GateSO gate)
+    {
+        switch (gate.gateType)
+        {
+            case GateType.Hermoor:
+                //Use skills
+                /*  set boolean true, while boolean true 
+                 * some effects active 
+                 * 
+                 * 
+                 */
+                break;
+            case GateType.Earth:
+                //Use skills
+                break;
+            case GateType.Gronor:
+                //Use skills
+                break;
+            case GateType.Raha:
+                //Use skills
+                break;
+            case GateType.Wodas:
+                //Use skills
+                break;
+            case GateType.Liridian:
+                //Use skills
+                break;
+            case GateType.Brenit:
+                //Use skills
+                break;
+        }
+    }
+    private void RemoveGateEffect(GateSO gate)
+    {
+        switch (gate.gateType)
+        {
+            case GateType.Hermoor:
+                
+                /* Set boolean false  
+                 * 
+                 * 
+                 * 
+                 */
+                break;
+            case GateType.Earth:
+                //Use skills
+                break;
+            case GateType.Gronor:
+                //Use skills
+                break;
+            case GateType.Raha:
+                //Use skills
+                break;
+            case GateType.Wodas:
+                //Use skills
+                break;
+            case GateType.Liridian:
+                //Use skills
+                break;
+            case GateType.Brenit:
+                //Use skills
+                break;
+        }
+    }
+
+
 }
