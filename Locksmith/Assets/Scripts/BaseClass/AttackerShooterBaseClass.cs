@@ -7,7 +7,6 @@ using UnityEngine.Serialization;
 public abstract class AttackerShooterBaseClass : AttackerBaseClass
 {
     [SerializeField] protected GameObject bulletPrefab;
-    [SerializeField] protected ProjectileStats Stats;
     
     
     /* No need
@@ -26,8 +25,7 @@ public abstract class AttackerShooterBaseClass : AttackerBaseClass
         var newBulletGO = Instantiate(bulletPrefab);
         var bullet = newBulletGO.GetComponent<DamagingProjectileBaseClass>();
         bullet.effects = new Effects(effects);
-        bullet.areaOfEffectStats = new AreaOfEffectStats(areaOfEffectStats);
-        bullet.projectileStats = new ProjectileStats(Stats);
+        bullet.stats = new Stats(stats);
         bullet.FromPlayer = fromPlayer;
         
         // TODO; Could do this like var transform = bullet.transform
@@ -35,21 +33,22 @@ public abstract class AttackerShooterBaseClass : AttackerBaseClass
         Transform transform1;
         (transform1 = bullet.transform).position = pos;
         transform1.rotation = Quaternion.AngleAxis(dir, Vector3.back);
-        transform1.localScale = new Vector3(Stats.Size, Stats.Size);
+        transform1.localScale = new Vector3(stats.ProjectileSize, stats.ProjectileSize);
         var bulletRB = newBulletGO.GetComponent<Rigidbody2D>();
         // There should be a better way to just shoot the damn thing in the direction we are facing
-        bulletRB.velocity = Quaternion.AngleAxis(dir, Vector3.back) * Vector2.right * Stats.Speed;
+        bulletRB.velocity = Quaternion.AngleAxis(dir, Vector3.back) * Vector2.right * stats.ProjectileSpeed;
         return newBulletGO;
     }
 }
 
 
 [Serializable]
-public class ProjectileStats
+public class ProjectileStats_
 {
-    // TODO; make "size" more intuitive, such as "range"
+    // this is not used anymore. holding temporarily for archiving and referencing purposes.
 
-    public ProjectileStats(ProjectileStats stats)
+    public ProjectileStats_(ProjectileStats_ stats)
+    
     {
         Damage = stats.Damage;
         Speed = stats.Speed;
@@ -64,30 +63,4 @@ public class ProjectileStats
     public float Duration = 2.5f;
     public int Pierce = 0;
 }
-
-
-[Serializable]
-public class AreaOfEffectStats
-{
-    // TODO; make "size" more intuitive, such as "range"
-
-    public AreaOfEffectStats(AreaOfEffectStats stats)
-    {
-        Damage = stats.Damage;
-        Size = stats.Size;
-        Duration = stats.Duration;
-    }
-
-    public AreaOfEffectStats(float damage,float size,float duration)
-    {
-        Damage = damage;
-        Size = size;
-        Duration = duration;
-    }
-    
-    public float Damage = 5;
-    public float Size = 1;
-    public float Duration = 1f;
-}
-
 

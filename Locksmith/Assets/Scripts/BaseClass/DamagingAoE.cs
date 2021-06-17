@@ -21,7 +21,7 @@ public abstract class DamagingAoE : DamagingAbility
     
     protected virtual void Start()
     {
-        expireTime = areaOfEffectStats.Duration * skillDurationMultiplayer;
+        expireTime = stats.AreaDuration * skillDurationMultiplayer;
             
         /*
         foreach (var enemyGO in EnemySpawner.I.CurrentlyActiveEnemies)
@@ -40,7 +40,7 @@ public abstract class DamagingAoE : DamagingAbility
 
     protected override void DealDamage()
     {
-        _collisionEntity.healthClass.TakeDamage(areaOfEffectStats.Damage * skillDamageMultiplayer);
+        _collisionEntity.healthClass.TakeDamage(stats.Damage * skillDamageMultiplayer);
     }
 
     protected virtual void FixedUpdate()

@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUp: {fileID: 1808435336179393639, guid: b660f79f76aac8541bd05fcae593d02e, type: 3}
   maxHealth: 100
+  health: 0
 --- !u!114 &9067253779295364884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,13 +211,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects:
     list: 010000000000
-  bulletPrefab: {fileID: 9217524693849605576, guid: 7db206240a3c65a49985f2b743e27e58, type: 3}
-  Stats:
+  stats:
     Damage: 8
-    Speed: 0.1
-    Size: 3
-    Duration: 1
-    Pierce: 0
+    AreaSize: 0
+    AreaDuration: 0
+    ProjectileSize: 3
+    ProjectileSpeed: 0.1
+    ProjectileDuration: 1
+    ProjectilePierce: 0
+  fromPlayer: 0
+  bulletPrefab: {fileID: 9217524693849605576, guid: 7db206240a3c65a49985f2b743e27e58, type: 3}
 --- !u!114 &1128207677
 MonoBehaviour:
   m_ObjectHideFlags: 0

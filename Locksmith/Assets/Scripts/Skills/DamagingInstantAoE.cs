@@ -8,7 +8,7 @@ public class DamagingInstantAoE : DamagingAoE
     {
         // Stays for 5 frames
         skillDurationMultiplayer = 1;
-        areaOfEffectStats.Duration = 0.1f;
+        stats.AreaDuration = 0.1f;
         base.Start();
     }
 

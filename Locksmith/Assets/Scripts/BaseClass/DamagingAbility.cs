@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class DamagingAbility : MonoBehaviour
 {
     [SerializeField] public Effects effects;
-    [SerializeField] public AreaOfEffectStats areaOfEffectStats;
+    [SerializeField] public Stats stats;
     [SerializeField] public bool FromPlayer;
     
     [SerializeField] protected GameObject burningGround;
@@ -119,7 +119,7 @@ public abstract class DamagingAbility : MonoBehaviour
         Instance.effects = effects;
         Instance.effects.Explosion = false;
         Instance.effects.LeaveBurningGround = false;
-        Instance.areaOfEffectStats = new AreaOfEffectStats(areaOfEffectStats);
+        Instance.stats = new Stats(stats);
         Instance.FromPlayer = FromPlayer;
     }
 }

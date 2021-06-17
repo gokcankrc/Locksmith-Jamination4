@@ -295,18 +295,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects:
     list: 010100010000
-  areaOfEffectStats:
-    Damage: 10
-    Size: 1
-    Duration: 1
+  stats:
+    Damage: 5
+    AreaSize: 1
+    AreaDuration: 1
+    ProjectileSize: 2
+    ProjectileSpeed: 3
+    ProjectileDuration: 2.5
+    ProjectilePierce: 0
   fromPlayer: 1
   bulletPrefab: {fileID: 9217524693849605576, guid: 3d2b98caa2957504e92163a9997bcbc3, type: 3}
-  Stats:
-    Damage: 10
-    Speed: 5
-    Size: 1.5
-    Duration: 0.7
-    Pierce: 0
   attackCoolDownMax: 0.2
   accuracyLoss: 10
 --- !u!95 &1295506388

@@ -8,20 +8,18 @@ using Debug = UnityEngine.Debug;
 
 public abstract class DamagingProjectileBaseClass : DamagingAbility
 {
-    [SerializeField] public ProjectileStats projectileStats;
-    
     private void Start()
     {
         var rb = GetComponent<Rigidbody2D>();
         var vel = rb.velocity;
-        rb.velocity=  vel.normalized * projectileStats.Speed;
+        rb.velocity=  vel.normalized * stats.ProjectileSpeed;
         EffectDirection = vel.normalized;
     }
     
     protected void FixedUpdate()
     {
-        projectileStats.Duration -= Time.fixedDeltaTime;
-        if (projectileStats.Duration <= 0)
+        stats.ProjectileDuration -= Time.fixedDeltaTime;
+        if (stats.ProjectileDuration <= 0)
         {
             Destroy(gameObject);
         }
@@ -40,13 +38,13 @@ public abstract class DamagingProjectileBaseClass : DamagingAbility
 
     protected void DefaultCollision(EntityBaseClass otherEntity)
     {
-        if (projectileStats.Pierce < 0)
+        if (stats.ProjectilePierce < 0)
         {
             return;
         };
         ApplyHostileEffects(otherEntity);
-        projectileStats.Pierce -= 1;
-        if (projectileStats.Pierce < 0) Destroy(gameObject);
+        stats.ProjectilePierce -= 1;
+        if (stats.ProjectilePierce < 0) Destroy(gameObject);
     }
 
     protected override void OnObstacleCollision()
@@ -57,7 +55,8 @@ public abstract class DamagingProjectileBaseClass : DamagingAbility
 
     protected override void DealDamage()
     {
-        _collisionEntity.healthClass.TakeDamage(projectileStats.Damage);
+        // TODO; Buradaki damage raw olarak alıyor. skill multiplayerı almalı.
+        _collisionEntity.healthClass.TakeDamage(stats.Damage);
     }
     protected override void Heal() { return; }
 }
