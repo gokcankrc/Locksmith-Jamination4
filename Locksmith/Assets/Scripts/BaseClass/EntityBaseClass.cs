@@ -27,6 +27,11 @@ public abstract class EntityBaseClass : MonoBehaviour
     
     private void Start()
     {
+        GetReferances();
+    }
+
+    public void GetReferances()
+    {
         healthClass = GetComponent<HealthBaseClass>();
         moveClass = GetComponent<MovementBaseClass>();
         AttackerClass = GetComponent<AttackerBaseClass>();
