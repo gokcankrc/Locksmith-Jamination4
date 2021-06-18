@@ -70,6 +70,7 @@ public class EnemyManager : MonoBehaviour
                 if (!(spawnable.chance > roll)) continue;
                 if (enemyCountLimit < _currentlyActiveEnemies.Count) continue;
                 var spawnedEnemy = GameObject.Instantiate(spawnable.enemy, transform);
+                EffectManager.GetEffectsOnFreshSpawn(spawnedEnemy.GetComponent<EntityBaseClass>());
                 spawnedEnemy.transform.position = GetCool420Positionfkyea();
                 _currentlyActiveEnemies.Add(spawnedEnemy);
                 //Debug.Log("Current enemy amount: " + _currentlyActiveEnemies.Count);

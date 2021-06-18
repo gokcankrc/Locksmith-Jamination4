@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skills: []
+  type: 1
 --- !u!114 &680628081523237538
 MonoBehaviour:
   m_ObjectHideFlags: 0

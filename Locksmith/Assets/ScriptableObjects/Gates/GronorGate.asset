@@ -24,6 +24,18 @@ MonoBehaviour:
   adverseEffectsDescription: Bullet Push, Iron Stone, Aero Iron Stone (with Raha
     Gate Combo), Hydro Iron Stone (with Earth Gate Combo),
   positiveEffectsDescription: Slow move char, Enemy Block
+  playerStats:
+    damageAdd: 0
+    durationAdd: 0
+    maxHealthAdd: 0
+  enemyStats:
+    damageAdd: 0
+    durationAdd: 0
+    maxHealthAdd: 0
+  playerEffects:
+    list: 000000000000
+  enemyEffects:
+    list: 000000000000
   gateRecipe: {fileID: 11400000, guid: 663068cec40f2e448ab592f8a88d6022, type: 2}
   isCrafted: 1
-  isActive: 1
+  isActive: 0

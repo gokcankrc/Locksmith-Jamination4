@@ -307,9 +307,10 @@ public class UIManager : MonoBehaviour
     {
         if (targetGate.isActive)
         {
+            Debug.Log("Deactivated: " + targetGate.gateName);
+            
             GateManager.Instance.RemoveGateFromList(targetGate);
-            Debug.Log("1");
-
+            
             switch (targetGate.gateType)
             {
                 case GateType.Hermoor:
@@ -339,7 +340,7 @@ public class UIManager : MonoBehaviour
         }
         else if (targetGate.isCrafted && !targetGate.isActive)
         {
-            Debug.Log("3");
+            Debug.Log("Activated: " + targetGate.gateName);
 
             GateManager.Instance.AddActiveGate(targetGate);
 
@@ -373,6 +374,8 @@ public class UIManager : MonoBehaviour
 
         if (!targetGate.isCrafted)
         {
+            Debug.Log("Gate is not crafted yet: " + targetGate.gateName);
+
             SetInventoryGateButton(targetGate, false);
         }
     }

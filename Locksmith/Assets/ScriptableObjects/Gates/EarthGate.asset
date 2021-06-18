@@ -23,6 +23,18 @@ MonoBehaviour:
   adverseEffectsDescription: Explosive Round, Waterstone, Hermowater stone (with
     Hermit Gate combo)
   positiveEffectsDescription: Slower Fire, Enemy invisible, Faster enemy
+  playerStats:
+    damageAdd: 2
+    durationAdd: -0
+    maxHealthAdd: 0
+  enemyStats:
+    damageAdd: -1
+    durationAdd: 0
+    maxHealthAdd: 0
+  playerEffects:
+    list: 000000000000
+  enemyEffects:
+    list: 000000000000
   gateRecipe: {fileID: 11400000, guid: c80cd35c483c321468154d9a5731f2db, type: 2}
   isCrafted: 1
   isActive: 1

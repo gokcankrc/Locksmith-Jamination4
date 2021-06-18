@@ -24,6 +24,18 @@ MonoBehaviour:
     increase, Fixaron generate
   positiveEffectsDescription: Enemies are faster, Enemies can explode when close
     to us (esplosion skill)
+  playerStats:
+    damageAdd: 1
+    durationAdd: 0
+    maxHealthAdd: 0
+  enemyStats:
+    damageAdd: 0
+    durationAdd: 0
+    maxHealthAdd: 0
+  playerEffects:
+    list: 000000000000
+  enemyEffects:
+    list: 000000000000
   gateRecipe: {fileID: 11400000, guid: a4d3356e686a41f44a1dc3784ef03e05, type: 2}
   isCrafted: 1
-  isActive: 1
+  isActive: 0

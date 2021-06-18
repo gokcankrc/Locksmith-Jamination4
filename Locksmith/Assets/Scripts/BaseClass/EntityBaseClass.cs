@@ -18,7 +18,13 @@ public abstract class EntityBaseClass : MonoBehaviour
     protected bool dashing;
     protected bool pushing;
     public Skill[] skills;
+    public EntityType type;
 
+    public enum EntityType
+    {
+        Player, EnemyShooter
+    }
+    
     private void Start()
     {
         healthClass = GetComponent<HealthBaseClass>();
@@ -58,6 +64,12 @@ public abstract class EntityBaseClass : MonoBehaviour
         
         
     }
+
+    public virtual void CreatedEntity()
+    {
+        // When an entity is created, it looks at current active gates and changes stats if necessary.
+        
+    }
     
     public virtual void TakeDamage(float damage)
     {
@@ -84,14 +96,10 @@ public abstract class EntityBaseClass : MonoBehaviour
         var _skill = new Effects(AttackerClass.effects);
         for (int i = 0; i < skillAdd.list.Length; i++)
         {
-            Debug.Log(skillAdd.list[i]);
-            Debug.Log(i);
             // If true, toggle the skill
             if (skillAdd.list[i])
             {
-                Debug.Log(_skill.list[i]);
                 _skill.list[i] = !_skill.list[i];
-                Debug.Log(_skill.list[i]);
             }
         }
 
@@ -112,7 +120,7 @@ public abstract class EntityBaseClass : MonoBehaviour
         a.UseSkill();
     }
 
-    public void GetGateStats(gateStats gateStats)
+    public void GetGateStats(GateStats gateStats)
     {
         AttackerClass.stats.Damage += gateStats.damageAdd;
         AttackerClass.stats.AreaDuration += gateStats.durationAdd;

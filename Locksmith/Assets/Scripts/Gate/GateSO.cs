@@ -4,6 +4,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using System;
+using System.Collections;
+using System.Runtime.CompilerServices;
+using UnityEngine.Bindings;
+using UnityEngine.Internal;
+using UnityEngine.Scripting;
+using System.Runtime.CompilerServices;
+using UnityEngine.Bindings;
+using UnityEngine.Scripting;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Security;
+using UnityEngine.Bindings;
+using UnityEngine.Internal;
+using UnityEngine.Scripting;
+using UnityEngineInternal;
+using System;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Security;
+using UnityEngine.Bindings;
+using UnityEngine.Internal;
+using UnityEngine.Scripting;
+using UnityEngineInternal;
+using Random = UnityEngine.Random;
+
 public enum GateType
 {
     Hermoor,
@@ -15,6 +43,7 @@ public enum GateType
     Brenit
 }
 
+
 [CreateAssetMenu(menuName = "ScriptableObjects/GateSO")]
 public class GateSO : ScriptableObject
 {
@@ -24,8 +53,8 @@ public class GateSO : ScriptableObject
     public string gateRequirementDescription;
     public string adverseEffectsDescription;
     public string positiveEffectsDescription;
-    public gateStats PlayerStats;
-    public gateStats EnemyStats;
+    public GateStats playerStats;
+    public GateStats enemyStats;
     public Effects playerEffects;
     public Effects enemyEffects;
 
@@ -35,22 +64,31 @@ public class GateSO : ScriptableObject
 }
 
 [Serializable]
-public class gateStats
+public class GateStats
 {
-    public static gateStats operator-(gateStats toBeReversed)
-    {
-        // If gate is being closed, this will make them inversed.
 
+    public static GateStats operator+(GateStats toBeCloned)
+    {
+        GateStats buffer = new GateStats();
+        buffer.damageAdd = toBeCloned.damageAdd;
+        buffer.durationAdd = toBeCloned.durationAdd;
+        buffer.maxHealthAdd = toBeCloned.maxHealthAdd;
+        return buffer;
+    }
+    
+    public static GateStats operator-(GateStats toBeReversed)
+    {
+        GateStats buffer = new GateStats();
         // TODO; please for the love of god, tell me how can I automatize this. this is fkn dumb. Same happens with Effects
-        toBeReversed.damageAdd = - toBeReversed.damageAdd;
-        toBeReversed.durationAdd = - toBeReversed.durationAdd;
-        toBeReversed.maxHealthAdd = - toBeReversed.maxHealthAdd;
+        buffer.damageAdd = - toBeReversed.damageAdd;
+        buffer.durationAdd = - toBeReversed.durationAdd;
+        buffer.maxHealthAdd = - toBeReversed.maxHealthAdd;
         /* If we add like multiplications, we use these.
-        toBeReversed.damageMult = 1 / toBeReversed.damageMult;
-        toBeReversed.durationMult = 1 / toBeReversed.durationMult;
-        toBeReversed.healthMult = 1 / toBeReversed.healthMult;
+        buffer.damageMult = 1 / toBeReversed.damageMult;
+        buffer.durationMult = 1 / toBeReversed.durationMult;
+        buffer.healthMult = 1 / toBeReversed.healthMult;
         */
-        return toBeReversed;
+        return buffer;
     }
     public float damageAdd;
     public float durationAdd;

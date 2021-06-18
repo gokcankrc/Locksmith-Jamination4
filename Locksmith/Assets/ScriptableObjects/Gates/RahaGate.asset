@@ -26,6 +26,18 @@ MonoBehaviour:
   adverseEffectsDescription: Dash, Airstone, Hydroair Stone (With Earth Gate Combo),
     Aero Iron Stone (With Gronor Gate Combo)
   positiveEffectsDescription: Ranged Enemy Spawn
+  playerStats:
+    damageAdd: 0
+    durationAdd: 0
+    maxHealthAdd: 0
+  enemyStats:
+    damageAdd: 0
+    durationAdd: 0
+    maxHealthAdd: 0
+  playerEffects:
+    list: 000000000000
+  enemyEffects:
+    list: 000000000000
   gateRecipe: {fileID: 11400000, guid: 72f761985edc5da4c97e8ede0197d577, type: 2}
   isCrafted: 1
-  isActive: 1
+  isActive: 0

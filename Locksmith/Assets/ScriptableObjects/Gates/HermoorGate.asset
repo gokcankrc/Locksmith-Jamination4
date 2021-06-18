@@ -36,6 +36,18 @@ MonoBehaviour:
   gateRequirementDescription: 1 Metacore
   adverseEffectsDescription: Hermit Stone generate
   positiveEffectsDescription: Nothing
+  playerStats:
+    damageAdd: -0
+    durationAdd: -0
+    maxHealthAdd: 0
+  enemyStats:
+    damageAdd: -0
+    durationAdd: -0
+    maxHealthAdd: 0
+  playerEffects:
+    list: 000000000000
+  enemyEffects:
+    list: 000000000000
   gateRecipe: {fileID: 11400000, guid: f98903ba9c0a3764fb35becdb615b015, type: 2}
   isCrafted: 1
-  isActive: 1
+  isActive: 0

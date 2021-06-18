@@ -26,6 +26,18 @@ MonoBehaviour:
     Stone
   adverseEffectsDescription: Machinegun, Char Block, Fixaron generate
   positiveEffectsDescription: Enemy health increase, Melee enemy Charge unlocked
+  playerStats:
+    damageAdd: 0
+    durationAdd: 0
+    maxHealthAdd: 0
+  enemyStats:
+    damageAdd: 0
+    durationAdd: 0
+    maxHealthAdd: 0
+  playerEffects:
+    list: 000000000000
+  enemyEffects:
+    list: 000000000000
   gateRecipe: {fileID: 11400000, guid: 3b52cfc4c251e744f88881804941f871, type: 2}
   isCrafted: 1
-  isActive: 1
+  isActive: 0
