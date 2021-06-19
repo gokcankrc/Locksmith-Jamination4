@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popUp: {fileID: 1808435336179393639, guid: b660f79f76aac8541bd05fcae593d02e, type: 3}
-  maxHealth: 1000
+  maxHealth: 100
   health: 0
 --- !u!114 &952594910483546781
 MonoBehaviour:
