@@ -15,6 +15,14 @@ public class ResourceManager : MonoBehaviour
         Instance = this;
 
         resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
+        if (GameManager.Instance.resetInventoryOnStart)
+        {
+            foreach (var VARIABLE in resourceTypeList.list)
+            {
+                VARIABLE.amount = 0;
+
+            }
+        }
     }
 
     public bool ContainsItem(ResourceTypeSO resource, int amount)

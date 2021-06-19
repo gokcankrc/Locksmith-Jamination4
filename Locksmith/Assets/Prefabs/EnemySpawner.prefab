@@ -71,9 +71,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drops:
-  - prefab: {fileID: 6985639559104232860, guid: bdd1043fed51ff54b9c923fb742b9b07, type: 3}
+  - prefab: {fileID: 4080115151418396176, guid: d577897d88a08dc498acdc8f673f4ff3, type: 3}
     chance: 60
     amount: 6
+  - prefab: {fileID: 1737488627958844473, guid: ddd55d6f705502f41a7d0a6b13a8046c, type: 3}
+    chance: 10
+    amount: 1
   lootDistance: 1
 --- !u!61 &1977294104
 BoxCollider2D:

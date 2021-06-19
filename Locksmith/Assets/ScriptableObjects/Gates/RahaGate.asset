@@ -31,13 +31,23 @@ MonoBehaviour:
     durationAdd: 0
     maxHealthAdd: 0
   enemyStats:
-    damageAdd: 0
+    damageAdd: -2
     durationAdd: 0
     maxHealthAdd: 0
   playerEffects:
-    list: 000000000000
+    list: 000001000000
   enemyEffects:
     list: 000000000000
+  gateDrops:
+  - prefab: {fileID: 5121354340691958603, guid: 384834a58f07c15449d06e1f303d5c8c, type: 3}
+    chance: 40
+    amount: 4
+  - prefab: {fileID: 709767891681761882, guid: 4b6a47dc3666181478679bdfbc3bcd05, type: 3}
+    chance: 40
+    amount: 2
+  - prefab: {fileID: 3030361834690872799, guid: 7aab8b81f0b84834998a582da4905b9e, type: 3}
+    chance: 40
+    amount: 2
   gateRecipe: {fileID: 11400000, guid: 72f761985edc5da4c97e8ede0197d577, type: 2}
-  isCrafted: 1
+  isCrafted: 0
   isActive: 0

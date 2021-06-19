@@ -6,8 +6,8 @@ using Random = UnityEngine.Random;
 
 public class EnemyDrop : MonoBehaviour
 {
-    [SerializeField] private Drops[] drops;
-    [Range(0.0F, 10.0F)]
+    [SerializeField] public List<Drop> drops;
+    [Range(0.0F, 2.0F)]
     [SerializeField] private float lootDistance;
 
     public static EnemyDrop I;
@@ -18,10 +18,10 @@ public class EnemyDrop : MonoBehaviour
     }
     
     [Serializable]
-    private class Drops
+    public class Drop
     {
         public GameObject prefab;
-        public int chance; //TODO; implement chances
+        public int chance;
         public int amount;
     }
 
@@ -31,12 +31,33 @@ public class EnemyDrop : MonoBehaviour
         {
             for (int i = 0; i < droppable.amount; i++)
             {
+                var chanceCheck = (Random.Range(0, 100f) - droppable.chance < 0);
+                if (!chanceCheck) continue;
+                
                 var angle = Random.Range(0f, 360f);
                 var distance = Random.Range(0f, lootDistance);
-                var drop = Instantiate(droppable.prefab);
                 var randomizePos = Quaternion.AngleAxis(angle, Vector3.back) * Vector3.right * distance;
+                
+                var drop = Instantiate(droppable.prefab);
                 drop.transform.position = dyingEnemyPos.position + randomizePos;
             }
+        }
+    }
+
+
+    public void AddDrops(List<Drop> dropsToAdd)
+    {
+        foreach (var VARIABLE in dropsToAdd)
+        {
+            drops.Add(VARIABLE);
+        }
+    }
+    
+    public void RemoveDrops(List<Drop> dropsToRemove)
+    {
+        foreach (var VARIABLE in dropsToRemove)
+        {
+            drops.Remove(VARIABLE);
         }
     }
 }

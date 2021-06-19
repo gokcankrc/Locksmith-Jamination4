@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HydroIronStone
   m_EditorClassIdentifier: 
   resourceType: 6
-  amount: 40
+  amount: 0

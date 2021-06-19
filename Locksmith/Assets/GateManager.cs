@@ -17,6 +17,14 @@ public class GateManager : MonoBehaviour
     {
         Instance = this;
         gateList = Resources.Load<GateListSO>(typeof(GateListSO).Name);
+        if (GameManager.Instance.resetCraftedGatesOnStart)
+        {
+            foreach (var VARIABLE in gateList.list)
+            {
+                VARIABLE.isActive = false;
+                VARIABLE.isCrafted = false;
+            }
+        }
         CheckActiveGates();
     }
 
@@ -38,6 +46,7 @@ public class GateManager : MonoBehaviour
                 onGateToggle?.Invoke(target, true);
             target.isActive = true;
             activeGates.Add(target);
+            EnemyDrop.I.AddDrops(target.gateDrops);
             // UseGateEffect
             UIManager.Instance.SetInventoryGateImage(target, UIManager.Instance.Opaque);
         }
@@ -51,6 +60,7 @@ public class GateManager : MonoBehaviour
                 onGateToggle?.Invoke(target, false);
             target.isActive = false;
             activeGates.Remove(target);
+            EnemyDrop.I.RemoveDrops(target.gateDrops);
             // RemoveGateEffect
             UIManager.Instance.SetInventoryGateImage(target, UIManager.Instance.Transparent);
         }

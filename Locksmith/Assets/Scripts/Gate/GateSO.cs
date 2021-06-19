@@ -57,6 +57,7 @@ public class GateSO : ScriptableObject
     public GateStats enemyStats;
     public Effects playerEffects;
     public Effects enemyEffects;
+    public List<EnemyDrop.Drop> gateDrops;
 
     public CraftingRecipe gateRecipe;
     public bool isCrafted;

@@ -37,17 +37,24 @@ MonoBehaviour:
   adverseEffectsDescription: Hermit Stone generate
   positiveEffectsDescription: Nothing
   playerStats:
-    damageAdd: -0
+    damageAdd: -2
     durationAdd: -0
     maxHealthAdd: 0
   enemyStats:
-    damageAdd: -0
+    damageAdd: 4
     durationAdd: -0
-    maxHealthAdd: 0
+    maxHealthAdd: 30
   playerEffects:
-    list: 000000000000
+    list: 000000010000
   enemyEffects:
     list: 000000000000
+  gateDrops:
+  - prefab: {fileID: 7876570214644338279, guid: c2b00271dfbd0be43ae46d5efa3e0060, type: 3}
+    chance: 40
+    amount: 4
+  - prefab: {fileID: 4080115151418396176, guid: d577897d88a08dc498acdc8f673f4ff3, type: 3}
+    chance: 40
+    amount: 2
   gateRecipe: {fileID: 11400000, guid: f98903ba9c0a3764fb35becdb615b015, type: 2}
   isCrafted: 1
-  isActive: 0
+  isActive: 1

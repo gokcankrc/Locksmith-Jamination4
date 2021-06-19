@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool debugDisplay;
     [SerializeField] private GameObject debugCanvas;
 
+    public bool resetCraftedGatesOnStart;
+    public bool resetInventoryOnStart;
+    
     public List<CraftingRecipe> craftingRecipes;
     public List<GateSO> craftedGates;
 
@@ -32,7 +35,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // have to reset the amoounts of gates and drops cuz ThE CODE ChANGES ThE SCRIPTABLE OBJECTS TuEMSELVES
+        
     }
 
     // Update is called once per frame

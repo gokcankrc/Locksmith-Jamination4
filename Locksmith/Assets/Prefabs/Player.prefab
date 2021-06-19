@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skills: []
+  type: 0
   Inputs: {fileID: 952594910037995909}
   firingSlowDown: 0.6
 --- !u!114 &952594910037995909
@@ -301,7 +302,7 @@ MonoBehaviour:
     AreaDuration: 1
     ProjectileSize: 2
     ProjectileSpeed: 3
-    ProjectileDuration: 2.5
+    ProjectileDuration: 1
     ProjectilePierce: 0
   fromPlayer: 1
   bulletPrefab: {fileID: 9217524693849605576, guid: 3d2b98caa2957504e92163a9997bcbc3, type: 3}

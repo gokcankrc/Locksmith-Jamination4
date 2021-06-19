@@ -217,8 +217,8 @@ MonoBehaviour:
     AreaSize: 0
     AreaDuration: 0
     ProjectileSize: 2
-    ProjectileSpeed: 1
-    ProjectileDuration: 2.5
+    ProjectileSpeed: 1.3
+    ProjectileDuration: 2
     ProjectilePierce: 0
   fromPlayer: 0
   bulletPrefab: {fileID: 9217524693849605576, guid: 7db206240a3c65a49985f2b743e27e58, type: 3}

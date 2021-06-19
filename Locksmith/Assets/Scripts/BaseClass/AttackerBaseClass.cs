@@ -51,6 +51,8 @@ public class Effects
     // TODO; figure out why the fuck you don't work? edit: If you don't edit this value from Unity, it does not create
     // a list that is initialized.
     
+    [Header("In order, DealCollisionDamage, Knockback, LeaveburningGround, Explosion, Pierce, heal")]
+    [Tooltip("In order, DealCollisionDamage, Knockback, LeaveburningGround, Explosion, Pierce, heal")]
     public bool[] list = new []{false,false,false,false,false,false};
     
     // TODO; figure out how this won't be a mess like this. Make it possible to easily get items intuitively
