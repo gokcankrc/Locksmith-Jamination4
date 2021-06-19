@@ -21,7 +21,12 @@ public class HealthBaseClass : MonoBehaviour
     public virtual float TakeDamage(float damageTaken)
     {
         health -= damageTaken;
-        var a =popUp.Create(transform.position,  damageTaken.ToString());
+        
+        PopUpColorEnum popUpColor;
+        if (Entity.AttackerClass.fromPlayer) popUpColor = PopUpColorEnum.EnemyHit;
+        else popUpColor = PopUpColorEnum.FriendHit;
+        var damageTakenInt = (int) damageTaken;
+        var a =popUp.Create(transform.position, damageTakenInt.ToString(), popUpColor);
         a.transform.position += Vector3.back * 10;
         
         //under construction
@@ -37,7 +42,10 @@ public class HealthBaseClass : MonoBehaviour
 
     public virtual float Heal(float healAmount)
     {
-        popUp.Create(transform.position,  healAmount.ToString());
+        PopUpColorEnum popUpColor;
+        if (Entity.AttackerClass.fromPlayer) popUpColor = PopUpColorEnum.EnemyHeal;
+        else popUpColor = PopUpColorEnum.FriendHeal;
+        popUp.Create(transform.position,  healAmount.ToString(), popUpColor);
         health += healAmount;
         if (health > maxHealth)
         {
