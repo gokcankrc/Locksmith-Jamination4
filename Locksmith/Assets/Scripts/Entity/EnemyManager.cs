@@ -31,14 +31,15 @@ public class EnemyManager : MonoBehaviour
     
     private void Awake()
     {
+        Debug.Log("this is awake of enemy");
         I = this;
         _currentlyActiveEnemies = new List<GameObject>();
-        _playerTransform = GameManager.Instance.Player.transform; // game manager olunca bunu güzelleştirelim
         // _currentlyActiveEnemies = new GameObject[] { };
     }
 
     void Start()
     {
+        _playerTransform = GameManager.Instance.Player.transform; // game manager olunca bunu güzelleştirelim
         SpawnEnemies(initialSpawnAmount);
         _waveCd = waveCDMax;
     }

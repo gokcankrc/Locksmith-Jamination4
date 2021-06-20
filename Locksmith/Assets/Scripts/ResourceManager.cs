@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +11,14 @@ public class ResourceManager : MonoBehaviour
     public delegate void OnResourceChange();
     public static event OnResourceChange onResourceChange;
 
+
     private void Awake()
     {
         Instance = this;
+    }
 
-        resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
+    private void Start()
+    {
         if (GameManager.Instance.resetInventoryOnStart)
         {
             foreach (var VARIABLE in resourceTypeList.list)
@@ -23,6 +27,7 @@ public class ResourceManager : MonoBehaviour
 
             }
         }
+        resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
     }
 
     public bool ContainsItem(ResourceTypeSO resource, int amount)
