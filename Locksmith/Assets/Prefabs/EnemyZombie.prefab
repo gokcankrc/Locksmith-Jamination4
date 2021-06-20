@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772bd611c6a17bd47afa233aeef2d231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 35
+  moveSpeed: 55
 --- !u!61 &5591080926824921946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,8 +222,8 @@ MonoBehaviour:
     AreaSize: 0
     AreaDuration: 0
     ProjectileSize: 3
-    ProjectileSpeed: 0.2
-    ProjectileDuration: 0.5
+    ProjectileSpeed: 5
+    ProjectileDuration: 0.1
     ProjectilePierce: 0
   fromPlayer: 0
   entity: {fileID: 0}

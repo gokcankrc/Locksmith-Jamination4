@@ -143,9 +143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 4
   detectionRange: 5
-  alertDistance: 2
+  alertDistance: 3
   disengageDistance: 5
-  attackCooldownMax: 2
+  attackCooldownMax: 1.5
   minCloseEnoughDistance: 0.4
   _state: 0
 --- !u!114 &7965254628782179095

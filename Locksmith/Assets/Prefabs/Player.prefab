@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66432afae06aab141829429791db383f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 70
+  moveSpeed: 50
 --- !u!114 &5554467944648243657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,9 +375,9 @@ MonoBehaviour:
   mode: 1
   rb: {fileID: 952594910483546780}
   cam: {fileID: 0}
-  dashSpeed: 7
+  dashSpeed: 10
   dashMaxDuration: 0.3
-  dashMaxCdTime: 4
+  dashMaxCdTime: 0.8
   entity: {fileID: 952594910483546782}
   onCooldown: 0
 --- !u!114 &4413899972389173217
