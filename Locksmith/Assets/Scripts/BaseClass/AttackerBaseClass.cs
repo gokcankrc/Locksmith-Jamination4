@@ -11,12 +11,25 @@ public abstract class AttackerBaseClass : MonoBehaviour
     [SerializeField] public Stats stats;
     [SerializeField] public bool fromPlayer;
 
-    protected void Awake()
+
+    public EntityBaseClass entity;
+    public delegate void Attackhit();
+    public event Attackhit attackhit;
+    
+    protected virtual void Awake()
     {
-        //effects = new Effects();
+        entity = GetComponent<EntityBaseClass>();
     }
 
+
     public abstract void Attack(float direction);
+
+    public void AttackhitInvoke()
+    {
+        attackhit?.Invoke();
+    }
+    
+    
 }
 
 [Serializable]

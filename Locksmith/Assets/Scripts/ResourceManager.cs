@@ -37,8 +37,6 @@ public class ResourceManager : MonoBehaviour
             }
         }
 
-        Debug.Log(containAmount);
-
         if (containAmount >= amount)
         {
             return true;

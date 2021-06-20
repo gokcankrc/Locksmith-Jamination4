@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerManager : EntityBaseClass
+public class PlayerEntity : EntityBaseClass
 {
     [SerializeField] private PlayerInputs Inputs;
     [SerializeField] private float firingSlowDown;

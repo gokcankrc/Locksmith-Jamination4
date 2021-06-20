@@ -1,18 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : HealthBaseClass
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float outOfCombatRegen;
+    private float outOfCombatRegenDelay = 3;
+    private int RegenPeriod;
+
+    protected override void Start()
     {
-        
+        base.Start();
+        RegenPeriod = 60;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void FixedUpdate()
     {
-        
+        base.FixedUpdate();
+        if (outOfCombatDuration > outOfCombatRegenDelay)
+        {
+            PeriodicRegen(outOfCombatRegen);
+        }
+
+    }
+
+    void PeriodicRegen(float regenAmount)
+    {
+        RegenPeriod -= 1;
+        if (RegenPeriod <= 0)
+        {
+            RegenPeriod += 60;
+            Heal(regenAmount);
+        }
     }
 }

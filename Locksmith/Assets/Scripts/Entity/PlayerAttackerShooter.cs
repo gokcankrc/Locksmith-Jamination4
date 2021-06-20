@@ -12,12 +12,13 @@ public class PlayerAttackerShooter : AttackerShooterBaseClass
     [SerializeField] private float attackCoolDownMax;
     [SerializeField] private float accuracyLoss;
     private float attackCoolDown;
-    private PlayerManager playerEntity;
+    private PlayerEntity playerEntity;
     private bool attackBuffer = false;
 
-    private void Awake()
+    protected override void Awake()
     {
-        playerEntity = GetComponent<PlayerManager>();
+        base.Awake();
+        playerEntity = GetComponent<PlayerEntity>();
         attackCoolDown = attackCoolDownMax;
     }
 

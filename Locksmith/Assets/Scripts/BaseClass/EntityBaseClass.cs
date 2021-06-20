@@ -12,9 +12,9 @@ public abstract class EntityBaseClass : MonoBehaviour
     
     // requires scripts/variables: Health, MovementBaseClass, Attack,
 
-    [NonSerialized] public HealthBaseClass healthClass;
-    [NonSerialized] public MovementBaseClass moveClass;
-    [NonSerialized] public AttackerBaseClass AttackerClass;
+    public HealthBaseClass healthClass;
+    public MovementBaseClass moveClass;
+    public AttackerBaseClass AttackerClass;
     protected bool dashing;
     protected bool pushing;
     public Skill[] skills;
@@ -25,13 +25,18 @@ public abstract class EntityBaseClass : MonoBehaviour
         Player, EnemyShooter
     }
     
-    private void Start()
+    protected virtual void Awake()
     {
-        GetReferances();
+        GetReferences();
     }
 
-    public void GetReferances()
+    public void GetReferences()
     {
+        if (AttackerClass != null) 
+        {
+            Debug.Log("references already gathered");
+            return;
+        }
         healthClass = GetComponent<HealthBaseClass>();
         moveClass = GetComponent<MovementBaseClass>();
         AttackerClass = GetComponent<AttackerBaseClass>();

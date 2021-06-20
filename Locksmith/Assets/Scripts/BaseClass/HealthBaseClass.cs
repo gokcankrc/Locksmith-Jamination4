@@ -5,45 +5,64 @@ using UnityEngine;
 
 public class HealthBaseClass : MonoBehaviour
 {
-    protected EntityBaseClass Entity;
-    [SerializeField] protected PopUp popUp; 
+    [SerializeField] protected PopUp popUp;
+    [SerializeField] protected EntityBaseClass entity;
     
     public int maxHealth;
     public float health;
     
+    [SerializeField]protected float outOfCombatDuration;
+    
     protected virtual void Awake()
     {
-        Entity = GetComponent<EntityBaseClass>();
+        entity = GetComponent<EntityBaseClass>();
         health = maxHealth;
+        outOfCombatDuration = 0;
     }
-    
-    
+
+    protected virtual void Start()
+    {
+        entity.AttackerClass.attackhit += OnAttackhit;
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        outOfCombatDuration += Time.fixedDeltaTime;
+    }
+
+    protected virtual void OnAttackhit()
+    {
+        outOfCombatDuration = 0;
+    }
+
+
     public virtual float TakeDamage(float damageTaken)
     {
         health -= damageTaken;
         
         PopUpColorEnum popUpColor;
-        if (Entity.AttackerClass.fromPlayer) popUpColor = PopUpColorEnum.EnemyHit;
+        if (entity.AttackerClass.fromPlayer) popUpColor = PopUpColorEnum.EnemyHit;
         else popUpColor = PopUpColorEnum.FriendHit;
         var damageTakenInt = (int) damageTaken;
         var a =popUp.Create(transform.position, damageTakenInt.ToString(), popUpColor);
         a.transform.position += Vector3.back * 10;
+
+        outOfCombatDuration = 0;
         
         //under construction
-        foreach (var skill in Entity.skills)
+        foreach (var skill in entity.skills)
         {
             skill.OnDamageTaken();
         }
         
-        
-        if (health <= 0) Entity.Die();       
+        if (health <= 0) entity.Die();
         return health;
     }
 
     public virtual float Heal(float healAmount)
     {
         PopUpColorEnum popUpColor;
-        if (Entity.AttackerClass.fromPlayer) popUpColor = PopUpColorEnum.EnemyHeal;
+        if (entity.AttackerClass.fromPlayer) popUpColor = PopUpColorEnum.EnemyHeal;
         else popUpColor = PopUpColorEnum.FriendHeal;
         popUp.Create(transform.position,  healAmount.ToString(), popUpColor);
         health += healAmount;

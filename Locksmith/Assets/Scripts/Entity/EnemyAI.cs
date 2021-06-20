@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float attackCooldownMax;
     [SerializeField] private float minCloseEnoughDistance;
 
-    private EnemyScr entity;
+    private EnemyEntity entity;
     [SerializeField]private AIState _state;
     private Vector3 initialPosition;
     private Vector3 randomVenture;
@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         _state = AIState.Idle;
-        entity = GetComponent<EnemyScr>();
+        entity = GetComponent<EnemyEntity>();
     }
 
     private void Start()
@@ -128,7 +128,7 @@ public class EnemyAI : MonoBehaviour
                 if ( CloseEnough(enemyGO.transform.position, alertDistance))
                 // if (enemyGO && CloseEnough(enemyGO.transform.position, alertDistance))
                 {
-                    enemyGO.GetComponent<EnemyScr>().AI.Alert();
+                    enemyGO.GetComponent<EnemyEntity>().AI.Alert();
                 }
             }
 

@@ -1,15 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class DamagingAbility : MonoBehaviour
 {
     [SerializeField] public Effects effects;
     [SerializeField] public Stats stats;
     [SerializeField] public bool FromPlayer;
-    
+
     [SerializeField] protected GameObject burningGround;
     [SerializeField] protected GameObject explosion;
+    
+    public EntityBaseClass sourceEntity;
 
     protected Vector2 effectDirection;
     public virtual Vector2 EffectDirection
@@ -75,8 +79,10 @@ public abstract class DamagingAbility : MonoBehaviour
 
     protected void ApplyHostileEffects(EntityBaseClass otherEntity)
     {
+        sourceEntity.AttackerClass.AttackhitInvoke();
         if (effects.DealCollisionDamage)  DealDamage();
         if (effects.KnockBack) otherEntity.GetKnockedBack(this);
+        
     }
 
     protected void ApplyAllyEffects(EntityBaseClass otherEntity)
@@ -121,5 +127,6 @@ public abstract class DamagingAbility : MonoBehaviour
         Instance.effects.LeaveBurningGround = false;
         Instance.stats = new Stats(stats);
         Instance.FromPlayer = FromPlayer;
+        Instance.sourceEntity = sourceEntity;
     }
 }

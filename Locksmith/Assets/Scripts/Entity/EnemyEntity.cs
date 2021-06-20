@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScr : EntityBaseClass
+public class EnemyEntity : EntityBaseClass
 {
     [NonSerialized] public EnemyAI AI;
 
-    public void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         AI = GetComponent<EnemyAI>();
     }
     
