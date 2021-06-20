@@ -275,7 +275,6 @@ MonoBehaviour:
   health: 0
   outOfCombatDuration: 0
   outOfCombatRegen: 5
-  outOfCombatRegenDelay: 0
 --- !u!114 &952594910483546781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects:
-    list: 010100010000
+    list: 010000000000
   stats:
     Damage: 5
     AreaSize: 1

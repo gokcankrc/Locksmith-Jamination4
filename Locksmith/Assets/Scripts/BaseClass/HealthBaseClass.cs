@@ -11,7 +11,7 @@ public class HealthBaseClass : MonoBehaviour
     public int maxHealth;
     public float health;
     
-    [SerializeField]protected float outOfCombatDuration;
+    protected float outOfCombatDuration;
     
     protected virtual void Awake()
     {
