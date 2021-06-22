@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI IronStoneAmountText;
     [SerializeField] private TextMeshProUGUI AeroWaterStoneAmountText;
     [SerializeField] private TextMeshProUGUI AeroIronAmountText;
+    [SerializeField] private TextMeshProUGUI metaCoreAmountText;
     [SerializeField] private TextMeshProUGUI FixaronAmountText;
 
     [Header("Inventory UI Gate Images")]
@@ -70,6 +71,8 @@ public class UIManager : MonoBehaviour
     private ResourceTypeSO aeroWaterStone;
     private ResourceTypeSO aeroIron;
     private ResourceTypeSO fixaron;
+    private ResourceTypeSO metaCore;
+
     #endregion
 
     [Space]
@@ -117,6 +120,8 @@ public class UIManager : MonoBehaviour
         aeroIron = Resources.Load<ResourceTypeSO>("AeroIronStone");
         fixaron = Resources.Load<ResourceTypeSO>("Fixaron");
         airStone = Resources.Load<ResourceTypeSO>("AirStone");
+        metaCore = Resources.Load<ResourceTypeSO>("Metacore");
+
 
         InventoryAmountUpdate();
         #endregion
@@ -410,6 +415,7 @@ public class UIManager : MonoBehaviour
         AeroIronAmountText.text = aeroIron.amount.ToString();
         FixaronAmountText.text = fixaron.amount.ToString();
         AirStoneAmountText.text = airStone.amount.ToString();
+        metaCoreAmountText.text = metaCore.amount.ToString();
     }
     #endregion
 }
