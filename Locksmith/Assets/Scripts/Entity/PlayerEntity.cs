@@ -36,10 +36,7 @@ public class PlayerEntity : EntityBaseClass
             if (Inputs.FireInput) { moveMulti *= firingSlowDown;}
             MoveTowards(transform.position + MoveDirection, moveMulti);
             
-            foreach (var VARIABLE in facingDirectionQueue)
-            {
-                Debug.Log(VARIABLE);
-            }
+
             
             facingDirectionQueue.RemoveAt(0);
             facingDirectionQueue.Add(MoveDirection);

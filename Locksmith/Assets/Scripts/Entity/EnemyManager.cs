@@ -31,7 +31,6 @@ public class EnemyManager : MonoBehaviour
     
     private void Awake()
     {
-        Debug.Log("this is awake of enemy");
         I = this;
         _currentlyActiveEnemies = new List<GameObject>();
         // _currentlyActiveEnemies = new GameObject[] { };
