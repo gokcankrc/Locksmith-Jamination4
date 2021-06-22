@@ -13,6 +13,10 @@ public class HealthBaseClass : MonoBehaviour
     
     protected float outOfCombatDuration;
     
+    // "damaged" is true if we lost health, and false if we got healed.
+    public delegate void OnHealthChange(float health, float maxHealth, bool damaged);
+    public event OnHealthChange onHealthChange;
+    
     protected virtual void Awake()
     {
         entity = GetComponent<EntityBaseClass>();
@@ -40,11 +44,12 @@ public class HealthBaseClass : MonoBehaviour
     {
         health -= damageTaken;
         
+        onHealthChange?.Invoke(health, maxHealth, true);
+        
         PopUpColorEnum popUpColor;
-        if (entity.AttackerClass.fromPlayer) popUpColor = PopUpColorEnum.EnemyHit;
-        else popUpColor = PopUpColorEnum.FriendHit;
+        popUpColor = entity.AttackerClass.fromPlayer ? PopUpColorEnum.FriendHit : PopUpColorEnum.EnemyHit;
         var damageTakenInt = (int) damageTaken;
-        var a =popUp.Create(transform.position, damageTakenInt.ToString(), popUpColor);
+        var a = popUp.Create(transform.position, damageTakenInt.ToString(), popUpColor);
         a.transform.position += Vector3.back * 10;
 
         outOfCombatDuration = 0;
@@ -61,15 +66,18 @@ public class HealthBaseClass : MonoBehaviour
 
     public virtual float Heal(float healAmount)
     {
-        PopUpColorEnum popUpColor;
-        if (entity.AttackerClass.fromPlayer) popUpColor = PopUpColorEnum.EnemyHeal;
-        else popUpColor = PopUpColorEnum.FriendHeal;
-        popUp.Create(transform.position,  healAmount.ToString(), popUpColor);
         health += healAmount;
         if (health > maxHealth)
         {
             health = maxHealth;
         }
+        
+        onHealthChange?.Invoke(health, maxHealth, false);
+        
+        PopUpColorEnum popUpColor;
+        popUpColor = entity.AttackerClass.fromPlayer ? PopUpColorEnum.EnemyHeal : PopUpColorEnum.FriendHeal;
+        popUp.Create(transform.position,  healAmount.ToString(), popUpColor);
+        
         return health;
     }
 }
