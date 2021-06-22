@@ -32,16 +32,4 @@ public class GameManager : MonoBehaviour
         if (debugDisplay) debugCanvas.SetActive(true);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // have to reset the amoounts of gates and drops cuz ThE CODE ChANGES ThE SCRIPTABLE OBJECTS TuEMSELVES
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

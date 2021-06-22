@@ -1,36 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
-using System;
-using System.Collections;
-using System.Runtime.CompilerServices;
-using UnityEngine.Bindings;
-using UnityEngine.Internal;
-using UnityEngine.Scripting;
-using System.Runtime.CompilerServices;
-using UnityEngine.Bindings;
-using UnityEngine.Scripting;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Security;
-using UnityEngine.Bindings;
-using UnityEngine.Internal;
-using UnityEngine.Scripting;
-using UnityEngineInternal;
-using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Security;
-using UnityEngine.Bindings;
-using UnityEngine.Internal;
-using UnityEngine.Scripting;
-using UnityEngineInternal;
-using Random = UnityEngine.Random;
 
 public enum GateType
 {
@@ -42,7 +12,6 @@ public enum GateType
     Liridian,
     Brenit
 }
-
 
 [CreateAssetMenu(menuName = "ScriptableObjects/GateSO")]
 public class GateSO : ScriptableObject
@@ -67,8 +36,7 @@ public class GateSO : ScriptableObject
 [Serializable]
 public class GateStats
 {
-
-    public static GateStats operator+(GateStats toBeCloned)
+    public static GateStats operator +(GateStats toBeCloned)
     {
         GateStats buffer = new GateStats();
         buffer.damageAdd = toBeCloned.damageAdd;
@@ -76,14 +44,14 @@ public class GateStats
         buffer.maxHealthAdd = toBeCloned.maxHealthAdd;
         return buffer;
     }
-    
-    public static GateStats operator-(GateStats toBeReversed)
+
+    public static GateStats operator -(GateStats toBeReversed)
     {
         GateStats buffer = new GateStats();
         // TODO; please for the love of god, tell me how can I automatize this. this is fkn dumb. Same happens with Effects
-        buffer.damageAdd = - toBeReversed.damageAdd;
-        buffer.durationAdd = - toBeReversed.durationAdd;
-        buffer.maxHealthAdd = - toBeReversed.maxHealthAdd;
+        buffer.damageAdd = -toBeReversed.damageAdd;
+        buffer.durationAdd = -toBeReversed.durationAdd;
+        buffer.maxHealthAdd = -toBeReversed.maxHealthAdd;
         /* If we add like multiplications, we use these.
         buffer.damageMult = 1 / toBeReversed.damageMult;
         buffer.durationMult = 1 / toBeReversed.durationMult;
@@ -91,6 +59,7 @@ public class GateStats
         */
         return buffer;
     }
+
     public float damageAdd;
     public float durationAdd;
     public int maxHealthAdd;

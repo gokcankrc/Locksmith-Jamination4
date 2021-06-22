@@ -24,7 +24,6 @@ public class ResourceManager : MonoBehaviour
             foreach (var VARIABLE in resourceTypeList.list)
             {
                 VARIABLE.amount = 0;
-
             }
         }
         resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
