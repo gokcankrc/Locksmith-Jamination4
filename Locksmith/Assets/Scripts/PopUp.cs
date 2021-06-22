@@ -17,16 +17,19 @@ public class PopUp : MonoBehaviour
     private static PopUpColorEnum[] _popUpColorEnums = Enum.GetValues(typeof(PopUpColorEnum)).Cast<PopUpColorEnum>().ToArray();
     
     // TODO; Can make these static somehow.
-    [SerializeField] private Color friendHitColor;
-    [SerializeField] private Color enemyHitColor;
-    [SerializeField] private Color friendHealColor;
-    [SerializeField] private Color enemyHealColor;
-    [SerializeField] private Color expGain;
-
+    private static Color friendHitColor => PopUpManager.FriendHitColor;
+    private static Color enemyHitColor => PopUpManager.EnemyHitColor;
+    private static Color friendHealColor => PopUpManager.FriendHealColor;
+    private static Color enemyHealColor => PopUpManager.EnemyHealColor;
+    private static Color expGainColor => PopUpManager.ExpGainColor;
+    // private static float outlineWidth => PopUpManager.OutlineWidth;
+    // private static Color outlineColor => PopUpManager.OutlineColor;
     
     private void Awake()
     {
         textMesh = transform.GetComponent<TextMeshPro>();
+        //textMesh.outlineWidth = outlineWidth;
+        //textMesh.outlineColor = outlineColor;
     }
 
     public PopUp Create(Vector3 position, string popupText, PopUpColorEnum colorEnum)
@@ -39,7 +42,7 @@ public class PopUp : MonoBehaviour
     }
 
 
-    public void Setup(string popupText, PopUpColorEnum colorEnum)
+    private void Setup(string popupText, PopUpColorEnum colorEnum)
     {
         var color = DetermineColor(colorEnum);
         // Added randomization cuz why not

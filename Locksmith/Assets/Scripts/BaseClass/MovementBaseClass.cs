@@ -9,11 +9,15 @@ public abstract class MovementBaseClass : MonoBehaviour
 
     private EntityBaseClass entity;
     protected Rigidbody2D rb;
+    public Vector2 facing;
+    [SerializeField] protected Animator animator;
+
 
     protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         entity = GetComponent<EntityBaseClass>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void MoveTowards(Vector3 destination, float speedMultiplier = 1f)

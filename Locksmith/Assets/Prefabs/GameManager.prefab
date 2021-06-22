@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8590461657472760202}
   - component: {fileID: 8590461657472760201}
+  - component: {fileID: 7214699325314041168}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -51,3 +52,20 @@ MonoBehaviour:
   resetInventoryOnStart: 1
   craftingRecipes: []
   craftedGates: []
+--- !u!114 &7214699325314041168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590461657472760200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8329d226d31ad4e87455853d1abd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friendHitColor: {r: 1, g: 0, b: 0, a: 1}
+  enemyHitColor: {r: 0.5660378, g: 0.52011395, b: 0.52011395, a: 1}
+  friendHealColor: {r: 0.038406983, g: 0.9433962, b: 0, a: 1}
+  enemyHealColor: {r: 0.36443505, g: 0.6320754, b: 0.044125997, a: 1}
+  expGainColor: {r: 0.7830189, g: 0.047276568, b: 0.7124629, a: 1}

@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class PlayerEntity : EntityBaseClass
 {
@@ -9,20 +11,39 @@ public class PlayerEntity : EntityBaseClass
     [SerializeField] private float firingSlowDown;
 
     private Vector2 facingDirection;
-
+    private List<Vector2> facingDirectionQueue = new List<Vector2>();
+    
+    
 
     public Vector3 MoveDirection => Inputs.MoveDirection;
     public float MoveMultiplayer => Inputs.MoveMultiplayer;
-    
+
+    private void Start()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            facingDirectionQueue.Add(Vector2.down);
+        }
+    }
+
     void FixedUpdate()
     {
+        
          
         if (MoveDirection.magnitude > 0.1f)
         {
             var moveMulti = MoveMultiplayer;
             if (Inputs.FireInput) { moveMulti *= firingSlowDown;}
             MoveTowards(transform.position + MoveDirection, moveMulti);
-            facingDirection = MoveDirection;
+            
+            foreach (var VARIABLE in facingDirectionQueue)
+            {
+                Debug.Log(VARIABLE);
+            }
+            
+            facingDirectionQueue.RemoveAt(0);
+            facingDirectionQueue.Add(MoveDirection);
+            facingDirection = Vector2Average(facingDirectionQueue).normalized;
         }
         else
         {
@@ -34,6 +55,8 @@ public class PlayerEntity : EntityBaseClass
             var direction = Vector3.SignedAngle(Vector3.right,facingDirection, Vector3.back);
             Attack(direction);
         }
+
+        moveClass.facing = facingDirection;
 
         if (Inputs.DashInput) GetComponent<Dash>().UseSkill();
         /*
@@ -58,6 +81,12 @@ public class PlayerEntity : EntityBaseClass
         }
 
         Inputs.Flush();
+    }
+
+    private Vector2 Vector2Average(List<Vector2> array)
+    {
+        var sum = array.Aggregate(Vector2.zero, (current, vector) => current + vector);
+        return sum / array.Count;
     }
 
     public void AttackForPlayerShoot()
