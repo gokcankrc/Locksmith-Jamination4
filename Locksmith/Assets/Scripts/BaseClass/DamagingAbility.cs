@@ -9,6 +9,7 @@ public abstract class DamagingAbility : MonoBehaviour
     [SerializeField] public Effects effects;
     [SerializeField] public Stats stats;
     [SerializeField] public bool FromPlayer;
+    [NonSerialized] public EntityBaseClass entity;
 
     [SerializeField] protected GameObject burningGround;
     [SerializeField] protected GameObject explosion;

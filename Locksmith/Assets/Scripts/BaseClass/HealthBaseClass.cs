@@ -40,10 +40,15 @@ public class HealthBaseClass : MonoBehaviour
     }
 
 
-    public virtual float TakeDamage(float damageTaken)
+    public virtual float TakeDamage(float damageTaken, EntityBaseClass otherEntity)
     {
         health -= damageTaken;
         
+        //under construction
+        foreach (var skill in entity.skills)
+        {
+            skill.OnDamageTaken();
+        }
         onHealthChange?.Invoke(health, maxHealth, true);
         
         PopUpColorEnum popUpColor;
@@ -54,12 +59,9 @@ public class HealthBaseClass : MonoBehaviour
 
         outOfCombatDuration = 0;
         
-        //under construction
-        foreach (var skill in entity.skills)
-        {
-            skill.OnDamageTaken();
-        }
-        
+
+        entity.entitySkillClass.onDamageTaken?.Invoke(entity, otherEntity);
+
         if (health <= 0) entity.Die();
         return health;
     }

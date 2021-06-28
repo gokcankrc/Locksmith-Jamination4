@@ -11,8 +11,8 @@ public abstract class AttackerBaseClass : MonoBehaviour
     [SerializeField] public Stats stats;
     [SerializeField] public bool fromPlayer;
 
+    protected EntityBaseClass entity;
 
-    public EntityBaseClass entity;
     public delegate void Attackhit();
     public event Attackhit attackhit;
     

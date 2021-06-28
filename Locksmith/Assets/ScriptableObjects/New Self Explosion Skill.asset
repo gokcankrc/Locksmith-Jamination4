@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2205e3b38526746a5f86c2bd9002a1, type: 3}
   m_Name: New Self Explosion Skill
   m_EditorClassIdentifier: 
+  trigger: 0
+  type: 2
+  childrenSkills: []
   _explosion: {fileID: 8628088223177077810, guid: 6d4d4d33116787a4b91f0cd1a0576b56, type: 3}

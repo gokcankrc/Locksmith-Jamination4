@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(HealthBaseClass))]
 [RequireComponent(typeof(MovementBaseClass))]
 [RequireComponent(typeof(AttackerBaseClass))]
+[RequireComponent(typeof(EntitySkills))]
+
 public abstract class EntityBaseClass : MonoBehaviour
 {
     // abstract
@@ -15,6 +17,8 @@ public abstract class EntityBaseClass : MonoBehaviour
     public HealthBaseClass healthClass;
     public MovementBaseClass moveClass;
     public AttackerBaseClass AttackerClass;
+    public EntitySkills entitySkillClass;
+    private EntityBaseClass Entity => this;
     protected bool dashing;
     protected bool pushing;
     public Skill[] skills;
@@ -40,6 +44,7 @@ public abstract class EntityBaseClass : MonoBehaviour
         healthClass = GetComponent<HealthBaseClass>();
         moveClass = GetComponent<MovementBaseClass>();
         AttackerClass = GetComponent<AttackerBaseClass>();
+        entitySkillClass = GetComponent<EntitySkills>();
     }
 
     public bool Dashing
@@ -62,6 +67,8 @@ public abstract class EntityBaseClass : MonoBehaviour
 
     public virtual void Attack(float direction)
     {
+
+        entitySkillClass.onAttack?.Invoke(Entity);
         AttackerClass.Attack(direction);
         
         // under construction code
@@ -81,13 +88,14 @@ public abstract class EntityBaseClass : MonoBehaviour
         
     }
     
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, EntityBaseClass otherEntity)
     {
-        healthClass.TakeDamage(damage);
+        healthClass.TakeDamage(damage, otherEntity);
     }
     
     public virtual void Die()
     {
+        entitySkillClass.onDeath?.Invoke(this);
         Destroy(gameObject);
     }
 

@@ -11,9 +11,9 @@ public class EnemyHealth : HealthBaseClass
         base.Awake();
         _enemyAI = GetComponent<EnemyAI>();
     }
-    public override float TakeDamage(float damageTaken)
+    public override float TakeDamage(float damageTaken, EntityBaseClass entity)
     {
-        base.TakeDamage(damageTaken);
+        base.TakeDamage(damageTaken, entity);
         _enemyAI.ChangeState(EnemyAI.AIState.Idle, EnemyAI.AIState.Chasing);
         return health;
     }

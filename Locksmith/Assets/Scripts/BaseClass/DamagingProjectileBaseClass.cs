@@ -56,9 +56,16 @@ public abstract class DamagingProjectileBaseClass : DamagingAbility
     protected override void DealDamage()
     {
         // TODO; Buradaki damage raw olarak alıyor. skill multiplayerı almalı.
-        _collisionEntity.healthClass.TakeDamage(stats.Damage);
+        entity.entitySkillClass.onHit?.Invoke(entity, _collisionEntity);
+        _collisionEntity.healthClass.TakeDamage(stats.Damage, entity);
     }
     protected override void Heal() { return; }
+
+    protected override void OnDestroy()
+    {
+        entity.entitySkillClass.onProjectileDestroy?.Invoke(entity);
+        base.OnDestroy();
+    }
 }
 
 

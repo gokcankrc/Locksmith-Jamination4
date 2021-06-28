@@ -40,7 +40,9 @@ public abstract class DamagingAoE : DamagingAbility
 
     protected override void DealDamage()
     {
-        _collisionEntity.healthClass.TakeDamage(stats.Damage * skillDamageMultiplayer);
+        // for example, this can be lifesteal
+        entity.entitySkillClass.onHit?.Invoke(entity, _collisionEntity);
+        _collisionEntity.healthClass.TakeDamage(stats.Damage * skillDamageMultiplayer, entity);
     }
 
     protected virtual void FixedUpdate()
