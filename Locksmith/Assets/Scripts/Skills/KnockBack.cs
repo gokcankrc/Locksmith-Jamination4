@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnockBack : SkillBaseClass
+public class KnockBack : MonoBehaviour
 {
     [SerializeField] private float pushMaxCdTime;
     [SerializeField] private float pushMaxDuration;
@@ -45,7 +45,7 @@ public class KnockBack : SkillBaseClass
         }
     }
 
-    public override void UseSkill()
+    public void UseSkill()
     {
         if (true)
         {
