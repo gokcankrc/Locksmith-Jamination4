@@ -31,8 +31,11 @@ public abstract class Skill : ScriptableObject
                 break;
         }
     }
+    
+    // Many versions of apply effects because some triggers have different types.
+    // Could easily change the naming to stuff like "onAttack()" to make it more readable.
 
-    protected abstract void ApplyEffects(EntityBaseClass entity, EntityBaseClass otherEntity, Vector3 direction);
+    protected abstract void ApplyEffects(EntityBaseClass entity, EntityBaseClass otherEntity, Vector2 direction);
     protected abstract void ApplyEffects(EntityBaseClass entity, EntityBaseClass otherEntity);
     protected abstract void ApplyEffects(EntityBaseClass entity);
 

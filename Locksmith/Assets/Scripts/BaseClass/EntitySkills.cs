@@ -23,9 +23,12 @@ public class EntitySkills : MonoBehaviour
         skills.Add(newSkill);
         newSkill.Add(this);
     }
+    
+    // Benefit of this: can easily create new triggers/events.
+    // If they need different arguments, it does not create any problem.
 
     public delegate void OnAttack(EntityBaseClass entity);
-    public delegate void OnHit(EntityBaseClass entity, EntityBaseClass otherEntity);
+    public delegate void OnHit(EntityBaseClass entity, EntityBaseClass otherEntity, Vector2 direction);
     public delegate void OnProjectileDestroy(EntityBaseClass entity);
     public delegate void OnDamageTaken(EntityBaseClass entity, EntityBaseClass otherEntity);
     public delegate void OnDeath(EntityBaseClass entity);

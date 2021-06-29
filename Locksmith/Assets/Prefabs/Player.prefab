@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 556257909}
   - component: {fileID: 4413899972389173217}
   - component: {fileID: 1520303189}
+  - component: {fileID: 8334313897999922707}
   m_Layer: 8
   m_Name: Player
   m_TagString: Ally
@@ -291,6 +292,7 @@ MonoBehaviour:
   healthClass: {fileID: 0}
   moveClass: {fileID: 0}
   AttackerClass: {fileID: 0}
+  entitySkillClass: {fileID: 0}
   skills: []
   type: 0
   Inputs: {fileID: 952594910037995909}
@@ -363,7 +365,6 @@ MonoBehaviour:
     ProjectileDuration: 1
     ProjectilePierce: 0
   fromPlayer: 1
-  entity: {fileID: 0}
   bulletPrefab: {fileID: 9217524693849605576, guid: 3d2b98caa2957504e92163a9997bcbc3, type: 3}
   attackCoolDownMax: 0.2
   accuracyLoss: 10
@@ -455,6 +456,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.12}
   m_EdgeRadius: 0
+--- !u!114 &8334313897999922707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952594910483546777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b937dd819a58d8d4db03581741aadd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
 --- !u!1001 &1407296034832614275
 PrefabInstance:
   m_ObjectHideFlags: 0

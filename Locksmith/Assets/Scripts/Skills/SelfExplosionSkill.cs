@@ -7,7 +7,7 @@ public class SelfExplosionSkill : Skill
 {
     public GameObject _explosion;
 
-    protected override void ApplyEffects(EntityBaseClass entity, EntityBaseClass otherEntity, Vector3 direction)
+    protected override void ApplyEffects(EntityBaseClass entity, EntityBaseClass otherEntity, Vector2 direction)
     {
         throw new System.NotImplementedException();
     }

@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 7248245406368578653}
   - component: {fileID: 9158745981774703380}
   - component: {fileID: 2053801515612937262}
+  - component: {fileID: 3809688127236984370}
   m_Layer: 8
   m_Name: EnemyShooter
   m_TagString: Enemy
@@ -210,6 +211,7 @@ MonoBehaviour:
   healthClass: {fileID: 0}
   moveClass: {fileID: 0}
   AttackerClass: {fileID: 0}
+  entitySkillClass: {fileID: 0}
   skills: []
   type: 1
 --- !u!114 &680628081523237538
@@ -311,7 +313,6 @@ MonoBehaviour:
     ProjectileDuration: 2
     ProjectilePierce: 0
   fromPlayer: 0
-  entity: {fileID: 0}
   bulletPrefab: {fileID: 9217524693849605576, guid: 7db206240a3c65a49985f2b743e27e58, type: 3}
 --- !u!114 &2053801515612937262
 MonoBehaviour:
@@ -329,6 +330,19 @@ MonoBehaviour:
   pushMaxDuration: 0.3
   pushSpeed: 20
   onCooldown: 0
+--- !u!114 &3809688127236984370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5832823051974618661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b937dd819a58d8d4db03581741aadd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
 --- !u!1001 &4348560311891035420
 PrefabInstance:
   m_ObjectHideFlags: 0
