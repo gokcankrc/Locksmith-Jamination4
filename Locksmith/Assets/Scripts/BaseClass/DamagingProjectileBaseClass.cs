@@ -63,7 +63,7 @@ public abstract class DamagingProjectileBaseClass : DamagingAbility
 
     protected override void OnDestroy()
     {
-        entity.entitySkillClass.onProjectileDestroy?.Invoke(entity);
+        entity.entitySkillClass.onProjectileDestroy?.Invoke(entity, this);
         base.OnDestroy();
     }
 }

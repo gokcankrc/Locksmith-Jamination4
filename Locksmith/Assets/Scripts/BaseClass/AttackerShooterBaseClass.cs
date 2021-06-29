@@ -27,7 +27,6 @@ public abstract class AttackerShooterBaseClass : AttackerBaseClass
         bullet.effects = new Effects(effects);
         bullet.stats = new Stats(stats);
         bullet.FromPlayer = fromPlayer;
-        bullet.sourceEntity = entity;
         bullet.entity = entity;
         
         // TODO; Could do this like var transform = bullet.transform

@@ -44,11 +44,6 @@ public class HealthBaseClass : MonoBehaviour
     {
         health -= damageTaken;
         
-        //under construction
-        foreach (var skill in entity.skills)
-        {
-            skill.OnDamageTaken();
-        }
         onHealthChange?.Invoke(health, maxHealth, true);
         
         PopUpColorEnum popUpColor;

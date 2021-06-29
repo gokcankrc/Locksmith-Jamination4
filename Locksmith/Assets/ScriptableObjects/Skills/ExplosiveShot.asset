@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e20d426c7e1944499e731976d6dff6, type: 3}
+  m_Name: ExplosiveShot
+  m_EditorClassIdentifier: 
+  trigger: 2
+  type: 2
+  childrenSkills: []
+  aoePrefab: {fileID: 8628088223177077810, guid: 6d4d4d33116787a4b91f0cd1a0576b56, type: 3}

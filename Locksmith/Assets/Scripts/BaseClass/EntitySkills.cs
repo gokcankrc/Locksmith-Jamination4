@@ -29,7 +29,7 @@ public class EntitySkills : MonoBehaviour
 
     public delegate void OnAttack(EntityBaseClass entity);
     public delegate void OnHit(EntityBaseClass entity, EntityBaseClass otherEntity, Vector2 direction);
-    public delegate void OnProjectileDestroy(EntityBaseClass entity);
+    public delegate void OnProjectileDestroy(EntityBaseClass entity, DamagingAbility projectile);
     public delegate void OnDamageTaken(EntityBaseClass entity, EntityBaseClass otherEntity);
     public delegate void OnDeath(EntityBaseClass entity);
 

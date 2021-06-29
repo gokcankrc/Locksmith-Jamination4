@@ -5,9 +5,8 @@ using UnityEngine;
 public abstract class Skill : ScriptableObject
 {
     [SerializeField] protected TriggerEnum trigger;
-    [SerializeField] protected  SkillType type;
+    [SerializeField] protected SkillType type;
     [SerializeField] protected List<Skill> childrenSkills;
-    [SerializeField] public bool FromPlayer;
 
     
     public virtual void Add(EntitySkills entitySkills)
@@ -15,51 +14,79 @@ public abstract class Skill : ScriptableObject
         switch (trigger)
         {
             case TriggerEnum.OnAttack:
-                entitySkills.onAttack += ApplyEffects;
+                entitySkills.onAttack += OnAttack;
                 break;
             case TriggerEnum.OnDeath:
-                entitySkills.onDeath += ApplyEffects;
+                entitySkills.onDeath += OnDeath;
                 break;
             case TriggerEnum.OnHit:
-                entitySkills.onHit += ApplyEffects;
+                entitySkills.onHit += OnHit;
                 break;
             case TriggerEnum.OnDamageTaken:
-                entitySkills.onDamageTaken += ApplyEffects;
+                entitySkills.onDamageTaken += OnDamageTaken;
                 break;
             case TriggerEnum.OnProjectileDestroy:
-                entitySkills.onProjectileDestroy += ApplyEffects;
+                entitySkills.onProjectileDestroy += OnProjectileDestroy;
                 break;
         }
     }
     
+    // TODO; Is there any way to not make this copy_paste like this?
+    
+    public virtual void OnAttack(EntityBaseClass entity)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void OnDeath(EntityBaseClass entity)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void OnHit(EntityBaseClass entity, EntityBaseClass otherentity, Vector2 direction)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void OnDamageTaken(EntityBaseClass entity, EntityBaseClass otherentity)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void OnProjectileDestroy(EntityBaseClass entity, DamagingAbility projectile)
+    {
+        throw new System.NotImplementedException();
+    }
+
+
+
     // Many versions of apply effects because some triggers have different types.
     // Could easily change the naming to stuff like "onAttack()" to make it more readable.
 
-    protected abstract void ApplyEffects(EntityBaseClass entity, EntityBaseClass otherEntity, Vector2 direction);
-    protected abstract void ApplyEffects(EntityBaseClass entity, EntityBaseClass otherEntity);
-    protected abstract void ApplyEffects(EntityBaseClass entity);
-
+    /*
+    protected virtual void ApplyEffects(EntityBaseClass entity, EntityBaseClass otherEntity, Vector2 direction)
+    {
+        throw new System.NotImplementedException();
+    }
     
-    public virtual void OnAttack(EntityBaseClass entity, AttackerBaseClass attackerBase, float direction)
+    protected virtual void ApplyEffects(EntityBaseClass entity, EntityBaseClass otherEntity)
     {
-        var skill = entity.skills;
-        //DamagingAbility damaging= Instantiate(attackBase.);
-        //damaging.effects;
+        throw new System.NotImplementedException();
+    }
+    
+    protected virtual void ApplyEffects(EntityBaseClass entity)
+    {
+        throw new System.NotImplementedException();
     }
 
-    public virtual void OnHit()
+    protected virtual void ApplyEffects(EntityBaseClass entity, DamagingAbility ability)
     {
-        
     }
-
-    public virtual void OnDamageTaken()
-    {
-        
-    }
+    */
 
     public virtual bool OnDamageIncoming()
     {
-        return true;
+        throw new System.NotImplementedException();
     }
 }
 
@@ -70,5 +97,5 @@ public enum TriggerEnum
 
 public enum SkillType
 {
-    Summon, ProjectileBehavior, LeaveAoE, SingleTarger
+    Summon, ProjectileBehavior, LeaveAoE, SingleTarget, None
 }

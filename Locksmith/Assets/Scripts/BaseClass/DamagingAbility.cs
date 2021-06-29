@@ -9,14 +9,15 @@ public abstract class DamagingAbility : MonoBehaviour
     [SerializeField] public Effects effects;
     [SerializeField] public Stats stats;
     [SerializeField] public bool FromPlayer;
-    [NonSerialized] public EntityBaseClass entity;
+    [SerializeField] public EntityBaseClass entity;
 
     [SerializeField] protected GameObject burningGround;
     [SerializeField] protected GameObject explosion;
     
-    public EntityBaseClass sourceEntity;
 
     protected Vector2 effectDirection;
+    public Vector3 pos => transform.position;
+    
     public virtual Vector2 EffectDirection
     {
         get => effectDirection;
@@ -80,7 +81,7 @@ public abstract class DamagingAbility : MonoBehaviour
 
     protected void ApplyHostileEffects(EntityBaseClass otherEntity)
     {
-        sourceEntity.AttackerClass.AttackhitInvoke();
+        entity.AttackerClass.AttackhitInvoke();
         if (effects.DealCollisionDamage)  DealDamage();
         if (effects.KnockBack) otherEntity.GetKnockedBack(this);
         
@@ -103,31 +104,18 @@ public abstract class DamagingAbility : MonoBehaviour
     // ----------------------------------------------------
     
     protected abstract void DealDamage();
-    protected abstract void Heal();
+    protected abstract void Heal(); 
 
     protected virtual void LeaveBurningGround()
     {
         var burningGroundEffect = Instantiate(burningGround).GetComponent<DamagingPeriodicAoE>();
-        // I saw this line randomly. probably an error. leaving as note.
-        // burningGroundEffect.FromPlayer = true;
-        AoEEffectSync(burningGroundEffect);
-        burningGroundEffect.transform.Rotate(Vector3.back, Random.Range(0, 360));
+        AreaOfEffect.AOESync(burningGroundEffect, entity, transform.position, effects);
+        // obsolete: burningGroundEffect.transform.Rotate(Vector3.back, Random.Range(0, 360));
     }
     
     protected virtual void Explode()
     {
         var explosionEffect = Instantiate(explosion).GetComponent<DamagingInstantAoE>();
-        AoEEffectSync(explosionEffect);
-    }
-
-    protected void AoEEffectSync(DamagingAbility Instance)
-    {
-        Instance.transform.position = transform.position;
-        Instance.effects = effects;
-        Instance.effects.Explosion = false;
-        Instance.effects.LeaveBurningGround = false;
-        Instance.stats = new Stats(stats);
-        Instance.FromPlayer = FromPlayer;
-        Instance.sourceEntity = sourceEntity;
+        AreaOfEffect.AOESync(explosionEffect, entity, transform.position, effects);
     }
 }
