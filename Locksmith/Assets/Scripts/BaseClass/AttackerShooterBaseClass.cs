@@ -23,16 +23,19 @@ public abstract class AttackerShooterBaseClass : AttackerBaseClass
     protected GameObject CreateBullet(Vector3 pos, float dir)
     {
         var newBulletGO = Instantiate(bulletPrefab);
-        var bullet = newBulletGO.GetComponent<DamagingProjectileBaseClass>();
-        bullet.effects = new Effects(effects);
-        bullet.stats = new Stats(stats);
-        bullet.FromPlayer = fromPlayer;
-        bullet.entity = entity;
+        var projectile = newBulletGO.GetComponent<DamagingProjectileBaseClass>();
+        projectile.effects = new Effects(effects);
+        projectile.stats = new Stats(stats);
+        projectile.FromPlayer = fromPlayer;
+        projectile.entity = entity;
+        projectile.entitySkillClass = entity.entitySkillClass;
+        projectile.Skills = new List<Skill>(entity.entitySkillClass.skills);
+        projectile.GetComponent<EntitySkills>().Initialize();
         
         // TODO; Could do this like var transform = bullet.transform
-        var bulletTransform = bullet.transform;
+        var bulletTransform = projectile.transform;
         Transform transform1;
-        (transform1 = bullet.transform).position = pos;
+        (transform1 = projectile.transform).position = pos;
         transform1.rotation = Quaternion.AngleAxis(dir, Vector3.back);
         transform1.localScale = new Vector3(stats.ProjectileSize, stats.ProjectileSize);
         var bulletRB = newBulletGO.GetComponent<Rigidbody2D>();

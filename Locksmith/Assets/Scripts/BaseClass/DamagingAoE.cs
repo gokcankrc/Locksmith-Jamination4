@@ -5,13 +5,10 @@ using UnityEngine;
 
 public abstract class DamagingAoE : DamagingAbility
 {
-    // TODO; Make this scriptable object so that mthrfkn all area of effects won't require a new script
+    // Make this scriptable object so that mthrfkn all area of effects won't require a new script
     // Maybe not. If we make weird area of effects, we will need many behaviors in here. Maybe that's ok. 
+    
     [SerializeField] protected float expireTime;
-
-    // Do I really have to do this public? Really?
-    public float skillDurationMultiplayer = 1;
-    public float skillDamageMultiplayer = 1;
 
     public override Vector2 EffectDirection
     {
@@ -37,13 +34,7 @@ public abstract class DamagingAoE : DamagingAbility
         }
         */
     }
-
-    protected override void DealDamage()
-    {
-        // for example, this can be lifesteal
-        entity.entitySkillClass.onHit?.Invoke(entity, _collisionEntity, this);
-        _collisionEntity.healthClass.TakeDamage(stats.Damage * skillDamageMultiplayer, entity);
-    }
+    
 
     protected virtual void FixedUpdate()
     {
@@ -52,10 +43,5 @@ public abstract class DamagingAoE : DamagingAbility
         {
             Destroy(gameObject);
         }
-    }
-
-    protected override void Heal()
-    {
-        return;
     }
 }

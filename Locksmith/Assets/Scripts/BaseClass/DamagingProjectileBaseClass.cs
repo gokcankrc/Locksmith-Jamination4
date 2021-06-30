@@ -28,42 +28,34 @@ public abstract class DamagingProjectileBaseClass : DamagingAbility
 
     protected override void OnPlayerCollision(EntityBaseClass otherEntity)
     {
-        DefaultCollision(otherEntity);
+        if (stats.ProjectilePierce < 0) return;
+        
+        base.OnPlayerCollision(otherEntity);
+        
+        stats.ProjectilePierce -= 1;
+        if (stats.ProjectilePierce < 0) Destroy(gameObject);
     }
 
     protected override void OnEnemyCollision(EntityBaseClass otherEntity)
     {
-        DefaultCollision(otherEntity);
-    }
-
-    protected void DefaultCollision(EntityBaseClass otherEntity)
-    {
-        if (stats.ProjectilePierce < 0)
-        {
-            return;
-        };
-        ApplyHostileEffects(otherEntity);
+        if (stats.ProjectilePierce < 0) return;
+        
+        base.OnEnemyCollision(otherEntity);
+        
         stats.ProjectilePierce -= 1;
         if (stats.ProjectilePierce < 0) Destroy(gameObject);
+
     }
 
     protected override void OnObstacleCollision()
     {
         Destroy(gameObject);
     }
-
-
-    protected override void DealDamage()
-    {
-        // TODO; Buradaki damage raw olarak alıyor. skill multiplayerı almalı.
-        entity.entitySkillClass.onHit?.Invoke(entity, _collisionEntity, EffectDirection);
-        _collisionEntity.healthClass.TakeDamage(stats.Damage, entity);
-    }
-    protected override void Heal() { return; }
-
+    
     protected override void OnDestroy()
     {
         entity.entitySkillClass.onProjectileDestroy?.Invoke(entity, this);
+        attackerSkillClass.onProjectileDestroy?.Invoke(entity, this);
         base.OnDestroy();
     }
 }

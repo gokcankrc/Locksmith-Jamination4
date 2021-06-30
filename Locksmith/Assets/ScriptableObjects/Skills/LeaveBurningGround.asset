@@ -15,4 +15,14 @@ MonoBehaviour:
   trigger: 2
   type: 2
   childrenSkills: []
+  stats:
+    HealAmount: 1
+    Damage: 1
+    AreaSize: 1
+    AreaDuration: 1
+    ProjectileSize: 1
+    ProjectileSpeed: 1
+    ProjectileDuration: 1
+    ProjectilePierce: 1
+  buffs: []
   aoePrefab: {fileID: 7729621981036513178, guid: c36b1c55c18e4e84abefd1cb372c9588, type: 3}

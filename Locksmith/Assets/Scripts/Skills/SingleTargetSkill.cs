@@ -4,22 +4,14 @@ using UnityEngine;
 
 public class SingleTargetSkill : Skill
 {
-
-
-
-    public override void OnHit(EntityBaseClass entity, EntityBaseClass otherentity, DamagingAbility attacker)
+    public override void OnHit(EntityBaseClass entity, EntityBaseClass otherEntity, DamagingAbility attacker)
     {
-        
-        
-        var damagingAOE = Instantiate().GetComponent<DamagingAoE>();
-        Vector3 pos = otherentity.transform.position;
-        AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.AttackerClass.effects);
-
+        base.OnHit(entity, otherEntity, attacker);
     }
 
-    public override void OnDamageTaken(EntityBaseClass entity, EntityBaseClass otherentity)
+    public override void OnDamageTaken(EntityBaseClass entity, EntityBaseClass otherEntity)
     {
-        base.OnDamageTaken(entity, otherentity);
+        base.OnDamageTaken(entity, otherEntity);
     }
 
 }

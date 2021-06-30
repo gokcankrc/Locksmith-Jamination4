@@ -4,11 +4,13 @@ using UnityEngine;
 
 public abstract class Skill : ScriptableObject
 {
-    [SerializeField] protected TriggerEnum trigger;
-    [SerializeField] protected SkillType type;
     [SerializeField] protected List<Skill> childrenSkills;
-
+    [SerializeField] protected Stats stats;
+    [SerializeField] protected List<Buffs> buffs;
     
+    [SerializeField] public SkillType type;
+    [SerializeField] public TriggerEnum trigger;
+
     public virtual void Add(EntitySkills entitySkills)
     {
         switch (trigger)
@@ -20,7 +22,7 @@ public abstract class Skill : ScriptableObject
                 entitySkills.onDeath += OnDeath;
                 break;
             case TriggerEnum.OnHit:
-                entitySkills.onHit += OnHit;
+                entitySkills.onHitAttackerSide += OnHit;
                 break;
             case TriggerEnum.OnDamageTaken:
                 entitySkills.onDamageTaken += OnDamageTaken;
@@ -30,6 +32,30 @@ public abstract class Skill : ScriptableObject
                 break;
         }
     }
+
+    public virtual void Remove(EntitySkills entitySkills)
+    {
+        switch (trigger)
+        {
+            case TriggerEnum.OnAttack:
+                entitySkills.onAttack -= OnAttack;
+                break;
+            case TriggerEnum.OnDeath:
+                entitySkills.onDeath -= OnDeath;
+                break;
+            case TriggerEnum.OnHit:
+                entitySkills.onHitAttackerSide -= OnHit;
+                break;
+            case TriggerEnum.OnDamageTaken:
+                entitySkills.onDamageTaken -= OnDamageTaken;
+                break;
+            case TriggerEnum.OnProjectileDestroy:
+                entitySkills.onProjectileDestroy -= OnProjectileDestroy;
+                break;
+        }
+    }
+    
+    
     
     // TODO; Is there any way to not make this copy_paste like this?
 
@@ -43,12 +69,12 @@ public abstract class Skill : ScriptableObject
         throw new System.NotImplementedException();
     }
 
-    public virtual void OnHit(EntityBaseClass entity, EntityBaseClass otherentity, DamagingAbility attacker)
+    public virtual void OnHit(EntityBaseClass entity, EntityBaseClass otherEntity, DamagingAbility attacker)
     {
         throw new System.NotImplementedException();
     }
 
-    public virtual void OnDamageTaken(EntityBaseClass entity, EntityBaseClass otherentity)
+    public virtual void OnDamageTaken(EntityBaseClass entity, EntityBaseClass otherEntity)
     {
         throw new System.NotImplementedException();
     }

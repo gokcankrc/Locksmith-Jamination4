@@ -11,8 +11,6 @@ public class KnockBack : MonoBehaviour
     [SerializeField] private bool onCooldown;
     
 
-    [NonSerialized] public DamagingAbility Damaging;
-    
     private float pushCdTime;
     private EntityBaseClass entity;
     private Rigidbody2D rb;
@@ -45,7 +43,7 @@ public class KnockBack : MonoBehaviour
         }
     }
 
-    public void UseSkill()
+    public void UseSkill(DamagingAbility damaging)
     {
         if (true)
         {
@@ -53,7 +51,7 @@ public class KnockBack : MonoBehaviour
             pushDuration= pushMaxDuration;
             onCooldown = true;
             // entity.Pushing = true;
-            direction = Damaging.EffectDirection;;
+            direction = damaging.EffectDirection;;
             rb.velocity = direction * pushSpeed * Time.fixedDeltaTime;
         }
     }

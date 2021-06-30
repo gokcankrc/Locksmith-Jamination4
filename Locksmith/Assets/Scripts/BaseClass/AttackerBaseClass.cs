@@ -12,23 +12,13 @@ public abstract class AttackerBaseClass : MonoBehaviour
     [SerializeField] public bool fromPlayer;
 
     protected EntityBaseClass entity;
-
-    public delegate void Attackhit();
-    public event Attackhit attackhit;
     
     protected virtual void Awake()
     {
         entity = GetComponent<EntityBaseClass>();
     }
-
-
-    public abstract void Attack(float direction);
-
-    public void AttackhitInvoke()
-    {
-        attackhit?.Invoke();
-    }
     
+    public abstract void Attack(float direction);
     
 }
 
@@ -107,6 +97,7 @@ public class Stats
     public Stats(Stats stats)
     {
         // TODO; Can I automate this? Like, do this in one line
+        HealAmount = stats.HealAmount;
         Damage = stats.Damage;
         AreaSize = stats.AreaSize;
         AreaDuration = stats.AreaDuration;
@@ -129,7 +120,8 @@ public class Stats
         ProjectilePierce = 0;
         */
     }
-    
+
+    public float HealAmount = 0;
     public float Damage = 5;
     public float AreaSize = 1;
     public float AreaDuration = 1f;

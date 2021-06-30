@@ -55,9 +55,9 @@ public class AreaOfEffect
 
 
     
-    public static void AOESync(DamagingAbility instance, EntityBaseClass entity, Vector3 pos, Effects effects)
+    public static void AOESync(DamagingAbility instance, EntityBaseClass entity, Vector3 pos, Effects effects, List<Skill> attacker)
     {
-        var attackerClass = entity.AttackerClass;
+        var attackerClass = entity.attackerClass;
         instance.transform.position = pos;
         instance.effects = effects;
         instance.effects.Explosion = false;
@@ -65,5 +65,9 @@ public class AreaOfEffect
         instance.stats = new Stats(attackerClass.stats);
         instance.FromPlayer = attackerClass.fromPlayer;
         instance.entity = entity;
+        instance.entitySkillClass = entity.entitySkillClass;
+        instance.Skills = new List<Skill>(attacker);
+        instance.GetComponent<EntitySkills>().Initialize();
+        
     }
 }

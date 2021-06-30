@@ -56,6 +56,12 @@ TagManager:
   - name: character
     uniqueID: 1780571067
     locked: 0
+  - name: particle effects
+    uniqueID: 402668345
+    locked: 0
+  - name: HealthBar
+    uniqueID: 3386862393
+    locked: 0
   - name: walls first
     uniqueID: 1393434945
     locked: 0

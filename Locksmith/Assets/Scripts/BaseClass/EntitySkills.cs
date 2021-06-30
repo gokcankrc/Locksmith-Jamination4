@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class EntitySkills : MonoBehaviour
 {
     
@@ -12,9 +14,20 @@ public class EntitySkills : MonoBehaviour
     private void Awake()
     {
         entity = GetComponent<EntityBaseClass>();
+        Initialize();
+
+    }
+
+    public void Initialize()
+    {
         foreach (var skill in skills)
         {
             skill.Add(this);
+            /*
+            Debug.Log(skill.name);
+            Debug.Log(skill.type);
+            Debug.Log(skill.trigger);
+            */
         }
     }
 
@@ -34,7 +47,8 @@ public class EntitySkills : MonoBehaviour
     public delegate void OnDeath(EntityBaseClass entity);
 
     public OnAttack onAttack;
-    public OnHit onHit;
+    public OnHit onHitEntitySide;
+    public OnHit onHitAttackerSide;
     public OnProjectileDestroy onProjectileDestroy;
     public OnDamageTaken onDamageTaken;
     public OnDeath onDeath;

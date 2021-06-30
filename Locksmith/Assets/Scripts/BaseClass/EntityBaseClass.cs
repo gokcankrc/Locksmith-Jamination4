@@ -16,12 +16,12 @@ public abstract class EntityBaseClass : MonoBehaviour
 
     public HealthBaseClass healthClass;
     public MovementBaseClass moveClass;
-    public AttackerBaseClass AttackerClass;
+    public AttackerBaseClass attackerClass;
     public EntitySkills entitySkillClass;
     private EntityBaseClass Entity => this;
     protected bool dashing;
     protected bool pushing;
-    public Skill[] skills;
+    public List<Skill> skills;
     public EntityType type;
 
     public enum EntityType
@@ -36,14 +36,14 @@ public abstract class EntityBaseClass : MonoBehaviour
 
     public void GetReferences()
     {
-        if (AttackerClass != null) 
+        if (attackerClass != null) 
         {
             Debug.Log("references already gathered");
             return;
         }
         healthClass = GetComponent<HealthBaseClass>();
         moveClass = GetComponent<MovementBaseClass>();
-        AttackerClass = GetComponent<AttackerBaseClass>();
+        attackerClass = GetComponent<AttackerBaseClass>();
         entitySkillClass = GetComponent<EntitySkills>();
     }
 
@@ -68,7 +68,7 @@ public abstract class EntityBaseClass : MonoBehaviour
     public virtual void Attack(float direction)
     {
 
-        AttackerClass.Attack(direction);
+        attackerClass.Attack(direction);
         
         // under construction code
         /*
@@ -98,7 +98,7 @@ public abstract class EntityBaseClass : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected virtual void Heal(float healAmount)
+    public virtual void Heal(float healAmount)
     {
         healthClass.Heal(healAmount);
     }
@@ -110,7 +110,7 @@ public abstract class EntityBaseClass : MonoBehaviour
 
     public void ToggleSkill(Effects skillAdd)
     {
-        var _skill = new Effects(AttackerClass.effects);
+        var _skill = new Effects(attackerClass.effects);
         for (int i = 0; i < skillAdd.list.Length; i++)
         {
             // If true, toggle the skill
@@ -120,7 +120,7 @@ public abstract class EntityBaseClass : MonoBehaviour
             }
         }
 
-        AttackerClass.effects.list = _skill.list;
+        attackerClass.effects.list = _skill.list;
     }
     
     public void ToggleSkill(Effects.EffectsEnum skillAdd)
@@ -132,15 +132,13 @@ public abstract class EntityBaseClass : MonoBehaviour
 
     public void GetKnockedBack(DamagingAbility damaging)
     {
-        var a = GetComponent<KnockBack>();
-        a.Damaging = damaging;
-        a.UseSkill();
+        GetComponent<KnockBack>().UseSkill(damaging);
     }
 
     public void GetGateStats(GateStats gateStats)
     {
-        AttackerClass.stats.Damage += gateStats.damageAdd;
-        AttackerClass.stats.AreaDuration += gateStats.durationAdd;
+        attackerClass.stats.Damage += gateStats.damageAdd;
+        attackerClass.stats.AreaDuration += gateStats.durationAdd;
         healthClass.maxHealth += gateStats.maxHealthAdd;
     }
 }

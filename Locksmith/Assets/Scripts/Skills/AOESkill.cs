@@ -16,7 +16,9 @@ public class AOESkill : Skill
         // trigger == TriggerEnum.OnAttack;
         var damagingAOE = Instantiate(aoePrefab).GetComponent<DamagingAoE>();
         Vector3 pos = entity.transform.position;
-        AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.AttackerClass.effects);
+        List<Skill> skills = new List<Skill>(attacker.Skills);
+        skills.Remove(this);
+        AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.attackerClass.effects, skills);
     }
 
     public override void OnProjectileDestroy(EntityBaseClass entity, DamagingAbility projectile)
@@ -25,21 +27,26 @@ public class AOESkill : Skill
         // trigger == TriggerEnum.OnProjectileDestroy;
         var damagingAOE = Instantiate(aoePrefab).GetComponent<DamagingAoE>();
         Vector3 pos = projectile.pos;
-        AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.AttackerClass.effects);
+        List<Skill> skills = new List<Skill>(projectile.Skills);
+        skills.Remove(this);
+        AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.attackerClass.effects, skills);
     }
 
-    public override void OnHit(EntityBaseClass entity, EntityBaseClass otherentity, DamagingAbility attacker)
+    public override void OnHit(EntityBaseClass entity, EntityBaseClass otherEntity, DamagingAbility attacker)
     {
         var damagingAOE = Instantiate(aoePrefab).GetComponent<DamagingAoE>();
-        Vector3 pos = otherentity.transform.position;
-        AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.AttackerClass.effects);
-
+        Vector3 pos = otherEntity.transform.position;
+        List<Skill> skills = new List<Skill>(attacker.Skills);
+        skills.Remove(this);
+        AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.attackerClass.effects, skills);
     }
 
     public override void OnDeath(EntityBaseClass entity)
     {
         var damagingAOE = Instantiate(aoePrefab).GetComponent<DamagingAoE>();
         Vector3 pos = entity.transform.position;
-        AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.AttackerClass.effects);
+        List<Skill> skills = new List<Skill>(entity.skills);
+        skills.Remove(this);
+        AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.attackerClass.effects, skills);
     }
 }

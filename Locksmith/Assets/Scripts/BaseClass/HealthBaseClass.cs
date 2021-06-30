@@ -26,7 +26,7 @@ public class HealthBaseClass : MonoBehaviour
 
     protected virtual void Start()
     {
-        entity.AttackerClass.attackhit += OnAttackhit;
+        entity.entitySkillClass.onHitEntitySide += OnAttackhit;
     }
 
     protected virtual void FixedUpdate()
@@ -34,7 +34,7 @@ public class HealthBaseClass : MonoBehaviour
         outOfCombatDuration += Time.fixedDeltaTime;
     }
 
-    protected virtual void OnAttackhit()
+    protected virtual void OnAttackhit(EntityBaseClass thisEntity, EntityBaseClass otherEntity, DamagingAbility attacker)
     {
         outOfCombatDuration = 0;
     }
@@ -47,7 +47,7 @@ public class HealthBaseClass : MonoBehaviour
         onHealthChange?.Invoke(health, maxHealth, true);
         
         PopUpColorEnum popUpColor;
-        popUpColor = entity.AttackerClass.fromPlayer ? PopUpColorEnum.FriendHit : PopUpColorEnum.EnemyHit;
+        popUpColor = entity.attackerClass.fromPlayer ? PopUpColorEnum.FriendHit : PopUpColorEnum.EnemyHit;
         var damageTakenInt = (int) damageTaken;
         var a = popUp.Create(transform.position, damageTakenInt.ToString(), popUpColor);
         a.transform.position += Vector3.back * 10;
@@ -72,7 +72,7 @@ public class HealthBaseClass : MonoBehaviour
         onHealthChange?.Invoke(health, maxHealth, false);
         
         PopUpColorEnum popUpColor;
-        popUpColor = entity.AttackerClass.fromPlayer ? PopUpColorEnum.EnemyHeal : PopUpColorEnum.FriendHeal;
+        popUpColor = entity.attackerClass.fromPlayer ? PopUpColorEnum.EnemyHeal : PopUpColorEnum.FriendHeal;
         popUp.Create(transform.position,  healAmount.ToString(), popUpColor);
         
         return health;

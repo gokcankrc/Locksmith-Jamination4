@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8628088223177077815}
   - component: {fileID: 8628088223177077812}
   - component: {fileID: 8628088223177077813}
+  - component: {fileID: 5605241129525176485}
   m_Layer: 9
   m_Name: Explosion
   m_TagString: Untagged
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 402668345
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8eeedf0070ab092438bfb91c83657049, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,16 +99,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects:
     list: 00000000
-  areaOfEffectStats:
+  stats:
+    HealAmount: 0
     Damage: 0
-    Size: 0
-    Duration: 0
+    AreaSize: 0
+    AreaDuration: 0
+    ProjectileSize: 0
+    ProjectileSpeed: 0
+    ProjectileDuration: 0
+    ProjectilePierce: 0
   FromPlayer: 0
+  entity: {fileID: 0}
+  entitySkillClass: {fileID: 0}
+  attackerSkillClass: {fileID: 0}
   burningGround: {fileID: 0}
   explosion: {fileID: 0}
-  expireTime: 0.01
   skillDurationMultiplayer: 0
   skillDamageMultiplayer: 2
+  expireTime: 0.01
 --- !u!58 &8628088223177077813
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +133,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.545
+--- !u!114 &5605241129525176485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628088223177077810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b937dd819a58d8d4db03581741aadd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
