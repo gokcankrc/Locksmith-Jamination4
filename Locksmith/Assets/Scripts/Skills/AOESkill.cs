@@ -9,7 +9,7 @@ public class AOESkill : Skill
     
     // How can i check/force type to be LeavAoE?
     
-    public override void OnAttack(EntityBaseClass entity)
+    public override void OnAttack(EntityBaseClass entity, DamagingAbility attacker)
     {
         //TODO; Refactor here
         // In this mode, effect happens at the location of the character.
@@ -28,7 +28,7 @@ public class AOESkill : Skill
         AreaOfEffect.AOESync(damagingAOE, entity, pos, entity.AttackerClass.effects);
     }
 
-    public override void OnHit(EntityBaseClass entity, EntityBaseClass otherentity, Vector2 direction)
+    public override void OnHit(EntityBaseClass entity, EntityBaseClass otherentity, DamagingAbility attacker)
     {
         var damagingAOE = Instantiate(aoePrefab).GetComponent<DamagingAoE>();
         Vector3 pos = otherentity.transform.position;

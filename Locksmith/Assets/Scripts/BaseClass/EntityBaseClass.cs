@@ -68,7 +68,6 @@ public abstract class EntityBaseClass : MonoBehaviour
     public virtual void Attack(float direction)
     {
 
-        entitySkillClass.onAttack?.Invoke(Entity);
         AttackerClass.Attack(direction);
         
         // under construction code

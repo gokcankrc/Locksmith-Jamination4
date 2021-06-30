@@ -23,8 +23,11 @@ public class EnemyManager : MonoBehaviour
     
     private Transform _playerTransform;
     private float _waveCd;
+    
+    private List<Transform> _currentEnemyPositions;
     private List<GameObject> _currentlyActiveEnemies;
     public IEnumerable<GameObject> CurrentlyActiveEnemies => _currentlyActiveEnemies;
+    public IEnumerable<Transform> CurrentEnemyPositions => _currentEnemyPositions;
 
 
     public static EnemyManager I;
@@ -33,6 +36,7 @@ public class EnemyManager : MonoBehaviour
     {
         I = this;
         _currentlyActiveEnemies = new List<GameObject>();
+        _currentEnemyPositions = new List<Transform>();
         // _currentlyActiveEnemies = new GameObject[] { };
     }
 
@@ -74,6 +78,7 @@ public class EnemyManager : MonoBehaviour
                 EffectManager.GetEffectsOnFreshSpawn(spawnedEntity);
                 spawnedEntity.transform.position = GetCool420Positionfkyea();
                 _currentlyActiveEnemies.Add(spawnedEnemy);
+                _currentEnemyPositions.Add(spawnedEnemy.transform);
                 //Debug.Log("Current enemy amount: " + _currentlyActiveEnemies.Count);
             }
         }
@@ -116,10 +121,16 @@ public class EnemyManager : MonoBehaviour
             if (enemy.GetInstanceID() == VARIABLE.GetInstanceID())
             {
                 _currentlyActiveEnemies.Remove(enemy);
+                _currentEnemyPositions.Remove(enemy.transform);
                 return;
 
             }
         }
+    }
+
+    public Transform[] CloseProximityEnemies()
+    {
+        throw new NotImplementedException();
     }
 }
 

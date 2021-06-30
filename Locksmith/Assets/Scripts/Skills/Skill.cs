@@ -32,8 +32,8 @@ public abstract class Skill : ScriptableObject
     }
     
     // TODO; Is there any way to not make this copy_paste like this?
-    
-    public virtual void OnAttack(EntityBaseClass entity)
+
+    public virtual void OnAttack(EntityBaseClass entity, DamagingAbility attacker)
     {
         throw new System.NotImplementedException();
     }
@@ -43,7 +43,7 @@ public abstract class Skill : ScriptableObject
         throw new System.NotImplementedException();
     }
 
-    public virtual void OnHit(EntityBaseClass entity, EntityBaseClass otherentity, Vector2 direction)
+    public virtual void OnHit(EntityBaseClass entity, EntityBaseClass otherentity, DamagingAbility attacker)
     {
         throw new System.NotImplementedException();
     }

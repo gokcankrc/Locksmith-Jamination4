@@ -7,6 +7,7 @@ public class EnemyAttackerShooter : AttackerShooterBaseClass
 {
     public override void Attack(float direction)
     {
-        CreateBullet(transform.position, direction);
+        var a = CreateBullet(transform.position, direction);
+        entity.entitySkillClass.onAttack?.Invoke(entity, a.GetComponent<DamagingAbility>());
     }
 }

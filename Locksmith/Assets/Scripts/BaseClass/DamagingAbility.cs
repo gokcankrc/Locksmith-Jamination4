@@ -13,7 +13,7 @@ public abstract class DamagingAbility : MonoBehaviour
 
     [SerializeField] protected GameObject burningGround;
     [SerializeField] protected GameObject explosion;
-    
+    [SerializeField] protected List<Skill> skills;
 
     protected Vector2 effectDirection;
     public Vector3 pos => transform.position;
